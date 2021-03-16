@@ -10,7 +10,7 @@ Data3 = importdata('pentacenesingle200_3_slow_k2400.txt');
 Data4 = importdata('pentacenesingle200_4_slow_k2400.txt');
 
 %Ideal STDP window
-IdealCurr = load('IdealSTDP.mat').Interpdata(2,:);
+% IdealCurr = load('IdealSTDP.mat').Interpdata(2,:);
 
 
 %Define the reference voltages
@@ -40,7 +40,7 @@ options = optimset('MaxFunEvals',20,'MaxIter',20);
 [a, Imax, delta_t] = GenSTDP(InitParams);
 
 %Ideal STDP window
-IdealCurr = load('IdealSTDP.mat').Interpdata(2,:);
+% IdealCurr = load('IdealSTDP.mat').Interpdata(2,:);
 
 %Plot all relevant data.
 
@@ -49,7 +49,7 @@ hold off
 % plot(delta_t, Imax,'b:')
 xlabel('\DeltaT (ms)')
 ylabel('\DeltaI (A)')
-plot(delta_t, IdealCurr,'r')
+% plot(delta_t, IdealCurr,'r')
 hold on
 plot(-delta_t, Imax,'g')
 hold off
@@ -95,7 +95,7 @@ Data3 = importdata('pentacenesingle200_3_slow_k2400.txt');
 Data4 = importdata('pentacenesingle200_4_slow_k2400.txt');
 
 %Ideal STDP window
-IdealCurr = load('IdealSTDP.mat').Interpdata(2,:);
+% IdealCurr = load('IdealSTDP.mat').Interpdata(2,:);
 
 
 %Define the reference voltages
@@ -128,8 +128,8 @@ end
 
 I_sum = dx*trapz(WaveCurr,2)';
 
-err = sqrt(sum((I_sum - IdealCurr).^2));
-
+% err = sqrt(sum((I_sum - IdealCurr).^2));
+err=1;
 
 
 end
