@@ -6,6 +6,7 @@
 clc;clear all;
 
 numPatterns = 10;
+numNeurons = 10;
 %Define paramaters
 VthMin = 0.25;
 VthMax = 20;
@@ -27,7 +28,7 @@ Activity = zeros(numPatterns,length(T),numPatterns);
 
 %Define maximum and minimum levels of current
 Imax = 25e-3;
-Imin = -25e-3;%-10e-5;
+Imin = -25e-3;
 
 c_p_w = 10;%Current pulse width (index value)
 i_p_w = 15;%Inhibition pulse width (index value)
@@ -36,7 +37,7 @@ i_p_w = 15;%Inhibition pulse width (index value)
 inhib = 185e-3;%185e-3;
 
 %Set low and high frequencies
-hr = 200; %These frequencies worked for graphene device, 100,10 worked for ideal.
+hr = 200;
 lr = 20;
 
 %define the input as a matrix (for character recognition).
@@ -74,7 +75,7 @@ numPixels = numel(nine);
 
 
 %Pre allocate output vector
-memVOut = zeros(numPatterns,length(T),numPatterns);
+memVOut = zeros(numPatterns,Tlength,numPatterns);
 
 %Either initialise with random currents or use the previously stored values
 %of current to re-update network
@@ -120,8 +121,8 @@ for epochs = 1:20
     inpu = inpu(y);
     
     %Define current and membrane potential vectors.
-    current = zeros(numPixels,length(T),numPatterns);
-    Vm = zeros(numPatterns,length(T));
+    current = zeros(numPixels,Tlength,numPatterns);
+    Vm = zeros(numNeurons,Tlength);
     current_sum = zeros(1,Tlength,numPatterns);
     z=0;
     
@@ -164,18 +165,26 @@ for epochs = 1:20
     
     %% Execute neuron simulation for single pattern
     %Define inhibition current
-    inhibition = zeros(numPatterns,length(T),numPatterns);
+    inhibition = zeros(numNeurons,length(T),numPatterns);
+    sumAct = 0;
+    tic
     for z = 1:numPatterns
         %Generate the current waveforms for each neuron based on their initial
         %weight
         current = curr_tr(:,:,z).*init_w_rs;%The third dimension is the neuron.
         ind = (current==0);%Should alter so that index is only for particular z.
+        current_sum = sum(current,1);
+        csum = squeeze(permute(current_sum, [3 2 1])); %No inhibition yet presented.
+%         
+%         currFunc = cumsum(csum,2); %Obviously also no inhibition yet either.
+%         Vm = Ve.*(1-exp(-T/tau))+(1-exp(-T/tau)).*R.*currFunc +Ve;
         
-        for i = 1:length(T)
+        for i = 1:Tlength
             spk = find(Vm(:,i)>Vth);
             No_spk = find(Vm(:,i)<Vth);
             
             Vm(spk,i+1) = Ve;
+            
             Activity(spk,i,z) = 1;
             Activity(No_spk,i,z) = 0;
             
@@ -185,11 +194,11 @@ for epochs = 1:20
                     [curr_change, del_t] = CalcSTDP(input_tr(:,:,z),numPixels,T,Interpdata,i);
                     
                     %Potentiation
-                    current(:,i:end,n) = current(:,i:end,n) + curr_change(:,2);
+                    current(:,i:end,n) = current(:,i:end,n) + curr_change(:,2)+curr_change(:,1);
                     %depression
-                    for k  = 1:numPixels
-                        current(k,(i-round(del_t(k,1)/dt)):end,n) = current(k,(i-round(del_t(k,1)/dt)):end,n) +curr_change(k,1);
-                    end
+%                     for k  = 1:numPixels
+%                         current(k,(i-round(del_t(k,1)/dt)):end,n) = current(k,(i-round(del_t(k,1)/dt)):end,n) +curr_change(k,1);
+%                     end
                     
                     %Inhibition
                     for ne = 1:numPatterns
@@ -200,29 +209,48 @@ for epochs = 1:20
                         end
                     end
                 end
+                
+                %Determine if current has exceeded either limit
+                current(current>Imax)=Imax;
+                current(current<Imin)=Imin;
+                
+                %With knowledge of where the indexes of zero are, can reset
+                current(ind) = 0;
+                
+                
+                %For next section of code, could consider working out values in
+%                 %advance, using vectorisation, and then implementing.
+%                 current_sum(:,i:end,:) = sum(current(:,i:end,:),1);
+%                 csum = squeeze(permute(current_sum, [3 2 1])) +inhibition(:,:,z);
+%                 currFunc = cumsum(csum,2);
+%                 currFunc(n,i:Tlength) = currFunc(n,i:Tlength)-currFunc(n,i); 
+                %Now only update the membrane potential for the spiking neuron,
+                %as it will have changed due to current changes.
+                
+%                 Tvec = (T(i):dt:T(end));
+%                 Tvec = Tvec - T(i);
+%                 Vm(spk,i:Tlength) = (1-exp(-Tvec/tau)).*(Ve+ R.*currFunc(:,i:Tlength));
+%                 Vm(Vm<Ve) = Ve;
+                
+                %As this won't change without spiking events.
+                sumAct = sum(Activity,[2,3]);
+                
             end
-            %Determine if current has exceeded either limit
-            current(current>Imax)=Imax;
-            current(current<Imin)=Imin;
+%             
+                        Vm(No_spk,i+1) = Vm(No_spk,i) + dt/tau*(Ve-Vm(No_spk,i) + (csum(No_spk,i)+inhibition(No_spk,i,z))*R);
+%             Ensure membrane potential is not below minimum.
+                        Vm(Vm<Ve) = Ve;
             
-            %With knowledge of where the indexes of zero are, can reset
-            current(ind) = 0;
             
-            %For next section of code, could consider working out values in
-            %advance, using vectorisation, and then
-            current_sum(:,i:end,:) = sum(current(:,i:end,:),1);
-            csum = squeeze(permute(current_sum, [3 2 1]));
-            Vm(No_spk,i+1) = Vm(No_spk,i) + dt/tau*(Ve-Vm(No_spk,i) + (csum(No_spk,i)+inhibition(No_spk,i,z))*R);
-            %Ensure membrane potential is not below minimum.
-            Vm(Vm<Ve) = Ve;            
             %This is the Qeuriloz model for homeostasis.
-            Vth = Vth + dt*gamma.*(sum(Activity,[2,3])-Target);
+            Vth = Vth + dt*gamma.*(sumAct-Target);
             Vth(Vth<VthMin)=VthMin;
             Vth(Vth>VthMax) = VthMax;
+            %Note, the above homeostasis needs to be implemented per time
+            %step, and is difficult to vectorise based off what I've done.
+            %It should however also be possible.
             
-            
-            
-        end       
+        end
         %Need to re-initialise the weights.
         for n = 1:numPatterns
             %For each input
@@ -233,12 +261,12 @@ for epochs = 1:20
             end
         end
         
-
+        
     end
-end
+    
     %Define the length of time to present all inputs
     tvec = linspace(0,T(end)*numPatterns,length(memVOut(n,:)));
-
+    
     %Calculate the final weights and store them for next run.
     finalW = reshape(init_w_rs, [5 5 numPatterns]);
     
@@ -263,10 +291,13 @@ end
         heatmap(finalW(:,:,n), 'Colormap',map,'Colorlimit',[Imin Imax]);
         title(sprintf('Neuron %d',n))
     end
-
+    t1 = toc
+    
+end
 %Save the final weights.
 save('PreviousWeights.mat','finalW')
 %Save threshold values
 save('Vth.mat','Vth')
+
 %     string = sprintf('rastor%d.mat',run)
 %     save(string,'rastor')
