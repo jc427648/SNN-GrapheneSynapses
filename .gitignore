@@ -4,3 +4,4 @@ Include/
 __pycache__/
 .pyc
 .cfg
+.pt
