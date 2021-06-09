@@ -1,3 +1,4 @@
+from MNISTDataLoader import getMNIST
 from STDPsynapses import STDPSynapse, LIFNeuronGroup
 from Network import Network
 from plotting import plotWeights, plotConfusion, ReshapeWeights
@@ -16,6 +17,9 @@ n_output_neurons = 30  # Number of output neurons
 dt = 0.2e-3  # Timestep (s)
 image_duration = 0.05  # Duration (s) to present each image for
 n_epochs = 1  # Number of training epochs
+lower_freq = 20  # Lower encoding frequency
+upper_freq = 200  # Upper encoding frequency
+image_threshold = 50  # Threshold to generate greyscale input images
 
 
 confusion = torch.zeros((10, 10))
@@ -154,5 +158,15 @@ if __name__ == "__main__":
     # Define the network architecture
     network = Network(n_output_neurons, dt=dt)
     # Train the network
-    for i in range(n_epochs):
+    training_data, training_labels = getMNIST(
+        lower_freq=lower_freq, upper_freq=upper_freq, threshold=image_threshold, dt=dt)
+    for epoch in range(n_epochs):
         pass
+
+    # Validate (test) the network
+    test_data, test_labels = getMNIST(mode='test',
+                                      lower_freq=lower_freq,
+                                      upper_freq=upper_freq,
+                                      threshold=image_threshold,
+                                      dt=dt,
+                                      shuffle=False)

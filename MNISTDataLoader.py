@@ -2,9 +2,10 @@ import os
 import sys
 from struct import unpack
 import numpy as np
+import sklearn
 
 
-def getMNIST(mode='train', lower_freq=20, upper_freq=200, threshold=50, dt=0.2e-3):
+def getMNIST(mode='train', lower_freq=20, upper_freq=200, threshold=50, dt=0.2e-3, shuffle=True):
     # Get the MNIST images and their corresponding labels as a series of tuples.STDPsynapse N is number of images.
     assert mode in ['train', 'test'], 'Invalid mode specified.'
     if (mode == 'train'):
@@ -42,14 +43,19 @@ def getMNIST(mode='train', lower_freq=20, upper_freq=200, threshold=50, dt=0.2e-
     # It's also been found that spike times might the use index and not actual value. Need to reflect in choice of frequencies.
     # Converting to binary image
     X = np.where(X < threshold, lower_period/dt, upper_period/dt)
-    return {'X': X, 'y': y}
+
+    # Shuffle data
+    if shuffle:
+        sklearn.utils.shuffle(X, y, random_state=0)
+
+    return (X, y)
 
 
 if __name__ == "__main__":
     # Validate operation
     training_data = getMNIST()
-    print(training_data['X'].shape)
-    print(training_data['y'].shape)
+    print(training_data[0].shape)
+    print(training_data[1].shape)
     validation_data = getMNIST(mode='test')
-    print(validation_data['X'].shape)
-    print(validation_data['y'].shape)
+    print(validation_data[0].shape)
+    print(validation_data[1].shape)
