@@ -12,9 +12,9 @@ class Network():
         self.group = LIFNeuronGroup(
             n_output_neurons, Ve=0.0, tau=0.1, R=1000, gamma=0.005, target=10, VthMin=0.25, VthMax=50)
         self.dt = dt
-        self.n_output_neurons_output_neurons = n_output_neurons
+        self.n_output_neurons = n_output_neurons
         self.Activity = torch.zeros_like(
-            torch.Tensor(n_output_neurons, 3*n_output_neurons))
+            torch.Tensor(n_output_neurons, 1))
         self.sumAct = torch.zeros(n_output_neurons)
         self.STDPWindow = self.synapse.GetSTDP()
         self.Assignment = torch.zeros((n_output_neurons, 10))
@@ -25,7 +25,7 @@ class Network():
         self.InhibVec = torch.zeros((self.n_output_neurons))
         self.current = torch.zeros((self.n_output_neurons))
 
-    def run(self, mode, spikes, spike_times, time, PatCount):
+    def run(self, spikes, spike_times, time, update_parameters=True):
         # in this instance, mode is either train or test, and time is the time the image is presented.
         # My thinking is this, have another method dedicated to getting the MNIST and generating the spike train.
         # Then do the steps for all fo the time range, make sure to log the info to get idea of time.
@@ -48,23 +48,22 @@ class Network():
             self.current += self.InhibVec
 
             # Decrement the current pulse widths.
-            self.group.step(self.dt, self.current, self.sumAct, mode)
+            self.group.step(self.dt, self.current,
+                            self.sumAct, update_parameters)
             self.CurrCtr -= self.dt
             self.InhibCtr -= self.dt
 
             if torch.sum(self.group.s) > 0:
-                if (mode == 'train'):
-
+                if update_parameters:
                     # Update synaptic weights
                     DeltaT = t-spike_times
                     # Ensure time is 80ms long (off STDP)
                     DeltaT[DeltaT == t] = 80e-3/self.dt
-
                     DeltaTP, indices = torch.where(DeltaT > 0, DeltaT, 400*torch.ones(
-                        784, dtype=torch.int)).min(axis=0)  # 400 should be some variable
+                        784, dtype=torch.long)).min(axis=0)  # 400 should be some variable
                     DeltaTP = 1e3*self.dt*DeltaTP
                     DeltaTN, indices = torch.where(
-                        DeltaT < 0, DeltaT, -400*torch.ones(784, dtype=torch.int)).max(axis=0)
+                        DeltaT < 0, DeltaT, -400*torch.ones(784, dtype=torch.long)).max(axis=0)
                     DeltaTN = 1e3*self.dt*DeltaTN
 
                     Neur = torch.unsqueeze(self.group.s, 1)
@@ -72,18 +71,20 @@ class Network():
                     self.synapse.potentiate(DeltaTP, Neur, self.STDPWindow)
                     self.synapse.depress(DeltaTN, Neur, self.STDPWindow)
 
-                # Update activity counters
-                self.Activity[:, PatCount] += self.group.s
+                # Update activity
+                self.Activity = torch.cat(
+                    (self.Activity, self.group.s.unsqueeze(-1)), -1)
+
                 self.sumAct += self.group.s
 
                 # Update inhibition
                 self.InhibCtr[torch.logical_not(self.group.s)] = i_p_w
                 self.InhibVec = torch.multiply(self.InhibCtr > 0, inhib)
 
-    def resetActivity(self, PatCount):
-        # Overwrite the pattern activity from n patterns ago
-        self.sumAct -= self.Activity[:, PatCount]
-        self.Activity[:, PatCount] = torch.zeros(self.n_output_neurons)
+    # def resetActivity(self, n):
+    #     # Overwrite the pattern activity from n patterns ago
+    #     self.sumAct -= self.Activity[:, n]
+    #     self.Activity[:, n] = torch.zeros(self.n_output_neurons)
 
     def GenSpkTrain(self, image, time):
         # Generate Poissonian spike times to input into the network. Note time is integer.
@@ -108,9 +109,11 @@ class Network():
         # Return the input spike occurrence matrix.
         return (torch.from_numpy(spikes), torch.from_numpy(spike_times))
 
-    def setAssignment(self, label, PatCount):
+    def setAssignment(self, label):
         # Sets the assignment number for the particular label
-        self.Assignment[:, label] += self.Activity[:, PatCount]
+        self.Assignment[:, label] += self.Activity[:, -1]
 
-    def loadTrainedParameters(self):
-        pass
+    def presentImage(self, image, label, image_duration):
+        spikes, spike_times = self.GenSpkTrain(image, image_duration)
+        self.run(spikes, spike_times, image_duration)
+        self.setAssignment(label)

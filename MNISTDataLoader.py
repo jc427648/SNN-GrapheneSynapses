@@ -27,7 +27,7 @@ def getMNIST(mode='train', lower_freq=20, upper_freq=200, threshold=50, dt=0.2e-
     y = np.zeros((n_images, 1), dtype=np.uint8)
 
     for i in range(n_images):
-        if (i % 1000 == 0):
+        if (i % 10000 == 0):
             print('Progress :', i, '/', n_images)
         X[i] = [[unpack('>B', images.read(1))[0] for unused_col in
                  range(cols)] for unused_row in range(rows)]
@@ -48,7 +48,7 @@ def getMNIST(mode='train', lower_freq=20, upper_freq=200, threshold=50, dt=0.2e-
     if shuffle:
         sklearn.utils.shuffle(X, y, random_state=0)
 
-    return (X, y)
+    return (X, np.squeeze(y, axis=-1))
 
 
 if __name__ == "__main__":

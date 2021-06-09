@@ -87,7 +87,7 @@ class LIFNeuronGroup:
         # Determine the occurrances of post-synaptic spikes.
         self.s = torch.zeros_like(torch.Tensor(n))
 
-    def step(self, dt, current, sumAct, mode):
+    def step(self, dt, current, sumAct, update_parameters=True):
         # Note: current is the net current presented to the network.
         self.v += dt/self.tau*(self.Ve - self.v + self.R*current)
 
@@ -97,6 +97,6 @@ class LIFNeuronGroup:
 
         # I think activity should be monitored at the network level, but the threshold should still be updated.
         # Update adaptive threshold
-        if (mode == 'train'):
+        if update_parameters:
             self.Vth += dt*self.gamma*(sumAct-self.target)
             self.Vth = torch.clamp(self.Vth, self.VthMin, self.VthMax)
