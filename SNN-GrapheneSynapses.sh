@@ -15,4 +15,4 @@ source activate /scratch/jcu/cl/.conda/memtorch
 module load cuda/11.1.1
 module load gnu8/8.4.0
 module load mvapich2
-srun python3 /scratch/jcu/cl/SNN-GrapheneSynapses/training.py
+srun python3 /scratch/jcu/cl/SNN-GrapheneSynapses/MNISTDataLoader.py

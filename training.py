@@ -11,12 +11,12 @@ import timeit
 import random
 import os
 
+# Parameters and constants
+n_output_neurons = 30  # Number of output neurons
+dt = 0.2e-3  # Timestep (s)
+image_duration = 0.05  # Duration (s) to present each image for
+n_epochs = 1  # Number of training epochs
 
-# Initialise the entire Network(n)
-# mode = 'test'
-# Available options are n=10,30,50,100. Will eventually have it so it doesn't matter.
-n = 50
-network = Network(n, mode, dt=0.2e-3)
 
 confusion = torch.zeros((10, 10))
 accuracy = torch.zeros(10)
@@ -33,7 +33,7 @@ elif mode == 'test':
 
 repetitions = 1
 
-time = 0.05  # Time in seconds of image presentation
+# time = 0.05  # Time in seconds of image presentation
 
 PatCount = 0  # Initialise PatCount
 
@@ -151,4 +151,8 @@ elif mode == 'test':
 
 
 if __name__ == "__main__":
+    # Define the network architecture
+    network = Network(n_output_neurons, dt=dt)
     # Train the network
+    for i in range(n_epochs):
+        pass
