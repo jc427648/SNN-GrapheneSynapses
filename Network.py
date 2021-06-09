@@ -114,6 +114,13 @@ class Network():
         self.Assignment[:, label] += self.Activity[:, -1]
 
     def presentImage(self, image, label, image_duration):
+
+        self.group.v[:] = self.group.Ve
+        self.current[:] = 0
+        self.CurrCtr[:] = 0
+        self.InhibVec[:] = 0
+        self.InhibCtr[:] = 0
+
         spikes, spike_times = self.GenSpkTrain(image, image_duration)
         self.run(spikes, spike_times, image_duration)
         self.setAssignment(label)
