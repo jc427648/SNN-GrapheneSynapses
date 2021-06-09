@@ -10,7 +10,7 @@ import time,timeit
 import random 
 import os
 #Initialise the entire Network(n)
-mode = 'train'
+mode = 'test'
 n = 300 #Available options are n=10,30,50,100. Will eventually have it so it doesn't matter.
 network = Network(n,mode,dt=0.2e-3)
 
@@ -27,7 +27,7 @@ if mode == 'train':
 elif mode =='test':
     NImages = 10000 #Can go up to 60000, but paper uses 40000
 
-repetitions = 3
+repetitions = 1
 
 time = 0.05 #Time in seconds of image presentation
 
