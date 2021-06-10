@@ -6,7 +6,7 @@ import numpy as np
 
 def plotWeights(weights, assignments, maxW, minW, figsize=(10, 6), display_fig=False):
 
-    _, axes = plt.subplots(1, 1, figsize=figsize)
+    _, axes = plt.subplots(1, 2, figsize=figsize)
 
     color = plt.get_cmap('RdBu', 11)
     ims = axes[0].imshow(weights, cmap='hot_r', vmin=minW, vmax=maxW), axes[1].matshow(

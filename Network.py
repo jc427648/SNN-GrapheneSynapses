@@ -13,8 +13,7 @@ class Network():
             n_output_neurons, Ve=0.0, tau=0.1, R=1000, gamma=0.005, target=10, VthMin=0.25, VthMax=50)
         self.dt = dt
         self.n_output_neurons = n_output_neurons
-        self.Activity = torch.zeros_like(
-            torch.Tensor(n_output_neurons, 1))
+        self.Activity = torch.zeros(n_output_neurons, 1)
         self.sumAct = torch.zeros(n_output_neurons)
         self.STDPWindow = self.synapse.GetSTDP()
         self.Assignment = torch.zeros((n_output_neurons, 10))
@@ -75,6 +74,7 @@ class Network():
                 self.Activity = torch.cat(
                     (self.Activity, self.group.s.unsqueeze(-1)), -1)
 
+                print(self.Activity.shape)
                 self.sumAct += self.group.s
 
                 # Update inhibition
