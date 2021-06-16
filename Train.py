@@ -14,6 +14,8 @@ import os
 
 # Parameters and constants
 n_output_neurons = 30  # Number of output neurons
+# Number of samples to retain in memory (to determine class allocations)
+n_samples_memory = 30
 dt = 0.2e-3  # Timestep (s)
 image_duration = 0.05  # Duration (s) to present each image for
 n_epochs = 1  # Number of training epochs
@@ -103,33 +105,25 @@ image_threshold = 50  # Threshold to generate greyscale input images
 
 
 if __name__ == "__main__":
-    print('Initializing...')
+    # torch.set_default_tensor_type('torch.cuda.FloatTensor')
+    print('Loading MNIST training samples...')
     # Define the network architecture
-    network = Network(n_output_neurons, dt=dt)
+    network = Network(n_output_neurons, n_samples_memory, dt=dt)
     # Train the network
     training_data, training_labels = getMNIST(
         lower_freq=lower_freq, upper_freq=upper_freq, threshold=image_threshold, dt=dt)
     start_time = timeit.default_timer()  # Start timer
     for epoch in range(n_epochs):
-        # print(training_labels.shape)
-        # exit(0)
-        n_samples = training_labels.size
+        n_samples = training_labels.numel()
         for idx in range(n_samples):
+            # print(idx)
             image, label = training_data[idx], training_labels[idx]
             network.presentImage(image, label, image_duration)
-            if (idx % 1000 == 0):
+            # if (idx % 1000 == 0):
+            if idx == 100:
                 print('Training progress: sample (%d / %d) of epoch (%d / %d) - Elapsed time: %.4f'
-                      % (idx, n_samples, epoch, n_epochs, timeit.default_timer() - start_time))
-
-    values, assignments = network.Assignment.max(axis=1)
-    r_weights, assignments = ReshapeWeights(
-        network.synapse.w, n_output_neurons, assignments)
-    plotWeights(r_weights, assignments,
-                network.synapse.wmax, network.synapse.wmin)
-    #         # Validate (test) the network
-    # test_data, test_labels = getMNIST(mode='test',
-    #                                   lower_freq=lower_freq,
-    #                                   upper_freq=upper_freq,
-    #                                   threshold=image_threshold,
-    #                                   dt=dt,
-    #                                   shuffle=False)
+                      % (idx, n_samples, epoch + 1, n_epochs, timeit.default_timer() - start_time))
+                plotWeights(ReshapeWeights(network.synapse.w, n_output_neurons)[0],
+                            network.synapse.wmax, network.synapse.wmin, title='idx_%d' % idx)
+                # if idx == 1000:
+                break

@@ -3,6 +3,7 @@ import sys
 from struct import unpack
 import numpy as np
 import sklearn
+import torch
 
 
 def getMNIST(mode='train', lower_freq=20, upper_freq=200, threshold=50, dt=0.2e-3, shuffle=True):
@@ -23,14 +24,15 @@ def getMNIST(mode='train', lower_freq=20, upper_freq=200, threshold=50, dt=0.2e-
     n_labels = unpack('>I', labels.read(4))[0]
 
     assert n_images == n_labels, 'Number of labels did not match number of images.'
-    X = np.zeros((n_images, rows, cols), dtype=np.uint8)  # Store all images
-    y = np.zeros((n_images, 1), dtype=np.uint8)
+    X = torch.zeros((n_images, rows, cols),
+                    dtype=torch.uint8)  # Store all images
+    y = torch.zeros((n_images, 1), dtype=torch.uint8)
 
     for i in range(n_images):
-        if (i % 10000 == 0):
+        if (i % 20000 == 0):
             print('Progress :', i, '/', n_images)
-        X[i] = [[unpack('>B', images.read(1))[0] for unused_col in
-                 range(cols)] for unused_row in range(rows)]
+        X[i] = torch.tensor([[unpack('>B', images.read(1))[0]
+                            for unused_col in range(cols)] for unused_row in range(rows)])
         y[i] = unpack('>B', labels.read(1))[0]
 
     print('Progress :', n_images, '/', n_images, '\n')
@@ -42,13 +44,13 @@ def getMNIST(mode='train', lower_freq=20, upper_freq=200, threshold=50, dt=0.2e-
 
     # It's also been found that spike times might the use index and not actual value. Need to reflect in choice of frequencies.
     # Converting to binary image
-    X = np.where(X < threshold, lower_period/dt, upper_period/dt)
+    X = torch.where(X < threshold, lower_period/dt, upper_period/dt)
 
     # Shuffle data
     if shuffle:
         sklearn.utils.shuffle(X, y, random_state=0)
 
-    return (X, np.squeeze(y, axis=-1))
+    return X, torch.squeeze(y, dim=-1)
 
 
 if __name__ == "__main__":

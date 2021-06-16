@@ -22,15 +22,27 @@ class STDPSynapse:
        # Need to apply the lookup of the STDP window, to produce corresponding current for potentiation.
         DeltaTP = torch.round(DeltaTP*2)/2
 
-        DelCurrent = torch.zeros(len(DeltaTP))
+        # DelCurrent = torch.zeros(len(DeltaTP))
 
-        for i in range(len(DeltaTP)):
-            # Should convert whole tensor to float prior to this for speed increase
-            DelCurrent[i] = STDPWindow[float(DeltaTP[i])]
+        # print(DelCurrent.shape)
+
+        # a = DeltaTP[0:len(DeltaTP)].long() * 2 + 160
+        # b = STDPWindow[a.long()]
+        # print(b)
+
+        DelCurrent = STDPWindow[(DeltaTP[0:len(DeltaTP)] * 2 + 160).long()]
+
+        # print(STDPWindow)
+        # print(a.shape)
+        # exit(0)
+        # DelCurrent2 = STDPWindow[DeltaTP[0:len(DeltaTP)]]
+        # print(DelCurrent2.shape)
+        # exit(0)
+        # for i in range(len(DeltaTP)):
+        #     DelCurrent[i] = STDPWindow[DeltaTP[i].item()]
 
         # Need to be careful with torch and numpy, it could create some errors.
         deltaW = torch.multiply(Neur, DelCurrent)
-
         self.w += deltaW
 
         # Make sure weights are within the bounds
@@ -41,10 +53,11 @@ class STDPSynapse:
         # This rounding allows simple implemenation of this specific STDP window.
         DeltaTN = torch.round(DeltaTN*2)/2
 
-        DelCurrent = torch.zeros(len(DeltaTN))
+        DelCurrent = STDPWindow[(DeltaTN[0:len(DeltaTN)] * 2 + 160).long()]
+        # DelCurrent = torch.zeros(len(DeltaTN))
 
-        for i in range(len(DeltaTN)):
-            DelCurrent[i] = STDPWindow[float(DeltaTN[i])]
+        # for i in range(len(DeltaTN)):
+        #     DelCurrent[i] = STDPWindow[float(DeltaTN[i])]
 
         deltaW = torch.multiply(Neur, DelCurrent)
         self.w += deltaW
@@ -56,14 +69,15 @@ class STDPSynapse:
         # Use the following lines to get the dictionary for the STDP window.
 
         b = np.loadtxt('STDPWindow.txt', delimiter=",")
-        d = {}
-        for i in range(len(b[0, :])):
-            # Probably don't need conversion, we'll see*1e-3 #Convert to seconds
-            key = b[0, i]
-            val = b[1, i]
-            d[key] = val
-# Probably makes more sense to have STDP window stored at synapse level
-        return d
+        return torch.tensor(b[1, :])
+#         d = {}
+#         for i in range(len(b[0, :])):
+#             # Probably don't need conversion, we'll see*1e-3 #Convert to seconds
+#             key = b[0, i]
+#             val = b[1, i]
+#             d[key] = val
+# # Probably makes more sense to have STDP window stored at synapse level
+#         return d
 
 
 class LIFNeuronGroup:
