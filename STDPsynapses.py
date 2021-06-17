@@ -2,14 +2,11 @@ import torch
 import pandas as pd
 import numpy as np
 from plotting import plotWeights
-# Need some sort of import for the STDP window
 
 
 class STDPSynapse:
     # defines the STDP weight and the STDP weight change. Will be used in conjunction with another object called LIF neuron.
     def __init__(self, n, wmin=-25e-3, wmax=25e-3):
-        # could potentially use a dictionary for the STDP window, or just what you created in MATLAB.
-
         # Initialise with random weights
         self.n = n  # Number of neurons
         # Initialise random weights, each row represents neuron, each column a different input.
@@ -21,47 +18,27 @@ class STDPSynapse:
         # Potentiate the synaptic weight of neuron Neur, using the DeltaT values.
         # Need to apply the lookup of the STDP window, to produce corresponding current for potentiation.
         DeltaTP = torch.round(DeltaTP*2)/2
-        # DelCurrent = torch.zeros(len(DeltaTP))
+        # 160 is currently hardcoded- to modularize.
         DelCurrent = STDPWindow[(DeltaTP[0:len(DeltaTP)] * 2 + 160).long()]
-        # for i in range(len(DeltaTP)):
-        #     DelCurrent[i] = STDPWindow[int(DeltaTP[i])]
-
-        # Need to be careful with torch and numpy, it could create some errors.
         deltaW = torch.multiply(Neur, DelCurrent)
         self.w += deltaW
-
-        # Make sure weights are within the bounds
+        # Bound the weights
         self.w = torch.clamp(self.w, self.wmin, self.wmax)
 
     def depress(self, DeltaTN, Neur, STDPWindow):
         # Depress the value synaptic weight of neuron Neur, using the values of DeltaT
-        # This rounding allows simple implemenation of this specific STDP window.
+        # This rounding allows simple implementation of this specific STDP window.
         DeltaTN = torch.round(DeltaTN*2)/2
-
+        # 160 is currently hardcoded- to modularize.
         DelCurrent = STDPWindow[(DeltaTN[0:len(DeltaTN)] * 2 + 160).long()]
-        # DelCurrent = torch.zeros(len(DeltaTN))
-        # for i in range(len(DeltaTN)):
-        #     DelCurrent[i] = STDPWindow[int(DeltaTN[i])]
-
         deltaW = torch.multiply(Neur, DelCurrent)
         self.w += deltaW
-
         # Bound the weights
         self.w = torch.clamp(self.w, self.wmin, self.wmax)
 
     def GetSTDP(self):
-        # Use the following lines to get the dictionary for the STDP window.
-
         b = np.loadtxt('STDPWindow.txt', delimiter=",")
         return torch.tensor(b[1, :])
-#         d = {}
-#         for i in range(len(b[0, :])):
-#             # Probably don't need conversion, we'll see*1e-3 #Convert to seconds
-#             key = b[0, i]
-#             val = b[1, i]
-#             d[key] = val
-# # Probably makes more sense to have STDP window stored at synapse level
-#         return d
 
 
 class LIFNeuronGroup:
@@ -76,7 +53,6 @@ class LIFNeuronGroup:
         self.target = target  # Target activity for all neurons.
         self.VthMin = VthMin  # minimum threshold
         self.VthMax = VthMax  # Maximum threshold.
-
         # Membrane potential at current point in time.
         self.v = self.Ve*torch.ones_like(torch.Tensor(n))
         # Randomise intial thresholds
@@ -88,11 +64,9 @@ class LIFNeuronGroup:
     def step(self, dt, current, sumAct, update_parameters=True):
         # Note: current is the net current presented to the network.
         self.v += dt/self.tau*(self.Ve - self.v + self.R*current)
-
         self.s = (self.v >= self.Vth)  # Check for spiking events.
         self.v[self.s] = self.Ve
         self.v[self.v < self.Ve] = self.Ve
-
         # I think activity should be monitored at the network level, but the threshold should still be updated.
         # Update adaptive threshold
         if update_parameters:

@@ -8,7 +8,7 @@ def plotWeights(weights, maxW, minW, figsize=(10, 6), title='receptive_field', d
 
     # _, axes = plt.subplots(1, 2, figsize=figsize)
     # color = plt.get_cmap('RdBu', 11)
-    print(weights.shape)
+    # print(weights.shape)
     plt.imshow(weights, vmin=minW, vmax=maxW)
     # , axes[1].matshow(
     #     assignments, cmap=color, vmin=-1.5, vmax=9.5)
