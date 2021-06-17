@@ -64,40 +64,27 @@ class Network():
                     DeltaT = t-spike_times
                     # Ensure time is 80ms long (off STDP)
                     DeltaT[DeltaT == t] = 80e-3/self.dt
+                    # try:
+                    #     DeltaTP = DeltaT[DeltaT > 0].min(axis=0)[0]
+                    # except:
+                    #     DeltaTP = torch.Tensor([400])
 
-                    # print(DeltaT)
-                    # exit(0)
+                    # if DeltaTP.ndim == 0:
+                    #     DeltaTP = torch.Tensor([400])
 
-                    # DeltaTP = copy.deepcopy(DeltaT)
-                    # DeltaTP[DeltaT <= 0] = 400
-                    try:
-                        DeltaTP = DeltaT[DeltaT > 0].min(axis=0)[0]
-                    except:
-                        DeltaTP = torch.Tensor([400])
-                    # print(DeltaTP.ndim)
-                    # print(len(DeltaTP))
-                    if DeltaTP.ndim == 0:
-                        DeltaTP = torch.Tensor([400])
-
-                    # DeltaTP, indices = torch.where(DeltaT > 0, DeltaT, 400*torch.ones(
-                    # #     784, dtype=torch.int64)).min(axis=0)  # 400 should be some variable
-                    # print(DeltaTP)
-                    # # print(DeltaTP2)
-                    # exit(0)
-
+                    DeltaTP, indices = torch.where(DeltaT > 0, DeltaT, 400*torch.ones(
+                        784, dtype=torch.int64)).min(axis=0)  # 400 should be some variable
                     DeltaTP = 1e3*self.dt*DeltaTP
 
-                    # DeltaTN = copy.deepcopy(DeltaT)
-                    # DeltaTN[DeltaT >= 0] = 400
-                    try:
-                        DeltaTN = DeltaT[DeltaT < 0].max(axis=0)[0]
-                    except:
-                        DeltaTN = torch.Tensor([-400])
-                    # print(len(DeltaTN))
-                    if DeltaTN.ndim == 0:
-                        DeltaTN = torch.Tensor([-400])
-                    # DeltaTN, indices = torch.where(
-                    #     DeltaT < 0, DeltaT, -400*torch.ones(784, dtype=torch.int64)).max(axis=0)
+                    # try:
+                    #     DeltaTN = DeltaT[DeltaT < 0].max(axis=0)[0]
+                    # except:
+                    #     DeltaTN = torch.Tensor([-400])
+
+                    # if DeltaTN.ndim == 0:
+                    #     DeltaTN = torch.Tensor([-400])
+                    DeltaTN, indices = torch.where(
+                        DeltaT < 0, DeltaT, -400*torch.ones(784, dtype=torch.int64)).max(axis=0)
                     DeltaTN = 1e3*self.dt*DeltaTN
 
                     Neur = torch.unsqueeze(self.group.s, 1)
@@ -128,12 +115,20 @@ class Network():
         n_input = image.shape[0]  # Should return 784, also image is just 1x784
         time = int(time/self.dt)  # Convert to integer
         # Make the spike data.
-        m = torch.distributions.Poisson(image)
-        spike_times = m.sample(sample_shape=(time,)).long()
-        spike_times = torch.clamp(spike_times, max=time-1)
+        # m = torch.distributions.Poisson(image)
+        # spike_times = m.sample(sample_shape=(time,)).long()
+        # spike_times = torch.clamp(spike_times, max=time-1)
         # Create spikes matrix from spike times.
+        spike_times = np.random.poisson(image, [time, n_input])
+        spike_times = np.cumsum(spike_times, axis=0)
+        spike_times[spike_times >= time] = 0
+        spike_times = torch.tensor(spike_times, dtype=torch.long)
+
         spikes = torch.zeros([time, n_input])
-        spikes[spike_times[0:time-1, :], :] = 1
+        # spikes[spike_times[0:time-1, :], :] = 1
+        for idx in range(time):
+            spikes[spike_times[idx, :], np.arange(n_input)] = 1
+
         spikes[0, :] = 0
         # Return the input spike occurrence matrix.
         return (spikes, spike_times)

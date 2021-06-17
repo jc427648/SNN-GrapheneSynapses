@@ -19,27 +19,12 @@ class STDPSynapse:
 
     def potentiate(self, DeltaTP, Neur, STDPWindow):
         # Potentiate the synaptic weight of neuron Neur, using the DeltaT values.
-       # Need to apply the lookup of the STDP window, to produce corresponding current for potentiation.
+        # Need to apply the lookup of the STDP window, to produce corresponding current for potentiation.
         DeltaTP = torch.round(DeltaTP*2)/2
-
         # DelCurrent = torch.zeros(len(DeltaTP))
-
-        # print(DelCurrent.shape)
-
-        # a = DeltaTP[0:len(DeltaTP)].long() * 2 + 160
-        # b = STDPWindow[a.long()]
-        # print(b)
-
         DelCurrent = STDPWindow[(DeltaTP[0:len(DeltaTP)] * 2 + 160).long()]
-
-        # print(STDPWindow)
-        # print(a.shape)
-        # exit(0)
-        # DelCurrent2 = STDPWindow[DeltaTP[0:len(DeltaTP)]]
-        # print(DelCurrent2.shape)
-        # exit(0)
         # for i in range(len(DeltaTP)):
-        #     DelCurrent[i] = STDPWindow[DeltaTP[i].item()]
+        #     DelCurrent[i] = STDPWindow[int(DeltaTP[i])]
 
         # Need to be careful with torch and numpy, it could create some errors.
         deltaW = torch.multiply(Neur, DelCurrent)
@@ -55,9 +40,8 @@ class STDPSynapse:
 
         DelCurrent = STDPWindow[(DeltaTN[0:len(DeltaTN)] * 2 + 160).long()]
         # DelCurrent = torch.zeros(len(DeltaTN))
-
         # for i in range(len(DeltaTN)):
-        #     DelCurrent[i] = STDPWindow[float(DeltaTN[i])]
+        #     DelCurrent[i] = STDPWindow[int(DeltaTN[i])]
 
         deltaW = torch.multiply(Neur, DelCurrent)
         self.w += deltaW
