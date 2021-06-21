@@ -3,6 +3,7 @@ import os
 import sys
 from struct import unpack
 import numpy as np
+import pickle
 from STDPsynapses import STDPSynapse, LIFNeuronGroup
 
 
@@ -75,8 +76,12 @@ class Network:
                     self.synapse.depress(DeltaTN, Neur, self.STDPWindow)
 
                 # Update activity
-                # self.Activity[:, self.current_sample] += self.group.s
-                self.sumAct += self.group.s
+                self.Activity[:, self.current_sample] = self.group.s
+                self.sumAct = torch.sum(self.Activity, dim=1)
+                # print(a)
+                # exit(0)
+                #  = self.Activity
+                # self.sumAct += self.group.s
                 # Update inhibition
                 self.InhibCtr[torch.logical_not(self.group.s)] = i_p_w
                 self.InhibVec = torch.multiply(self.InhibCtr > 0, inhib)
@@ -99,16 +104,31 @@ class Network:
         # Return the input spike occurrence matrix.
         return (spikes, spike_times)
 
-    # def setAssignment(self, label):
-    #     # Sets the assignment number for the particular label
-    #     self.Assignment[:, label] += self.Activity[:, -1]
+    def setAssignment(self, label):
+        # Sets the assignment number for the particular label
+        self.Assignment[:, label] += self.Activity[:, self.current_sample]
 
-    def presentImage(self, image, label, image_duration):
+    def save(self, path="output/model.pt"):
+        d = {}
+        d["synapse_w"] = self.synapse.w
+        d["group_vth"] = self.group.Vth
+        d["assignments"] = self.Assignment
+        pickle.dump(d, open(path, "wb"))
+
+    def load(self, path="output/model.pt"):
+        d = pickle.load(open(path, "rb"))
+        self.synapse.w = d["synapse_w"]
+        self.group.Vth = d["group_vth"]
+        self.Assignment = d["assignments"]
+
+    def presentImage(self, image, label, image_duration, update_parameters=True):
         self.group.v[:] = self.group.Ve
         self.current[:] = 0
         self.CurrCtr[:] = 0
         self.InhibVec[:] = 0
         self.InhibCtr[:] = 0
         spikes, spike_times = self.GenSpkTrain(image, image_duration)
-        self.run(spikes, spike_times, image_duration)
-        # self.setAssignment(label)
+        self.run(
+            spikes, spike_times, image_duration, update_parameters=update_parameters
+        )
+        self.setAssignment(label)

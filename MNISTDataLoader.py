@@ -43,7 +43,7 @@ def getMNIST(
 
     Parallel(require="sharedmem")(delayed(extract_sample)(i) for i in range(n_images))
 
-    print("Progress :", n_images, "/", n_images, "\n")
+    print("Progress :", n_images, "/", n_images)
     # These values are in between 0 and 255, but in should be 20 and 200.Need to fix
     X = X.reshape([n_images, 784])
     lower_period = 1 / lower_freq
