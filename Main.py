@@ -149,6 +149,7 @@ def main(
     target_activity=10,
     v_th_min=0.25,
     v_th_max=50,
+    fixed_inhibition_current=-1.0,
     log_interval=1000,  # log interval for train() and test() methods
     det_training_accuracy=True,  # Boolean to determine whether or not if the training accuracy is determined
 ):
@@ -162,6 +163,7 @@ def main(
         target_activity=target_activity,
         v_th_min=v_th_min,
         v_th_max=v_th_max,
+        fixed_inhibition_current=fixed_inhibition_current,
         dt=dt,
     )  # Define the network architecture
     network = train(

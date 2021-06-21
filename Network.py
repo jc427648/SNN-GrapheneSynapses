@@ -19,6 +19,7 @@ class Network:
         target_activity=10,
         v_th_min=0.25,
         v_th_max=50,
+        fixed_inhibition_current=-1.0,
         dt=0.2e-3,
     ):
         self.synapse = STDPSynapse(n_output_neurons, wmin=-45e-3, wmax=45e-3)
@@ -32,6 +33,7 @@ class Network:
             VthMin=v_th_min,
             VthMax=v_th_max,
         )
+        self.fixed_inhibition_current = fixed_inhibition_current
         self.dt = dt
         self.n_output_neurons = n_output_neurons
         self.n_samples_memory = n_samples_memory
@@ -55,7 +57,7 @@ class Network:
         # Consider having creating one more file to run the entire MNIST simulation.
         c_p_w = 1e-3  # Current Pulse Width (s)
         i_p_w = 1e-3  # Inhibition Pulse Width (s)
-        inhib = -1.0  # Fixed inhibition current (A)
+        inhib = self.fixed_inhibition_current  # Fixed inhibition current (A)
 
         for t in range(int(time / self.dt)):
             # Work out the current, then step the voltages, and then decrement current counters.
