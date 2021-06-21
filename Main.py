@@ -26,6 +26,7 @@ def train(
     image_threshold=50,
     n_samples=60000,
     log_interval=1000,
+    det_training_accuracy=True,
 ):
     assert n_samples >= 0 and n_samples <= 60000, "Invalid n_samples value."
     print("Loading MNIST training samples...")
@@ -37,21 +38,35 @@ def train(
         dt=dt,
     )
     print("Training...")
+    correct = 0
     start_time = timeit.default_timer()  # Start timer
     for epoch in range(n_epochs):
         for idx in range(n_samples):
             image, label = training_data[idx], training_labels[idx].item()
             network.presentImage(image, label, image_duration, update_parameters=True)
+            if det_training_accuracy and label == network.detPredictedLabel():
+                correct += 1
             if (idx + 1) % log_interval == 0:
+                if det_training_accuracy:
+                    running_accuracy = (correct / idx) * 100
+                    s_end = " - Running accuracy: %.2f%% ( %d / %d )\n" % (
+                        running_accuracy,
+                        correct,
+                        idx + 1,
+                    )
+                else:
+                    s_end = "\n"
                 print(
-                    "Training progress: sample (%d / %d) of epoch (%d / %d) - Elapsed time: %.4f"
+                    "Training progress: sample (%d / %d) of epoch (%d / %d) - Elapsed time: %.4f%s"
                     % (
                         idx + 1,
                         n_samples,
                         epoch + 1,
                         n_epochs,
                         timeit.default_timer() - start_time,
-                    )
+                        s_end,
+                    ),
+                    end="",
                 )
                 plotWeights(
                     ReshapeWeights(network.synapse.w, n_output_neurons)[0],
@@ -60,7 +75,7 @@ def train(
                     title="idx_%d" % (idx + 1),
                 )
                 network.save()
-    return network
+    return network, (correct / idx) * 100
 
 
 def test(
@@ -92,19 +107,12 @@ def test(
         image, label = test_data[idx], test_labels[idx].item()
         network.presentImage(image, label, image_duration, update_parameters=False)
         total_responce += network.Activity[:, network.current_sample]
-        predicted_label = network.Assignment.max(dim=1)[1][
-            torch.max(network.Activity[:, network.current_sample], 0, keepdims=True)[
-                1
-            ].item()
-        ].item()
+        predicted_label = network.detPredictedLabel()
         predicted_labels.append(predicted_label)
         if label == predicted_label:
             correct += 1
         if (idx + 1) % log_interval == 0:
-            if idx == 0:
-                running_accuracy = 0
-            else:
-                running_accuracy = (correct / idx) * 100
+            running_accuracy = (correct / idx) * 100
             print(
                 "Validation/test progress: sample (%d / %d) - Elapsed time: %.4f - Running accuracy: %.2f%% ( %d / %d )"
                 % (
@@ -134,10 +142,27 @@ def main(
     image_threshold=50,  # Threshold to generate greyscale input images
     n_samples_train=60000,  # Number of training samples per epoch
     n_samples_test=10000,  # Number of validation/test samples
+    Ve=0.0,
+    tau=0.1,
+    R=1000,
+    gamma=0.005,
+    target_activity=10,
+    v_th_min=0.25,
+    v_th_max=50,
     log_interval=1000,  # log interval for train() and test() methods
+    det_training_accuracy=True,  # Boolean to determine whether or not if the training accuracy is determined
 ):
     network = Network(
-        n_output_neurons, n_samples_memory, dt=dt
+        n_output_neurons=n_output_neurons,
+        n_samples_memory=n_samples_memory,
+        Ve=Ve,
+        tau=tau,
+        R=R,
+        gamma=gamma,
+        target_activity=target_activity,
+        v_th_min=v_th_min,
+        v_th_max=v_th_max,
+        dt=dt,
     )  # Define the network architecture
     network = train(
         network,
@@ -149,7 +174,10 @@ def main(
         upper_freq=upper_freq,
         image_threshold=image_threshold,
         log_interval=log_interval,
-    )  # Train the network
+        det_training_accuracy=det_training_accuracy,
+    )[
+        0
+    ]  # Train the network
     # network.load() This method can be used to load network parameters exported using .save()
     cf = test(
         network,
@@ -164,4 +192,9 @@ def main(
 
 
 if __name__ == "__main__":
-    main(n_samples_train=5000)
+    main(
+        n_samples_train=5000,
+        log_interval=1000,
+        det_training_accuracy=True,
+        target_activity=30,
+    )

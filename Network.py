@@ -8,17 +8,29 @@ from STDPsynapses import STDPSynapse, LIFNeuronGroup
 
 
 class Network:
-    def __init__(self, n_output_neurons=30, n_samples_memory=30, dt=0.2e-3):
+    def __init__(
+        self,
+        n_output_neurons=30,
+        n_samples_memory=30,
+        Ve=0.0,
+        tau=0.1,
+        R=1000,
+        gamma=0.005,
+        target_activity=10,
+        v_th_min=0.25,
+        v_th_max=50,
+        dt=0.2e-3,
+    ):
         self.synapse = STDPSynapse(n_output_neurons, wmin=-45e-3, wmax=45e-3)
         self.group = LIFNeuronGroup(
             n_output_neurons,
-            Ve=0.0,
-            tau=0.1,
-            R=1000,
-            gamma=0.005,
-            target=10,
-            VthMin=0.25,
-            VthMax=50,
+            Ve=Ve,
+            tau=tau,
+            R=R,
+            gamma=gamma,
+            target=target_activity,
+            VthMin=v_th_min,
+            VthMax=v_th_max,
         )
         self.dt = dt
         self.n_output_neurons = n_output_neurons
@@ -78,10 +90,6 @@ class Network:
                 # Update activity
                 self.Activity[:, self.current_sample] = self.group.s
                 self.sumAct = torch.sum(self.Activity, dim=1)
-                # print(a)
-                # exit(0)
-                #  = self.Activity
-                # self.sumAct += self.group.s
                 # Update inhibition
                 self.InhibCtr[torch.logical_not(self.group.s)] = i_p_w
                 self.InhibVec = torch.multiply(self.InhibCtr > 0, inhib)
@@ -90,7 +98,7 @@ class Network:
         if self.current_sample == self.n_samples_memory:
             self.current_sample = 0
 
-    def GenSpkTrain(self, image, time):
+    def genSpkTrain(self, image, time):
         # Generate Poissonian spike times to input into the network. Note time is integer.
         # Assume image is converted into hr, and lr frequencies.
         n_input = image.shape[0]  # Should return 784, also image is just 1x784
@@ -127,8 +135,13 @@ class Network:
         self.CurrCtr[:] = 0
         self.InhibVec[:] = 0
         self.InhibCtr[:] = 0
-        spikes, spike_times = self.GenSpkTrain(image, image_duration)
+        spikes, spike_times = self.genSpkTrain(image, image_duration)
         self.run(
             spikes, spike_times, image_duration, update_parameters=update_parameters
         )
         self.setAssignment(label)
+
+    def detPredictedLabel(self):
+        return self.Assignment.max(dim=1)[1][
+            torch.max(self.Activity[:, self.current_sample], 0, keepdims=True)[1].item()
+        ].item()
