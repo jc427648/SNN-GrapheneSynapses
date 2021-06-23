@@ -1,7 +1,7 @@
 import torch
 import pandas as pd
 import numpy as np
-from Plotting import plotWeights
+from plotting import plotWeights
 
 
 class STDPSynapse:

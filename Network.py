@@ -90,15 +90,13 @@ class Network:
                     self.synapse.depress(DeltaTN, Neur, self.STDPWindow)
 
                 # Update activity
-                self.Activity[:, self.current_sample] = self.group.s
+                self.Activity[:, self.current_sample] += self.group.s #Important to track all spiking activity
                 self.sumAct = torch.sum(self.Activity, dim=1)
                 # Update inhibition
                 self.InhibCtr[torch.logical_not(self.group.s)] = i_p_w
                 self.InhibVec = torch.multiply(self.InhibCtr > 0, inhib)
 
-        self.current_sample += 1
-        if self.current_sample == self.n_samples_memory:
-            self.current_sample = 0
+
 
     def genSpkTrain(self, image, time):
         # Generate Poissonian spike times to input into the network. Note time is integer.
@@ -141,9 +139,20 @@ class Network:
         self.run(
             spikes, spike_times, image_duration, update_parameters=update_parameters
         )
-        self.setAssignment(label)
+        if update_parameters:
+            self.setAssignment(label) #You only when update neuron when assignments when training, not testing.
 
     def detPredictedLabel(self):
         return self.Assignment.max(dim=1)[1][
             torch.max(self.Activity[:, self.current_sample], 0, keepdims=True)[1].item()
         ].item()
+
+    def OverwriteActivity(self):
+        #This function will overWrite the activity from n_memory_samples ago.
+        self.sumAct -= self.Activity[:,self.current_sample]
+        self.Activity[:,self.current_sample] = torch.zeros(self.n_output_neurons)
+    
+    def UpdateCurrentSample(self):
+        self.current_sample += 1
+        if self.current_sample == self.n_samples_memory:
+           self.current_sample = 0

@@ -1,8 +1,8 @@
-from Plotting import plot_confusion_matrix
+from plotting import plot_confusion_matrix
 from MNISTDataLoader import getMNIST
 from STDPsynapses import STDPSynapse, LIFNeuronGroup
 from Network import Network
-from Plotting import plotWeights, ReshapeWeights
+from plotting import plotWeights, ReshapeWeights
 import sklearn
 from sklearn.metrics import confusion_matrix
 import torch
@@ -43,6 +43,7 @@ def train(
     for epoch in range(n_epochs):
         for idx in range(n_samples):
             image, label = training_data[idx], training_labels[idx].item()
+            network.OverwriteActivity()
             network.presentImage(image, label, image_duration, update_parameters=True)
             if det_training_accuracy and label == network.detPredictedLabel():
                 correct += 1
@@ -75,6 +76,7 @@ def train(
                     title="idx_%d" % (idx + 1),
                 )
                 network.save()
+            network.UpdateCurrentSample()
     return network, (correct / idx) * 100
 
 
@@ -105,6 +107,7 @@ def test(
     start_time = timeit.default_timer()  # Start timer
     for idx in range(n_samples):
         image, label = test_data[idx], test_labels[idx].item()
+        network.OverwriteActivity()
         network.presentImage(image, label, image_duration, update_parameters=False)
         total_responce += network.Activity[:, network.current_sample]
         predicted_label = network.detPredictedLabel()
@@ -124,6 +127,7 @@ def test(
                     idx + 1,
                 )
             )
+        network.UpdateCurrentSample()
     cf = confusion_matrix(
         test_labels.numpy()[0:n_samples], predicted_labels, normalize="true"
     )
@@ -195,7 +199,7 @@ def main(
 
 if __name__ == "__main__":
     main(
-        n_samples_train=5000,
+        n_samples_train=1000,
         log_interval=1000,
         det_training_accuracy=True,
         target_activity=30,
