@@ -137,7 +137,7 @@ def test(
 
 def main(
     n_output_neurons=30,  # Number of output neurons
-    n_samples_memory=90,  # Number of samples to retain in memory (to determine class allocations)
+    n_samples_memory=30,  # Number of samples to retain in memory (to determine class allocations)
     dt=0.2e-3,  # Timestep (s)
     image_duration=0.05,  # Duration (s) to present each image for
     n_epochs=1,  # Number of training epochs
@@ -195,6 +195,7 @@ def main(
         image_threshold=image_threshold,
         log_interval=log_interval,
     )  # Validate/Test the Network
+    return cf
 
 
 if __name__ == "__main__":
