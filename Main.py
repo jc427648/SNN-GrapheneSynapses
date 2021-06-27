@@ -1,8 +1,7 @@
-from plotting import plot_confusion_matrix
+from Plotting import plot_confusion_matrix, plotWeights, ReshapeWeights
 from MNISTDataLoader import getMNIST
 from STDPsynapses import STDPSynapse, LIFNeuronGroup
 from Network import Network
-from plotting import plotWeights, ReshapeWeights
 import sklearn
 from sklearn.metrics import confusion_matrix
 import torch
@@ -100,7 +99,7 @@ def test(
         threshold=image_threshold,
         dt=dt,
     )
-    total_responce = torch.zeros(n_output_neurons)
+    # total_responce = torch.zeros(n_output_neurons)
     correct = 0
     predicted_labels = []
     print("Validating/Testing...")
@@ -109,7 +108,7 @@ def test(
         image, label = test_data[idx], test_labels[idx].item()
         network.OverwriteActivity()
         network.presentImage(image, label, image_duration, update_parameters=False)
-        total_responce += network.Activity[:, network.current_sample]
+        # total_responce += network.Activity[:, network.current_sample]
         predicted_label = network.detPredictedLabel()
         predicted_labels.append(predicted_label)
         if label == predicted_label:
@@ -200,7 +199,7 @@ def main(
 
 if __name__ == "__main__":
     main(
-        n_samples_train=1000,
+        n_samples_train=10000,
         log_interval=1000,
         det_training_accuracy=True,
         target_activity=30,

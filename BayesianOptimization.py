@@ -4,8 +4,7 @@ from bayes_opt import BayesianOptimization
 from Main import main
 
 
-
-def black_box_function(tau,R,gamma,target_activity,v_th_min,v_th_max):
+def black_box_function(tau, R, gamma, target_activity, v_th_min, v_th_max):
     """Function with unknown internals we wish to maximize.
 
     This is just serving as an example, for all intents and
@@ -13,26 +12,26 @@ def black_box_function(tau,R,gamma,target_activity,v_th_min,v_th_max):
     which generates its output values, as unknown.
     """
     accuracy = main(
-    n_output_neurons=100,
-    n_samples_memory=100,  
-    dt=0.2e-3,  
-    image_duration=0.05,  
-    n_epochs=1,  
-    lower_freq=20,  
-    upper_freq=200,  
-    image_threshold=50,  
-    n_samples_train=60000,  
-    n_samples_test=10000,  
-    Ve=0.0,
-    tau=tau, #Possibly optimise this one
-    R=R, #Possibly optimise this one
-    gamma=gamma, #Optimise this one
-    target_activity = target_activity,#Optimise this one
-    v_th_min=v_th_min, #Optimise this one
-    v_th_max=v_th_max, #Optimise this one
-    fixed_inhibition_current=-1.0,
-    log_interval=1000,  
-    det_training_accuracy=True, 
+        n_output_neurons=100,
+        n_samples_memory=100,
+        dt=0.2e-3,
+        image_duration=0.05,
+        n_epochs=1,
+        lower_freq=20,
+        upper_freq=200,
+        image_threshold=50,
+        n_samples_train=30000,
+        n_samples_test=10000,
+        Ve=0.0,
+        tau=tau,  # Possibly optimise this one
+        R=R,  # Possibly optimise this one
+        gamma=gamma,  # Optimise this one
+        target_activity=target_activity,  # Optimise this one
+        v_th_min=v_th_min,  # Optimise this one
+        v_th_max=v_th_max,  # Optimise this one
+        fixed_inhibition_current=-1.0,
+        log_interval=1000,
+        det_training_accuracy=True,
     )
 
     return accuracy
@@ -40,13 +39,14 @@ def black_box_function(tau,R,gamma,target_activity,v_th_min,v_th_max):
 
 if __name__ == "__main__":
     # Bounded region of parameter space
-    pbounds = {"tau": (0.01, 0.5), 
-    "R": (100, 2000),
-    "gamma": (1e-4,5e-2),
-    "target_activity": (1,100),
-    "v_th_min": (0,10),
-    "v_th_max": (11,50)
-    } #Need to initialise bounds.
+    pbounds = {
+        "tau": (0.01, 0.5),
+        "R": (100, 2000),
+        "gamma": (1e-4, 5e-2),
+        "target_activity": (1, 100),
+        "v_th_min": (0, 5),
+        "v_th_max": (6, 10),
+    }  # Need to initialise bounds.
     optimizer = BayesianOptimization(
         f=black_box_function,
         pbounds=pbounds,
