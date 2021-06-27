@@ -2,6 +2,7 @@
 import bayes_opt
 from bayes_opt import BayesianOptimization
 from Main import main
+import os
 
 
 def black_box_function(tau, R, gamma, target_activity, v_th_min, v_th_max):
@@ -11,9 +12,9 @@ def black_box_function(tau, R, gamma, target_activity, v_th_min, v_th_max):
     purposes think of the internals of this function, i.e.: the process
     which generates its output values, as unknown.
     """
-    accuracy = main(
-        n_output_neurons=100,
-        n_samples_memory=100,
+    test_set_accuracy = main(
+        n_output_neurons=30,
+        n_samples_memory=30,
         dt=0.2e-3,
         image_duration=0.05,
         n_epochs=1,
@@ -34,7 +35,7 @@ def black_box_function(tau, R, gamma, target_activity, v_th_min, v_th_max):
         det_training_accuracy=True,
     )
 
-    return accuracy
+    return test_set_accuracy
 
 
 if __name__ == "__main__":
@@ -45,7 +46,7 @@ if __name__ == "__main__":
         "gamma": (1e-4, 5e-2),
         "target_activity": (1, 100),
         "v_th_min": (0, 5),
-        "v_th_max": (6, 10),
+        "v_th_max": (6, 15),
     }  # Need to initialise bounds.
     optimizer = BayesianOptimization(
         f=black_box_function,

@@ -68,13 +68,13 @@ def train(
                     ),
                     end="",
                 )
-                plotWeights(
-                    ReshapeWeights(network.synapse.w, n_output_neurons)[0],
-                    network.synapse.wmax,
-                    network.synapse.wmin,
-                    title="idx_%d" % (idx + 1),
-                )
-                network.save()
+                # plotWeights(
+                #     ReshapeWeights(network.synapse.w, n_output_neurons)[0],
+                #     network.synapse.wmax,
+                #     network.synapse.wmin,
+                #     title="idx_%d" % (idx + 1),
+                # )
+                # network.save()
             network.UpdateCurrentSample()
     return network, (correct / idx) * 100
 
@@ -127,10 +127,10 @@ def test(
                 )
             )
         network.UpdateCurrentSample()
-    cf = confusion_matrix(
-        test_labels.numpy()[0:n_samples], predicted_labels, normalize="true"
-    )
-    plot_confusion_matrix(cf)
+    # cf = confusion_matrix(
+    #     test_labels.numpy()[0:n_samples], predicted_labels, normalize="true"
+    # )
+    # plot_confusion_matrix(cf)
     return (correct / idx) * 100
 
 
@@ -155,6 +155,7 @@ def main(
     fixed_inhibition_current=-1.0,
     log_interval=1000,  # log interval for train() and test() methods
     det_training_accuracy=True,  # Boolean to determine whether or not if the training accuracy is determined
+    output_dir="output",
 ):
     network = Network(
         n_output_neurons=n_output_neurons,
@@ -168,6 +169,7 @@ def main(
         v_th_max=v_th_max,
         fixed_inhibition_current=fixed_inhibition_current,
         dt=dt,
+        output_dir=output_dir,
     )  # Define the network architecture
     network = train(
         network,
@@ -184,7 +186,7 @@ def main(
         0
     ]  # Train the network
     # network.load() This method can be used to load network parameters exported using .save()
-    cf = test(
+    test_set_accuracy = test(
         network,
         n_samples=n_samples_test,
         dt=dt,
@@ -194,7 +196,7 @@ def main(
         image_threshold=image_threshold,
         log_interval=log_interval,
     )  # Validate/Test the Network
-    return cf
+    return test_set_accuracy
 
 
 if __name__ == "__main__":
