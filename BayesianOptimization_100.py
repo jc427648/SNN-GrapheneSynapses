@@ -12,7 +12,7 @@ def black_box_function(tau, R, gamma, target_activity, v_th_min, v_th_max):
     purposes think of the internals of this function, i.e.: the process
     which generates its output values, as unknown.
     """
-    test_set_accuracy = main(
+    training_set_accuracy = main(
         n_output_neurons=100,
         n_samples_memory=100,
         dt=0.2e-3,
@@ -35,7 +35,7 @@ def black_box_function(tau, R, gamma, target_activity, v_th_min, v_th_max):
         det_training_accuracy=True,
     )
 
-    return test_set_accuracy
+    return training_set_accuracy
 
 
 if __name__ == "__main__":

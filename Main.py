@@ -171,7 +171,7 @@ def main(
         dt=dt,
         output_dir=output_dir,
     )  # Define the network architecture
-    network = train(
+    network, training_set_accuracy = train(
         network,
         n_samples=n_samples_train,
         dt=dt,
@@ -182,21 +182,20 @@ def main(
         image_threshold=image_threshold,
         log_interval=log_interval,
         det_training_accuracy=det_training_accuracy,
-    )[
-        0
-    ]  # Train the network
+    )
+    # Train the network
     # network.load() This method can be used to load network parameters exported using .save()
-    test_set_accuracy = test(
-        network,
-        n_samples=n_samples_test,
-        dt=dt,
-        image_duration=image_duration,
-        lower_freq=lower_freq,
-        upper_freq=upper_freq,
-        image_threshold=image_threshold,
-        log_interval=log_interval,
-    )  # Validate/Test the Network
-    return test_set_accuracy
+    # test_set_accuracy = test(
+    #     network,
+    #     n_samples=n_samples_test,
+    #     dt=dt,
+    #     image_duration=image_duration,
+    #     lower_freq=lower_freq,
+    #     upper_freq=upper_freq,
+    #     image_threshold=image_threshold,
+    #     log_interval=log_interval,
+    # )  # Validate/Test the Network
+    return training_set_accuracy
 
 
 if __name__ == "__main__":
