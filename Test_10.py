@@ -24,7 +24,7 @@ if __name__ == "__main__":
     lower_freq = 20
     upper_freq = 200
     image_threshold = 50
-    log_interval = 1000
+    log_interval = 10000
     det_training_accuracy = True
 
     network = Network(

@@ -23,4 +23,4 @@ sbatch SNN-GrapheneSynapses.sh
 2. `376035` -- SNN-GrapheneSynapses_30.sh.
 3. `376036` -- SNN-GrapheneSynapses_100.sh.
 4. `376037` -- SNN-GrapheneSynapses_300.sh.
-5. `376654` -- SNN-GrapheneSynapses_T10.sh.
+5. `376655` -- SNN-GrapheneSynapses_T10.sh.
