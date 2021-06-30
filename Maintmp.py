@@ -68,13 +68,13 @@ def train(
                     ),
                     end="",
                 )
-                # plotWeights(
-                #     ReshapeWeights(network.synapse.w, n_output_neurons)[0],
-                #     network.synapse.wmax,
-                #     network.synapse.wmin,
-                #     title="idx_%d" % (idx + 1),
-                # )
-                # network.save()
+                plotWeights(
+                    ReshapeWeights(network.synapse.w, n_output_neurons)[0],
+                    network.synapse.wmax,
+                    network.synapse.wmin,
+                    title="idx_%d" % (idx + 1),
+                )
+                network.save()
             network.UpdateCurrentSample()
     return network, (correct / idx) * 100
 
@@ -99,7 +99,6 @@ def test(
         threshold=image_threshold,
         dt=dt,
     )
-    # total_responce = torch.zeros(n_output_neurons)
     correct = 0
     predicted_labels = []
     print("Validating/Testing...")
@@ -108,7 +107,6 @@ def test(
         image, label = test_data[idx], test_labels[idx].item()
         network.OverwriteActivity()
         network.presentImage(image, label, image_duration, update_parameters=False)
-        # total_responce += network.Activity[:, network.current_sample]
         predicted_label = network.detPredictedLabel()
         predicted_labels.append(predicted_label)
         if label == predicted_label:
@@ -127,10 +125,10 @@ def test(
                 )
             )
         network.UpdateCurrentSample()
-    # cf = confusion_matrix(
-    #     test_labels.numpy()[0:n_samples], predicted_labels, normalize="true"
-    # )
-    # plot_confusion_matrix(cf)
+    cf = confusion_matrix(
+        test_labels.numpy()[0:n_samples], predicted_labels, normalize="true"
+    )
+    plot_confusion_matrix(cf)
     return (correct / idx) * 100
 
 
