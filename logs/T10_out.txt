@@ -1,0 +1,7 @@
+Loading MNIST training samples...
+Progress : 0 / 60000
+Progress : 20000 / 60000
+Progress : 40000 / 60000
+Progress : 60000 / 60000
+Training...
+Training progress: sample (10000 / 60000) of epoch (1 / 1) - Elapsed time: 1284.5323 - Running accuracy: 45.93% ( 4593 / 10000 )

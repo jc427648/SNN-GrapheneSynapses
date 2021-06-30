@@ -1485,3 +1485,77 @@ Training progress: sample (27000 / 30000) of epoch (1 / 1) - Elapsed time: 3859.
 Training progress: sample (28000 / 30000) of epoch (1 / 1) - Elapsed time: 3988.9341 - Running accuracy: 21.78% ( 6099 / 28000 )
 Training progress: sample (29000 / 30000) of epoch (1 / 1) - Elapsed time: 4122.6780 - Running accuracy: 22.06% ( 6398 / 29000 )
 Training progress: sample (30000 / 30000) of epoch (1 / 1) - Elapsed time: 4250.4311 - Running accuracy: 22.20% ( 6660 / 30000 )
+| [0m 40      [0m | [0m 22.2    [0m | [0m 1.623e+0[0m | [0m 0.0115  [0m | [0m 59.7    [0m | [0m 0.3518  [0m | [0m 10.68   [0m | [0m 1.855   [0m |
+Loading MNIST training samples...
+Progress : 0 / 60000
+Progress : 20000 / 60000
+Progress : 40000 / 60000
+Progress : 60000 / 60000
+Training...
+Training progress: sample (1000 / 30000) of epoch (1 / 1) - Elapsed time: 105.2287 - Running accuracy: 29.23% ( 292 / 1000 )
+Training progress: sample (2000 / 30000) of epoch (1 / 1) - Elapsed time: 217.7520 - Running accuracy: 28.11% ( 562 / 2000 )
+Training progress: sample (3000 / 30000) of epoch (1 / 1) - Elapsed time: 332.8646 - Running accuracy: 29.01% ( 870 / 3000 )
+Training progress: sample (4000 / 30000) of epoch (1 / 1) - Elapsed time: 434.6510 - Running accuracy: 29.56% ( 1182 / 4000 )
+Training progress: sample (5000 / 30000) of epoch (1 / 1) - Elapsed time: 544.5170 - Running accuracy: 28.51% ( 1425 / 5000 )
+Training progress: sample (6000 / 30000) of epoch (1 / 1) - Elapsed time: 657.9163 - Running accuracy: 27.80% ( 1668 / 6000 )
+Training progress: sample (7000 / 30000) of epoch (1 / 1) - Elapsed time: 769.2731 - Running accuracy: 28.23% ( 1976 / 7000 )
+Training progress: sample (8000 / 30000) of epoch (1 / 1) - Elapsed time: 866.5265 - Running accuracy: 28.33% ( 2266 / 8000 )
+Training progress: sample (9000 / 30000) of epoch (1 / 1) - Elapsed time: 972.0623 - Running accuracy: 27.58% ( 2482 / 9000 )
+Training progress: sample (10000 / 30000) of epoch (1 / 1) - Elapsed time: 1057.8492 - Running accuracy: 27.31% ( 2731 / 10000 )
+Training progress: sample (11000 / 30000) of epoch (1 / 1) - Elapsed time: 1166.0660 - Running accuracy: 26.86% ( 2954 / 11000 )
+Training progress: sample (12000 / 30000) of epoch (1 / 1) - Elapsed time: 1278.7071 - Running accuracy: 26.67% ( 3200 / 12000 )
+Training progress: sample (13000 / 30000) of epoch (1 / 1) - Elapsed time: 1387.7106 - Running accuracy: 26.08% ( 3390 / 13000 )
+Training progress: sample (14000 / 30000) of epoch (1 / 1) - Elapsed time: 1490.6481 - Running accuracy: 25.63% ( 3588 / 14000 )
+Training progress: sample (15000 / 30000) of epoch (1 / 1) - Elapsed time: 1590.7604 - Running accuracy: 25.18% ( 3776 / 15000 )
+Training progress: sample (16000 / 30000) of epoch (1 / 1) - Elapsed time: 1681.3665 - Running accuracy: 24.80% ( 3967 / 16000 )
+Training progress: sample (17000 / 30000) of epoch (1 / 1) - Elapsed time: 1776.7174 - Running accuracy: 24.32% ( 4135 / 17000 )
+Training progress: sample (18000 / 30000) of epoch (1 / 1) - Elapsed time: 1871.0580 - Running accuracy: 23.98% ( 4317 / 18000 )
+Training progress: sample (19000 / 30000) of epoch (1 / 1) - Elapsed time: 1969.0135 - Running accuracy: 23.53% ( 4470 / 19000 )
+Training progress: sample (20000 / 30000) of epoch (1 / 1) - Elapsed time: 2066.8643 - Running accuracy: 23.21% ( 4641 / 20000 )
+Training progress: sample (21000 / 30000) of epoch (1 / 1) - Elapsed time: 2165.2534 - Running accuracy: 22.97% ( 4824 / 21000 )
+Training progress: sample (22000 / 30000) of epoch (1 / 1) - Elapsed time: 2254.5793 - Running accuracy: 22.66% ( 4986 / 22000 )
+Training progress: sample (23000 / 30000) of epoch (1 / 1) - Elapsed time: 2348.5304 - Running accuracy: 22.39% ( 5150 / 23000 )
+Training progress: sample (24000 / 30000) of epoch (1 / 1) - Elapsed time: 2442.2854 - Running accuracy: 22.20% ( 5327 / 24000 )
+Training progress: sample (25000 / 30000) of epoch (1 / 1) - Elapsed time: 2538.6675 - Running accuracy: 22.08% ( 5520 / 25000 )
+Training progress: sample (26000 / 30000) of epoch (1 / 1) - Elapsed time: 2630.7090 - Running accuracy: 22.04% ( 5729 / 26000 )
+Training progress: sample (27000 / 30000) of epoch (1 / 1) - Elapsed time: 2719.6584 - Running accuracy: 21.97% ( 5931 / 27000 )
+Training progress: sample (28000 / 30000) of epoch (1 / 1) - Elapsed time: 2808.1097 - Running accuracy: 21.99% ( 6156 / 28000 )
+Training progress: sample (29000 / 30000) of epoch (1 / 1) - Elapsed time: 2907.2958 - Running accuracy: 21.90% ( 6352 / 29000 )
+Training progress: sample (30000 / 30000) of epoch (1 / 1) - Elapsed time: 2999.7443 - Running accuracy: 21.87% ( 6561 / 30000 )
+| [0m 41      [0m | [0m 21.87   [0m | [0m 454.8   [0m | [0m 0.0358  [0m | [0m 71.07   [0m | [0m 0.3924  [0m | [0m 10.7    [0m | [0m 1.356   [0m |
+Loading MNIST training samples...
+Progress : 0 / 60000
+Progress : 20000 / 60000
+Progress : 40000 / 60000
+Progress : 60000 / 60000
+Training...
+Training progress: sample (1000 / 30000) of epoch (1 / 1) - Elapsed time: 100.1808 - Running accuracy: 29.83% ( 298 / 1000 )
+Training progress: sample (2000 / 30000) of epoch (1 / 1) - Elapsed time: 198.0933 - Running accuracy: 28.46% ( 569 / 2000 )
+Training progress: sample (3000 / 30000) of epoch (1 / 1) - Elapsed time: 297.3702 - Running accuracy: 32.41% ( 972 / 3000 )
+Training progress: sample (4000 / 30000) of epoch (1 / 1) - Elapsed time: 391.9284 - Running accuracy: 33.81% ( 1352 / 4000 )
+Training progress: sample (5000 / 30000) of epoch (1 / 1) - Elapsed time: 490.2931 - Running accuracy: 36.25% ( 1812 / 5000 )
+Training progress: sample (6000 / 30000) of epoch (1 / 1) - Elapsed time: 598.3233 - Running accuracy: 37.64% ( 2258 / 6000 )
+Training progress: sample (7000 / 30000) of epoch (1 / 1) - Elapsed time: 707.6024 - Running accuracy: 38.51% ( 2695 / 7000 )
+Training progress: sample (8000 / 30000) of epoch (1 / 1) - Elapsed time: 805.5867 - Running accuracy: 38.14% ( 3051 / 8000 )
+Training progress: sample (9000 / 30000) of epoch (1 / 1) - Elapsed time: 910.6281 - Running accuracy: 38.26% ( 3443 / 9000 )
+Training progress: sample (10000 / 30000) of epoch (1 / 1) - Elapsed time: 1009.8918 - Running accuracy: 38.73% ( 3873 / 10000 )
+Training progress: sample (11000 / 30000) of epoch (1 / 1) - Elapsed time: 1116.0923 - Running accuracy: 38.86% ( 4274 / 11000 )
+Training progress: sample (12000 / 30000) of epoch (1 / 1) - Elapsed time: 1222.6663 - Running accuracy: 38.67% ( 4640 / 12000 )
+Training progress: sample (13000 / 30000) of epoch (1 / 1) - Elapsed time: 1330.4259 - Running accuracy: 38.67% ( 5027 / 13000 )
+Training progress: sample (14000 / 30000) of epoch (1 / 1) - Elapsed time: 1441.0394 - Running accuracy: 38.75% ( 5424 / 14000 )
+Training progress: sample (15000 / 30000) of epoch (1 / 1) - Elapsed time: 1552.7697 - Running accuracy: 38.99% ( 5848 / 15000 )
+Training progress: sample (16000 / 30000) of epoch (1 / 1) - Elapsed time: 1657.8316 - Running accuracy: 39.49% ( 6318 / 16000 )
+Training progress: sample (17000 / 30000) of epoch (1 / 1) - Elapsed time: 1765.3190 - Running accuracy: 39.83% ( 6770 / 17000 )
+Training progress: sample (18000 / 30000) of epoch (1 / 1) - Elapsed time: 1869.8316 - Running accuracy: 39.94% ( 7189 / 18000 )
+Training progress: sample (19000 / 30000) of epoch (1 / 1) - Elapsed time: 1976.1742 - Running accuracy: 40.09% ( 7616 / 19000 )
+Training progress: sample (20000 / 30000) of epoch (1 / 1) - Elapsed time: 2086.0902 - Running accuracy: 40.13% ( 8025 / 20000 )
+Training progress: sample (21000 / 30000) of epoch (1 / 1) - Elapsed time: 2197.4981 - Running accuracy: 40.10% ( 8421 / 21000 )
+Training progress: sample (22000 / 30000) of epoch (1 / 1) - Elapsed time: 2304.8624 - Running accuracy: 40.11% ( 8823 / 22000 )
+Training progress: sample (23000 / 30000) of epoch (1 / 1) - Elapsed time: 2412.0056 - Running accuracy: 39.95% ( 9188 / 23000 )
+Training progress: sample (24000 / 30000) of epoch (1 / 1) - Elapsed time: 2520.3810 - Running accuracy: 39.87% ( 9568 / 24000 )
+Training progress: sample (25000 / 30000) of epoch (1 / 1) - Elapsed time: 2626.1870 - Running accuracy: 39.90% ( 9975 / 25000 )
+Training progress: sample (26000 / 30000) of epoch (1 / 1) - Elapsed time: 2731.8897 - Running accuracy: 39.94% ( 10385 / 26000 )
+Training progress: sample (27000 / 30000) of epoch (1 / 1) - Elapsed time: 2833.8766 - Running accuracy: 40.04% ( 10810 / 27000 )
+Training progress: sample (28000 / 30000) of epoch (1 / 1) - Elapsed time: 2937.9861 - Running accuracy: 40.10% ( 11227 / 28000 )
+Training progress: sample (29000 / 30000) of epoch (1 / 1) - Elapsed time: 3046.4659 - Running accuracy: 40.18% ( 11651 / 29000 )
+Training progress: sample (30000 / 30000) of epoch (1 / 1) - Elapsed time: 3152.6382 - Running accuracy: 40.30% ( 12091 / 30000 )

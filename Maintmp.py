@@ -68,12 +68,12 @@ def train(
                     ),
                     end="",
                 )
-                plotWeights(
-                    ReshapeWeights(network.synapse.w, n_output_neurons)[0],
-                    network.synapse.wmax,
-                    network.synapse.wmin,
-                    title="idx_%d" % (idx + 1),
-                )
+                # plotWeights(
+                #     ReshapeWeights(network.synapse.w, n_output_neurons)[0],
+                #     network.synapse.wmax,
+                #     network.synapse.wmin,
+                #     title="idx_%d" % (idx + 1),
+                # )
                 network.save()
             network.UpdateCurrentSample()
     return network, (correct / idx) * 100
