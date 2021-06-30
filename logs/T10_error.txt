@@ -4,12 +4,3 @@ loaded as requested: "mvapich2"
 
 
 
-Traceback (most recent call last):
-  File "/scratch/jcu/cl/SNN-GrapheneSynapses/Test_10.py", line 54, in <module>
-    det_training_accuracy=det_training_accuracy,
-  File "/scratch/jcu/cl/SNN-GrapheneSynapses/Maintmp.py", line 72, in train
-    ReshapeWeights(network.synapse.w, n_output_neurons)[0],
-  File "/scratch/jcu/cl/SNN-GrapheneSynapses/Plotting.py", line 61, in ReshapeWeights
-    (1, 28 * cols),
-RuntimeError: shape '[1, 140]' is invalid for input of size 0
-srun: error: gpunode-0-9: task 0: Exited with exit code 1
