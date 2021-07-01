@@ -13,7 +13,7 @@ def black_box_function(tau, R, gamma, v_th_max, fixed_inhibition_current):
     purposes think of the internals of this function, i.e.: the process
     which generates its output values, as unknown.
     """
-    n_output_neurons = 10
+    n_output_neurons = 300
     dt = 0.2e-3
     image_duration = 0.05
     n_samples_train = 20000

@@ -65,19 +65,18 @@ def getMNIST(
             shuffle=True,
         )
         if load_validation_samples and validation_samples > 0:
-            validation_images, validation_labels = (
-                train_images[-validation_samples:],
-                train_labels[-validation_samples:],
-            )
-            train_images, train_labels = (
-                train_images[0 : train_labels.numel() - validation_samples],
-                train_labels[0 : train_labels.numel() - validation_samples],
-            )
+            validation_images = train_images[-validation_samples:]
+            validation_labels = train_labels[-validation_samples:]
+            train_images = train_images[0 : train_labels.numel() - validation_samples]
+            train_labels = train_labels[0 : train_labels.numel() - validation_samples]
         else:
-            validation_images, validation_labels = (None, None)
+            validation_images = None
+            validation_labels = None
     else:
-        validation_images, validation_labels = (None, None)
-        train_images, train_labels = (None, None)
+        validation_images = None
+        validation_labels = None
+        train_images = None
+        train_labels = None
 
     if load_test_samples:
         test_images, test_labels = unpack_MNIST_samples(
@@ -90,7 +89,8 @@ def getMNIST(
             shuffle=False,
         )
     else:
-        test_images, test_labels = (None, None)
+        test_images = None
+        test_labels = None
 
     return (
         (
@@ -99,7 +99,7 @@ def getMNIST(
         ),
         (
             validation_images,
-            validation_samples,
+            validation_labels,
         ),
         (
             test_images,
@@ -120,5 +120,5 @@ if __name__ == "__main__":
     print(train_data[1].shape)
     print(validation_data[0].shape)
     print(validation_data[1].shape)
-    print(test_data.shape[0].shape)
-    print(test_data.shape[1].shape)
+    print(test_data[0].shape)
+    print(test_data[1].shape)
