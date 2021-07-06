@@ -30,8 +30,8 @@ def train(
     assert n_samples >= 0 and n_samples <= 60000, "Invalid n_samples value."
     print("Loading MNIST training samples...")
     if import_samples:
-        training_data = np.load("train_images.npy")
-        training_labels = np.load("train_labels.npy")
+        training_data = torch.load("train_images.pt")
+        training_labels = torch.load("train_labels.pt")
     else:
         training_data, training_labels = getMNIST(
             lower_freq=lower_freq,
@@ -98,12 +98,12 @@ def test(
         print("Loading MNIST test samples...")
     if import_samples:
         if use_validation_set:
-            test_data = np.load("validation_images.npy")
-            test_labels = np.load("validation_labels.npy")
+            test_data = torch.load("validation_images.pt")
+            test_labels = torch.load("validation_labels.pt")
             print("Validating...")
         else:
-            test_data = np.load("test_images.npy")
-            test_labels = np.load("test_labels.npy")
+            test_data = torch.load("test_images.pt")
+            test_labels = torch.load("test_labels.pt")
             print("Testing...")
     else:
         MNIST_samples = getMNIST(

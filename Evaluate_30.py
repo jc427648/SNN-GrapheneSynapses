@@ -30,18 +30,19 @@ if __name__ == "__main__":
     )
     network = train(
         network,
-        n_output_neurons,
         dt,
         image_duration,
         n_samples=n_samples_train,
         log_interval=log_interval,
+        import_samples=True,
     )[0]
-    validation_accuracy = test(
+    test_set_accuracy = test(
         network,
         dt,
         image_duration=image_duration,
         n_samples=n_samples_test,
         use_validation_set=False,
         log_interval=log_interval,
+        import_samples=True,
     )
-    print(validation_accuracy)
+    print(test_set_accuracy)

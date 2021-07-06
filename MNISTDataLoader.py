@@ -78,7 +78,7 @@ def getMNIST(
                 test_size=validation_samples / 60000,
                 random_state=1,
                 shuffle=True,
-                stratify=True,
+                stratify=train_labels,
             )
         else:
             validation_images = None
@@ -103,17 +103,17 @@ def getMNIST(
         test_images = None
         test_labels = None
 
-    if load_train_samples:
-        np.save("train_images.npy", train_images)
-        np.save("train_labels.npy", train_labels)
+    if load_train_samples and export_to_disk:
+        torch.save(train_images, "train_images.pt")
+        torch.save(train_labels, "train_labels.pt")
 
-    if load_validation_samples:
-        np.save("validation_images.npy", validation_images)
-        np.save("validation_labels.npy", validation_labels)
+    if load_validation_samples and export_to_disk:
+        torch.save(validation_images, "validation_images.pt")
+        torch.save(validation_labels, "validation_labels.pt")
 
-    if load_test_samples:
-        np.save("test_images.npy", test_images)
-        np.save("test_labels.npy", test_labels)
+    if load_test_samples and export_to_disk:
+        torch.save(test_images, "test_images.pt")
+        torch.save(test_labels, "test_labels.pt")
 
     return (
         (

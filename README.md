@@ -19,8 +19,3 @@ sbatch SNN-GrapheneSynapses.sh
 ```
 
 ## Current Running Jobs
-1. `376893` -- SNN-GrapheneSynapses_10.sh.
-2. `376894` -- SNN-GrapheneSynapses_30.sh.
-3. `376895` -- SNN-GrapheneSynapses_100.sh.
-4. `376896` -- SNN-GrapheneSynapses_300.sh.
-5. `377848` -- SNN-GrapheneSynapses_30T.sh.
