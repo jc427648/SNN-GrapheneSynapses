@@ -16,8 +16,8 @@ def black_box_function(tau, R, gamma, v_th_max, fixed_inhibition_current):
     n_output_neurons = 30
     dt = 0.2e-3
     image_duration = 0.05
-    n_samples_train = 20000
-    n_samples_validate = 5000
+    n_samples_train = 50000
+    n_samples_validate = 10000
     log_interval = 1000
     network = Network(
         n_output_neurons=n_output_neurons,
@@ -38,6 +38,7 @@ def black_box_function(tau, R, gamma, v_th_max, fixed_inhibition_current):
         image_duration,
         n_samples=n_samples_train,
         log_interval=log_interval,
+        import_samples=True,
     )[0]
     validation_accuracy = test(
         network,
@@ -46,6 +47,7 @@ def black_box_function(tau, R, gamma, v_th_max, fixed_inhibition_current):
         n_samples=n_samples_validate,
         use_validation_set=True,
         log_interval=log_interval,
+        import_samples=True,
     )
     return validation_accuracy
 
