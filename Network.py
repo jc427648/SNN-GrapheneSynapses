@@ -21,6 +21,7 @@ class Network:
         v_th_max=50,
         fixed_inhibition_current=-1.0,
         dt=0.2e-3,
+        output_dir="output",
     ):
         self.synapse = STDPSynapse(n_output_neurons, wmin=-45e-3, wmax=45e-3)
         self.group = LIFNeuronGroup(
@@ -35,6 +36,7 @@ class Network:
         )
         self.fixed_inhibition_current = fixed_inhibition_current
         self.dt = dt
+        self.output_dir = output_dir
         self.n_output_neurons = n_output_neurons
         self.n_samples_memory = n_samples_memory
         self.current_sample = 0
@@ -90,13 +92,13 @@ class Network:
                     self.synapse.depress(DeltaTN, Neur, self.STDPWindow)
 
                 # Update activity
-                self.Activity[:, self.current_sample] += self.group.s #Important to track all spiking activity
+                self.Activity[
+                    :, self.current_sample
+                ] += self.group.s  # Important to track all spiking activity
                 self.sumAct = torch.sum(self.Activity, dim=1)
                 # Update inhibition
                 self.InhibCtr[torch.logical_not(self.group.s)] = i_p_w
                 self.InhibVec = torch.multiply(self.InhibCtr > 0, inhib)
-
-
 
     def genSpkTrain(self, image, time):
         # Generate Poissonian spike times to input into the network. Note time is integer.
@@ -116,15 +118,15 @@ class Network:
         # Sets the assignment number for the particular label
         self.Assignment[:, label] += self.Activity[:, self.current_sample]
 
-    def save(self, path="output/model.pt"):
+    def save(self, path="model.pt"):
         d = {}
         d["synapse_w"] = self.synapse.w
         d["group_vth"] = self.group.Vth
         d["assignments"] = self.Assignment
-        pickle.dump(d, open(path, "wb"))
+        pickle.dump(d, open(os.path.join(self.output_dir, path), "wb"))
 
-    def load(self, path="output/model.pt"):
-        d = pickle.load(open(path, "rb"))
+    def load(self, path="model.pt"):
+        d = pickle.load(open(os.path.join(self.output_dir, path), "rb"))
         self.synapse.w = d["synapse_w"]
         self.group.Vth = d["group_vth"]
         self.Assignment = d["assignments"]
@@ -140,7 +142,9 @@ class Network:
             spikes, spike_times, image_duration, update_parameters=update_parameters
         )
         if update_parameters:
-            self.setAssignment(label) #You only when update neuron when assignments when training, not testing.
+            self.setAssignment(
+                label
+            )  # You only when update neuron when assignments when training, not testing.
 
     def detPredictedLabel(self):
         return self.Assignment.max(dim=1)[1][
@@ -148,11 +152,11 @@ class Network:
         ].item()
 
     def OverwriteActivity(self):
-        #This function will overWrite the activity from n_memory_samples ago.
-        self.sumAct -= self.Activity[:,self.current_sample]
-        self.Activity[:,self.current_sample] = torch.zeros(self.n_output_neurons)
-    
+        # This function will overWrite the activity from n_memory_samples ago.
+        self.sumAct -= self.Activity[:, self.current_sample]
+        self.Activity[:, self.current_sample] = torch.zeros(self.n_output_neurons)
+
     def UpdateCurrentSample(self):
         self.current_sample += 1
         if self.current_sample == self.n_samples_memory:
-           self.current_sample = 0
+            self.current_sample = 0

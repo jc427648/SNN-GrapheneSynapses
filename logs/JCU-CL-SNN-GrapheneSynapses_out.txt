@@ -1,9 +1,0 @@
-Initializing...
-Progress : 0 / 60000
-Progress : 10000 / 60000
-Progress : 20000 / 60000
-Progress : 30000 / 60000
-Progress : 40000 / 60000
-Progress : 50000 / 60000
-Progress : 60000 / 60000 
-
