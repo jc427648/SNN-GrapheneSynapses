@@ -5,6 +5,7 @@ import numpy as np
 import sklearn
 import torch
 from joblib import Parallel, delayed
+from sklearn.model_selection import train_test_split
 
 
 def unpack_MNIST_samples(
@@ -52,6 +53,7 @@ def getMNIST(
     load_validation_samples=False,  # Load validation samples
     load_test_samples=False,  # Load test samples
     validation_samples=0,  # Number of samples used to construct the validation set
+    export_to_disk=True,
 ):
     # Get MNIST samples and their corresponding labels
     if load_train_samples or load_validation_samples:
@@ -65,10 +67,19 @@ def getMNIST(
             shuffle=True,
         )
         if load_validation_samples and validation_samples > 0:
-            validation_images = train_images[-validation_samples:]
-            validation_labels = train_labels[-validation_samples:]
-            train_images = train_images[0 : train_labels.numel() - validation_samples]
-            train_labels = train_labels[0 : train_labels.numel() - validation_samples]
+            (
+                train_images,
+                validation_images,
+                train_labels,
+                validation_labels,
+            ) = train_test_split(
+                train_images,
+                train_labels,
+                test_size=validation_samples / 60000,
+                random_state=1,
+                shuffle=True,
+                stratify=True,
+            )
         else:
             validation_images = None
             validation_labels = None
@@ -91,6 +102,18 @@ def getMNIST(
     else:
         test_images = None
         test_labels = None
+
+    if load_train_samples:
+        np.save("train_images.npy", train_images)
+        np.save("train_labels.npy", train_labels)
+
+    if load_validation_samples:
+        np.save("validation_images.npy", validation_images)
+        np.save("validation_labels.npy", validation_labels)
+
+    if load_test_samples:
+        np.save("test_images.npy", test_images)
+        np.save("test_labels.npy", test_labels)
 
     return (
         (
@@ -115,6 +138,7 @@ if __name__ == "__main__":
         load_validation_samples=True,
         load_test_samples=True,
         validation_samples=10000,
+        export_to_disk=True,
     )
     print(train_data[0].shape)
     print(train_data[1].shape)
