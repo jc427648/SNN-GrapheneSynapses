@@ -16,7 +16,6 @@ import os
 
 def train(
     network,
-    n_output_neurons=30,
     dt=0.2e-3,
     image_duration=0.05,
     n_epochs=1,

@@ -34,7 +34,6 @@ def black_box_function(tau, R, gamma, v_th_max, fixed_inhibition_current):
     )
     network = train(
         network,
-        n_output_neurons,
         dt,
         image_duration,
         n_samples=n_samples_train,
@@ -42,7 +41,6 @@ def black_box_function(tau, R, gamma, v_th_max, fixed_inhibition_current):
     )[0]
     validation_accuracy = test(
         network,
-        n_output_neurons,
         dt,
         image_duration=image_duration,
         n_samples=n_samples_validate,
