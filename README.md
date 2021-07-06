@@ -19,3 +19,4 @@ sbatch SNN-GrapheneSynapses.sh
 ```
 
 ## Current Running Jobs
+1. `378264` `MNISTDataLoader.py` and `BayesianOptimization_30.py`.
