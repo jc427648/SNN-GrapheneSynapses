@@ -38,6 +38,7 @@ def black_box_function(tau, R, gamma, v_th_max, fixed_inhibition_current):
         image_duration,
         n_samples=n_samples_train,
         log_interval=log_interval,
+        import_samples=True,
     )[0]
     validation_accuracy = test(
         network,
@@ -46,6 +47,7 @@ def black_box_function(tau, R, gamma, v_th_max, fixed_inhibition_current):
         n_samples=n_samples_validate,
         use_validation_set=True,
         log_interval=log_interval,
+        import_samples=True,
     )
     return validation_accuracy
 

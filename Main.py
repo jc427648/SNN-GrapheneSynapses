@@ -25,18 +25,24 @@ def train(
     n_samples=60000,
     log_interval=1000,
     det_training_accuracy=True,
+    import_samples=False,
 ):
     assert n_samples >= 0 and n_samples <= 60000, "Invalid n_samples value."
     print("Loading MNIST training samples...")
-    training_data, training_labels = getMNIST(
-        lower_freq=lower_freq,
-        upper_freq=upper_freq,
-        threshold=image_threshold,
-        dt=dt,
-        load_train_samples=True,
-        load_validation_samples=False,
-        load_test_samples=False,
-    )[0]
+    if import_samples:
+        training_data = np.load("train_images.npy")
+        training_labels = np.load("train_labels.npy")
+    else:
+        training_data, training_labels = getMNIST(
+            lower_freq=lower_freq,
+            upper_freq=upper_freq,
+            threshold=image_threshold,
+            dt=dt,
+            load_train_samples=True,
+            load_validation_samples=False,
+            load_test_samples=False,
+        )[0]
+
     print("Training...")
     correct = 0
     start_time = timeit.default_timer()
@@ -83,29 +89,39 @@ def test(
     n_samples=10000,
     use_validation_set=False,  # Whether or not to load.use the validation set
     log_interval=1000,
+    import_samples=False,
 ):
     assert n_samples >= 0 and n_samples <= 10000, "Invalid n_samples value."
     if use_validation_set:
         print("Loading MNIST validation samples...")
     else:
         print("Loading MNIST test samples...")
-
-    MNIST_samples = getMNIST(
-        lower_freq=lower_freq,
-        upper_freq=upper_freq,
-        threshold=image_threshold,
-        dt=dt,
-        load_train_samples=False,
-        load_validation_samples=use_validation_set,
-        load_test_samples=not use_validation_set,
-        validation_samples=n_samples,
-    )
-    if use_validation_set:
-        test_data, test_labels = MNIST_samples[1]
-        print("Validating...")
+    if import_samples:
+        if use_validation_set:
+            test_data = np.load("validation_images.npy")
+            test_labels = np.load("validation_labels.npy")
+            print("Validating...")
+        else:
+            test_data = np.load("test_images.npy")
+            test_labels = np.load("test_labels.npy")
+            print("Testing...")
     else:
-        test_data, test_labels = MNIST_samples[2]
-        print("Testing...")
+        MNIST_samples = getMNIST(
+            lower_freq=lower_freq,
+            upper_freq=upper_freq,
+            threshold=image_threshold,
+            dt=dt,
+            load_train_samples=False,
+            load_validation_samples=use_validation_set,
+            load_test_samples=not use_validation_set,
+            validation_samples=n_samples,
+        )
+        if use_validation_set:
+            test_data, test_labels = MNIST_samples[1]
+            print("Validating...")
+        else:
+            test_data, test_labels = MNIST_samples[2]
+            print("Testing...")
 
     correct = 0
     predicted_labels = []
