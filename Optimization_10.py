@@ -1,18 +1,29 @@
-# https://github.com/fmfn/BayesianOptimization
-import bayes_opt
-from bayes_opt import BayesianOptimization
+# https://optuna.org/
 from Network import Network
 from Main import train, test
 import os
+import optuna
+from optuna.trial import TrialState
 
+# •	n_samples_memory = 100
+# •	Ve = 0.0
+# •	tau = 0.002
+# •	R = 20
+# •	gamma = 0.0005
+# •	target activity = 10
+# •	VthMin = 0.01
+# •	VthMax = 1
+# •	fixed inhibition current = -0.85
 
-def black_box_function(tau, R, gamma, v_th_max, fixed_inhibition_current):
-    """Function with unknown internals we wish to maximize.
-
-    This is just serving as an example, for all intents and
-    purposes think of the internals of this function, i.e.: the process
-    which generates its output values, as unknown.
+def objective(trial):
+    """ Function with unknown internals we wish to maximize.
     """
+
+    optimizer_name = trial.suggest_categorical("optimizer", ["Adam", "RMSprop", "SGD"])
+    lr = trial.suggest_float("lr", 1e-5, 1e-1, log=True)
+
+
+
     n_output_neurons = 30
     dt = 0.2e-3
     image_duration = 0.05
@@ -53,6 +64,30 @@ def black_box_function(tau, R, gamma, v_th_max, fixed_inhibition_current):
 
 
 if __name__ == "__main__":
+    # Parameters
+    n_output_neurons = 10
+
+
+
+
+    study = optuna.create_study(direction="maximize")
+    study.optimize(objective, n_trials=100)
+    pruned_trials = study.get_trials(deepcopy=False, states=[TrialState.PRUNED])
+    complete_trials = study.get_trials(deepcopy=False, states=[TrialState.COMPLETE])
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     # Bounded region of parameter space
     pbounds = {
         "tau": (0.01, 0.2),

@@ -140,9 +140,3 @@ if __name__ == "__main__":
         validation_samples=10000,
         export_to_disk=True,
     )
-    print(train_data[0].shape)
-    print(train_data[1].shape)
-    print(validation_data[0].shape)
-    print(validation_data[1].shape)
-    print(test_data[0].shape)
-    print(test_data[1].shape)

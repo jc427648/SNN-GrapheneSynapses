@@ -4,17 +4,17 @@ import os
 
 
 if __name__ == "__main__":
-    n_output_neurons = 30
+    n_output_neurons = 100
     dt = 0.2e-3
     image_duration = 0.05
     n_samples_train = 60000
     n_samples_test = 10000
     log_interval = 1000
-    R = 999.3670475732349
-    fixed_inhibition_current = -0.8506349410078146
-    gamma = 0.01889405435302123
-    tau = 0.1249809832553554
-    v_th_max = 49.903031695016146
+    R = 278.89592139791523
+    fixed_inhibition_current = -1.0
+    gamma = 0.030239527895736668
+    tau = 0.10451865990872834
+    v_th_max = 35.79319688022842
     network = Network(
         n_output_neurons=n_output_neurons,
         n_samples_memory=n_output_neurons,
