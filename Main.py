@@ -12,6 +12,7 @@ import time
 import timeit
 import random
 import os
+import optuna
 
 
 def train(
@@ -26,6 +27,7 @@ def train(
     log_interval=1000,
     det_training_accuracy=True,
     import_samples=False,
+    trial=None,
 ):
     assert n_samples >= 0 and n_samples <= 60000, "Invalid n_samples value."
     print("Loading MNIST training samples...")
@@ -50,7 +52,8 @@ def train(
         for idx in range(n_samples):
             image, label = training_data[idx], training_labels[idx].item()
             network.OverwriteActivity()
-            network.presentImage(image, label, image_duration, update_parameters=True)
+            network.presentImage(
+                image, label, image_duration, update_parameters=True)
             if det_training_accuracy and label == network.detPredictedLabel():
                 correct += 1
             if (idx + 1) % log_interval == 0:
@@ -76,7 +79,16 @@ def train(
                     end="",
                 )
             network.UpdateCurrentSample()
-    return network, (correct / idx) * 100
+
+        if trial is not None:
+            trial.report((correct / idx) * 100, epoch)
+            if trial.should_prune():
+                raise optuna.exceptions.TrialPruned()
+
+    if trial is not None:
+        return network, (correct / idx) * 100, trial
+    else:
+        return network, (correct / idx) * 100
 
 
 def test(
@@ -90,6 +102,8 @@ def test(
     use_validation_set=False,  # Whether or not to load.use the validation set
     log_interval=1000,
     import_samples=False,
+
+
 ):
     assert n_samples >= 0 and n_samples <= 10000, "Invalid n_samples value."
     if use_validation_set:
@@ -129,7 +143,8 @@ def test(
     for idx in range(n_samples):
         image, label = test_data[idx], test_labels[idx].item()
         network.OverwriteActivity()
-        network.presentImage(image, label, image_duration, update_parameters=False)
+        network.presentImage(image, label, image_duration,
+                             update_parameters=False)
         predicted_label = network.detPredictedLabel()
         predicted_labels.append(predicted_label)
         if label == predicted_label:

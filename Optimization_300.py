@@ -61,7 +61,7 @@ def objective(trial, n_output_neurons):
 
 
 if __name__ == "__main__":
-    n_output_neurons = 10
+    n_output_neurons = 300
     sampler = optuna.samplers.TPESampler(seed=0)  # To ensure reproducibility
     run = neptune.init(api_token=os.getenv("NEPTUNE_API_TOKEN"),
                        project='JCU-NICE/SNN-Optimization')
