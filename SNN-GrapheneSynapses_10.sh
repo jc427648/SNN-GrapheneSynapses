@@ -10,7 +10,5 @@
 #SBATCH -e logs/10_error.txt
 module load anaconda/3.6
 source activate /scratch/jcu/cl/.conda/memtorch
-module load cuda/11.1.1
 module load gnu8/8.4.0
-module load mvapich2
 srun python3 /scratch/jcu/cl/SNN-GrapheneSynapses/Optimization_10.py
