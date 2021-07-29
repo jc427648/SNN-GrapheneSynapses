@@ -1,18 +1,17 @@
 #!/bin/bash
-#SBATCH -N 1
-#SBATCH --job-name=JCU-CL-SNN-GrapheneSynapses_Load_MNIST
-#SBATCH --mail-user=corey.lammie@jcu.edu.au 
-#SBATCH --mail-type=END
-#SBATCH -n 1
-#SBATCH -c 1
-#SBATCH --mem=50g
-#SBATCH -o logs/Load_MNIST_out.txt
-#SBATCH -e logs/Load_MNIST_error.txt
-#SBATCH --partition=gpu
-#SBATCH --gres=gpu:tesla:1
-module load anaconda/3.6
-source activate /scratch/jcu/cl/.conda/memtorch
-module load cuda/11.1.1
-module load gnu8/8.4.0
-module load mvapich2
-srun python3 /scratch/jcu/cl/SNN-GrapheneSynapses/MNISTDataLoader.py
+### qstat -f -Q
+#PBS -N SNN-GrapheneSynapses_MNISTDataLoader
+#PBS -P JCU-SNN
+#PBS -o /scratch/user/coreylammie/SNN-GrapheneSynapses/logs/SNN-GrapheneSynapses_MNISTDataLoader_out.txt
+#PBS -e /scratch/user/coreylammie/SNN-GrapheneSynapses/logs/SNN-GrapheneSynapses_MNISTDataLoader_error.txt
+#PBS -q Short
+#PBS -l walltime=2:00:00
+#PBS -l select=1:mem=1gb:ncpus=1:mpiprocs=1
+#PBS -m abe
+#PBS -M corey.lammie@jcu.edu.au
+
+module load anaconda/2020.02
+source /sw/RCC/Anaconda/2020.02/etc/profile.d/conda.sh
+conda activate /scratch/user/coreylammie/conda_env
+cd /scratch/user/coreylammie/SNN-GrapheneSynapses/
+python MNISTDataLoader.py

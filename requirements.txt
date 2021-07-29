@@ -1,10 +1,9 @@
 sklearn
 numpy
 pandas
-timeit
-struct
-pickle
-bayesian-optimization
+optuna
+neptune-client[optuna]
 torch
+torchvision
 
 

@@ -1,0 +1,18 @@
+########################### Execution Started #############################
+JobId:732886.awonmgr2
+UserName:coreylammie
+GroupName:qris-jcu
+ExecutionHost:aw028
+###############################################################################
+########################### Job Execution History #############################
+JobId:732886.awonmgr2
+UserName:coreylammie
+GroupName:qris-jcu
+JobName:SNN-GrapheneSynapses_MNISTDataLoader
+SessionId:91589
+ResourcesRequested:mem=1gb,ncpus=1,place=free,walltime=02:00:00
+ResourcesUsed:cpupercent=27,cput=00:00:38,mem=361092kb,ncpus=1,vmem=1344060kb,walltime=00:01:19
+QueueUsed:Short
+AccountString:qris-jcu
+ExitStatus:0
+###############################################################################
