@@ -12,6 +12,7 @@ import neptune.new.integrations.optuna as optuna_utils
 def objective(trial, n_output_neurons):
     """ Function with unknown internals we wish to maximize.
     """
+    joblib.dump(study, "%03d.pkl" % n_output_neurons)
     tau = trial.suggest_float("tau", 1e-6, 1e-3, log=True)
     R = trial.suggest_float("R", 1, 100)
     gamma = trial.suggest_float("gamma", 1e-7, 1e-4, log=True)

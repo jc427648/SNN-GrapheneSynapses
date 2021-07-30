@@ -7,8 +7,7 @@
 #PBS -q Short
 #PBS -l walltime=2:00:00
 #PBS -l select=1:mem=1gb:ncpus=1:mpiprocs=1
-#PBS -m abe
-#PBS -M corey.lammie@jcu.edu.au
+#PBS -m abe -M corey.lammie@jcu.edu.au
 
 module load anaconda/2020.02
 source /sw/RCC/Anaconda/2020.02/etc/profile.d/conda.sh

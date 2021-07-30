@@ -1,9 +1,9 @@
 sklearn
+matplotlib
+seaborn
 numpy
 pandas
 optuna
 neptune-client[optuna]
 torch
 torchvision
-
-
