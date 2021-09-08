@@ -1,3 +1,10 @@
 Lib/
 Scripts/
 Include/
+__pycache__/
+.pyc
+.cfg
+.pt
+*.pt
+.vscode/
+.neptune/
