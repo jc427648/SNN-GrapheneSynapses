@@ -1,5 +1,4 @@
-from Plotting import plot_confusion_matrix, plotWeights, ReshapeWeights
-from MNISTDataLoader import getMNIST
+# from Plotting import plot_confusion_matrix, plotWeights, ReshapeWeights
 from STDPsynapses import STDPSynapse, LIFNeuronGroup
 from Network import Network
 import sklearn
@@ -12,7 +11,14 @@ import time
 import timeit
 import random
 import os
+import sys
 import optuna
+
+current = os.path.dirname(os.path.realpath(__file__))
+parent = os.path.dirname(current)
+sys.path.append(parent)
+
+from MNISTDataLoader import getMNIST
 
 
 def train(

@@ -6,6 +6,7 @@ import sklearn
 import torch
 from joblib import Parallel, delayed
 from sklearn.model_selection import train_test_split
+from set_all_seeds import set_all_seeds
 
 
 def unpack_MNIST_samples(
@@ -18,7 +19,8 @@ def unpack_MNIST_samples(
     labels.read(4)  # magic number
     n_labels = unpack(">I", labels.read(4))[0]
     assert n_images == n_labels, "Number of labels did not match number of images."
-    X = torch.zeros((n_images, rows, cols), dtype=torch.uint8)  # Store all images
+    X = torch.zeros((n_images, rows, cols),
+                    dtype=torch.uint8)  # Store all images
     y = torch.zeros((n_images, 1), dtype=torch.uint8)
 
     def extract_sample(i):
@@ -32,7 +34,8 @@ def unpack_MNIST_samples(
         )
         y[i] = unpack(">B", labels.read(1))[0]
 
-    Parallel(require="sharedmem")(delayed(extract_sample)(i) for i in range(n_images))
+    Parallel(require="sharedmem")(delayed(extract_sample)(i)
+                                  for i in range(n_images))
     print("Progress :", n_images, "/", n_images)
     X = X.reshape([n_images, 784])
     lower_period = 1 / lower_freq
@@ -132,11 +135,10 @@ def getMNIST(
 
 
 if __name__ == "__main__":
-    # Validate operation
+    set_all_seeds(0)
     (train_data, validation_data, test_data) = getMNIST(
         load_train_samples=True,
-        load_validation_samples=True,
-        load_test_samples=True,
-        validation_samples=10000,
+        load_validation_samples=False,
+        load_test_samples=False,
         export_to_disk=True,
     )

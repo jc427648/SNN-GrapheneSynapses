@@ -1,15 +1,17 @@
 from Network import Network
 from Main import train, test
 import os
+from set_all_seeds import set_all_seeds
 
 
 if __name__ == "__main__":
-    n_output_neurons = 100
+    set_all_seeds(0)
+    n_output_neurons = 10
     dt = 0.2e-3
     image_duration = 0.05
-    n_samples_train = 60000
-    n_samples_test = 10000
-    log_interval = 1000
+    n_samples_train = 100
+    # n_samples_test = 10000
+    log_interval = 1
     R = 278.89592139791523
     fixed_inhibition_current = -1.0
     gamma = 0.030239527895736668
@@ -28,21 +30,21 @@ if __name__ == "__main__":
         fixed_inhibition_current=fixed_inhibition_current,
         dt=dt,
     )
-    network = train(
+    network, train_set_accuracy = train(
         network,
         dt,
         image_duration,
         n_samples=n_samples_train,
         log_interval=log_interval,
         import_samples=True,
-    )[0]
-    test_set_accuracy = test(
-        network,
-        dt,
-        image_duration=image_duration,
-        n_samples=n_samples_test,
-        use_validation_set=False,
-        log_interval=log_interval,
-        import_samples=True,
     )
-    print(test_set_accuracy)
+    # test_set_accuracy = test(
+    #     network,
+    #     dt,
+    #     image_duration=image_duration,
+    #     n_samples=n_samples_test,
+    #     use_validation_set=False,
+    #     log_interval=log_interval,
+    #     import_samples=True,
+    # )
+    # print(test_set_accuracy)
