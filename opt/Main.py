@@ -94,7 +94,7 @@ def train(
     if trial is not None:
         return network, (correct / idx) * 100, trial
     else:
-        return network, (correct / idx) * 100
+        return network  # , (correct / idx) * 100
 
 
 def test(

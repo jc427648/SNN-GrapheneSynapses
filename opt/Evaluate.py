@@ -9,9 +9,9 @@ if __name__ == "__main__":
     n_output_neurons = 10
     dt = 0.2e-3
     image_duration = 0.05
-    n_samples_train = 100
+    n_samples_train = 1
     # n_samples_test = 10000
-    log_interval = 1
+    log_interval = 10
     R = 1000
     fixed_inhibition_current = -1.0
     Ve = 0.0
@@ -32,7 +32,7 @@ if __name__ == "__main__":
         fixed_inhibition_current=fixed_inhibition_current,
         dt=dt,
     )
-    network, train_set_accuracy = train(
+    network = train(
         network,
         dt,
         image_duration,
@@ -40,6 +40,7 @@ if __name__ == "__main__":
         log_interval=log_interval,
         import_samples=True,
     )
+    # print(network.Activity)
     # test_set_accuracy = test(
     #     network,
     #     dt,

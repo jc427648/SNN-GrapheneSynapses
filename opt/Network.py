@@ -72,7 +72,8 @@ class Network:
             self.current = torch.sum(currentMat, 1)
             self.current += self.InhibVec
             # Decrement the current pulse widths.
-            self.group.step(self.dt, self.current, self.sumAct, update_parameters)
+            self.group.step(self.dt, self.current,
+                            self.sumAct, update_parameters)
             self.CurrCtr -= self.dt
             self.InhibCtr -= self.dt
             if torch.sum(self.group.s) > 0:
@@ -85,7 +86,8 @@ class Network:
                         0
                     ]  # 400 should be some variable
                     DeltaTP = 1e3 * self.dt * DeltaTP
-                    DeltaTN = torch.where(DeltaT < 0, DeltaT, -400).max(axis=0)[0]
+                    DeltaTN = torch.where(
+                        DeltaT < 0, DeltaT, -400).max(axis=0)[0]
                     DeltaTN = 1e3 * self.dt * DeltaTN
                     Neur = torch.unsqueeze(self.group.s, 1)
                     self.synapse.potentiate(DeltaTP, Neur, self.STDPWindow)
@@ -107,11 +109,13 @@ class Network:
         time = int(time / self.dt)  # Convert to integer
         # Make the spike data.
         m = torch.distributions.Poisson(image)
-        spike_times = torch.cumsum(m.sample(sample_shape=(time,)).long(), dim=0)
+        spike_times = torch.cumsum(
+            m.sample(sample_shape=(time,)).long(), dim=0)
         spike_times[spike_times >= time] = 0
         spikes = torch.zeros([time, n_input])
         spikes[spike_times[np.arange(time), 1:], np.arange(n_input)[1:]] = 1
         # Return the input spike occurrence matrix.
+        print(spikes)
         return (spikes, spike_times)
 
     def setAssignment(self, label):
@@ -148,13 +152,15 @@ class Network:
 
     def detPredictedLabel(self):
         return self.Assignment.max(dim=1)[1][
-            torch.max(self.Activity[:, self.current_sample], 0, keepdims=True)[1].item()
+            torch.max(self.Activity[:, self.current_sample], 0, keepdims=True)[
+                1].item()
         ].item()
 
     def OverwriteActivity(self):
         # This function will overWrite the activity from n_memory_samples ago.
         self.sumAct -= self.Activity[:, self.current_sample]
-        self.Activity[:, self.current_sample] = torch.zeros(self.n_output_neurons)
+        self.Activity[:, self.current_sample] = torch.zeros(
+            self.n_output_neurons)
 
     def UpdateCurrentSample(self):
         self.current_sample += 1

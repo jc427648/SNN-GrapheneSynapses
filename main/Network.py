@@ -15,7 +15,7 @@ class Network():
             n, mode, Ve=0.0, tau=0.1, R=1000, gamma=0.005, target=10, VthMin=0.25, VthMax=50)
         self.dt = dt
         self.n = n
-        self.Activity = torch.zeros_like(torch.Tensor(n, 3 * n))
+        self.Activity = torch.zeros_like(torch.Tensor(n, n))  # 3 * n
         self.sumAct = torch.zeros(n)
         self.STDPWindow = self.synapse.GetSTDP()
         self.Assignment = torch.zeros((n, 10))
@@ -170,6 +170,7 @@ class Network():
         spikes[0, :] = 0
 
         # Return the input spike occurrence matrix.
+        print(torch.from_numpy(spikes))
         return (torch.from_numpy(spikes), torch.from_numpy(spike_times))
 
     def setAssignment(self, label, PatCount):

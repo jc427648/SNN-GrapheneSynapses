@@ -36,7 +36,7 @@ if __name__ == "__main__":
     NoResp = 0
 
     if mode == 'train':
-        NImages = 100
+        NImages = 1
     # elif mode == 'test':
     #     NImages = 10000  # Can go up to 60000, but paper uses 40000
 
@@ -52,7 +52,7 @@ if __name__ == "__main__":
     #     classes = torch.reshape(torch.load('NeuronAssignments.pt'), (n, 1))
 
     X = torch.load("train_images.pt")
-    y = torch.load("train_labels.pt").unsqueeze(1)
+    y = torch.load("train_labels.pt")
 
     # Define the pathname for weight evolution folder to store the weights in the folder
     EvoPath = os.path.join(os.getcwd(), 'Weight evolution')
@@ -87,7 +87,7 @@ if __name__ == "__main__":
             print('Training progress: (%d / %d) - Elapsed time: %.4f' %
                   (prog, NImages, timeit.default_timer() - start))
             # Add to label number
-            network.setAssignment(label[0], PatCount)
+            network.setAssignment(label.item(), PatCount)
 
             # Should check and save every 1000 images, preferably saving the rearranged weights. You can use the % operator
             # in python to format strings like sprintf. You will need to develop some other code to be used
@@ -110,20 +110,21 @@ if __name__ == "__main__":
 
             PatCount += 1
 
+    # print(network.Activity)
     # if mode == 'train':
     #     torch.save(network.synapse.w, 'WeightMatrix.pt')
     #     torch.save(network.group.Vth, 'FinalThresholds.pt')
-        # Rearrange the weights for plotting
+    # Rearrange the weights for plotting
 
-        # values, assignments = network.Assignment.max(axis=1)
-        # RWeights, assignments = ReshapeWeights(network.synapse.w, n, assignments)
+    # values, assignments = network.Assignment.max(axis=1)
+    # RWeights, assignments = ReshapeWeights(network.synapse.w, n, assignments)
 
-        # torch.save(assignments, 'NeuronAssignments.pt')
-        # plotWeights(RWeights, assignments,
-        #             network.synapse.wmax, network.synapse.wmin)
-        # print(network.group.Vth)
-        # output, counts = torch.unique(assignments, return_counts=True)
-        # print(counts)
+    # torch.save(assignments, 'NeuronAssignments.pt')
+    # plotWeights(RWeights, assignments,
+    #             network.synapse.wmax, network.synapse.wmin)
+    # print(network.group.Vth)
+    # output, counts = torch.unique(assignments, return_counts=True)
+    # print(counts)
     # elif mode == 'test':
 
     #     for i in range(n):
