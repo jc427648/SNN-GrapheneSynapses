@@ -108,14 +108,17 @@ class Network:
         n_input = image.shape[0]  # Should return 784, also image is just 1x784
         time = int(time / self.dt)  # Convert to integer
         # Make the spike data.
-        m = torch.distributions.Poisson(image)
-        spike_times = torch.cumsum(
-            m.sample(sample_shape=(time,)).long(), dim=0)
+        # m = torch.distributions.Poisson(image)
+        # spike_times = torch.cumsum(
+        #     m.sample(sample_shape=(time,)).long(), dim=0)
+        spike_times = np.random.poisson(image, [time, n_input])
+        spike_times = np.cumsum(spike_times, axis=0)
         spike_times[spike_times >= time] = 0
         spikes = torch.zeros([time, n_input])
         spikes[spike_times[np.arange(time), 1:], np.arange(n_input)[1:]] = 1
+        spikes[0, :] = 0
         # Return the input spike occurrence matrix.
-        print(spikes)
+        spike_times = torch.from_numpy(spike_times).long()
         return (spikes, spike_times)
 
     def setAssignment(self, label):
@@ -150,6 +153,8 @@ class Network:
                 label
             )  # You only when update neuron when assignments when training, not testing.
 
+        self.UpdateCurrentSample()
+
     def detPredictedLabel(self):
         return self.Assignment.max(dim=1)[1][
             torch.max(self.Activity[:, self.current_sample], 0, keepdims=True)[
@@ -164,5 +169,5 @@ class Network:
 
     def UpdateCurrentSample(self):
         self.current_sample += 1
-        if self.current_sample == self.n_samples_memory:
+        if self.current_sample == (self.n_samples_memory - 1):
             self.current_sample = 0

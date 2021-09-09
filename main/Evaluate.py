@@ -36,7 +36,7 @@ if __name__ == "__main__":
     NoResp = 0
 
     if mode == 'train':
-        NImages = 1
+        NImages = 10
     # elif mode == 'test':
     #     NImages = 10000  # Can go up to 60000, but paper uses 40000
 
@@ -63,7 +63,7 @@ if __name__ == "__main__":
     for reps in range(repetitions):
         # Loop through every image randomly
         r = list(range(NImages))
-        random.shuffle(r)
+        # random.shuffle(r)
         prog = 0
         for idx in r:
             # Generate the spike trains for the specific image
@@ -110,7 +110,7 @@ if __name__ == "__main__":
 
             PatCount += 1
 
-    # print(network.Activity)
+    print(network.Activity)
     # if mode == 'train':
     #     torch.save(network.synapse.w, 'WeightMatrix.pt')
     #     torch.save(network.group.Vth, 'FinalThresholds.pt')

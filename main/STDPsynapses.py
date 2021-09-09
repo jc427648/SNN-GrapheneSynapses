@@ -21,7 +21,6 @@ class STDPSynapse:
         # Potentiate the synaptic weight of neuron Neur, using the DeltaT values.
        # Need to apply the lookup of the STDP window, to produce corresponding current for potentiation.
         DeltaTP = torch.round(DeltaTP * 2) / 2
-
         DelCurrent = torch.zeros(len(DeltaTP))
 
         for i in range(len(DeltaTP)):
@@ -30,7 +29,6 @@ class STDPSynapse:
 
         # Need to be careful with torch and numpy, it could create some errors.
         deltaW = torch.multiply(Neur, DelCurrent)
-
         self.w += deltaW
 
         # Make sure weights are within the bounds

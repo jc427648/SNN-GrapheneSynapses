@@ -170,7 +170,7 @@ class Network():
         spikes[0, :] = 0
 
         # Return the input spike occurrence matrix.
-        print(torch.from_numpy(spikes))
+        # print(torch.from_numpy(spikes))
         return (torch.from_numpy(spikes), torch.from_numpy(spike_times))
 
     def setAssignment(self, label, PatCount):

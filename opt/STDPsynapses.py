@@ -18,7 +18,11 @@ class STDPSynapse:
         # Need to apply the lookup of the STDP window, to produce corresponding current for potentiation.
         DeltaTP = torch.round(DeltaTP * 2) / 2
         # 160 is currently hardcoded- to modularize.
-        DelCurrent = STDPWindow[(DeltaTP[0 : len(DeltaTP)] * 2 + 160).long()]
+        # DelCurrent = STDPWindow[(DeltaTP[0: len(DeltaTP)] * 2 + 160).long()]
+        DelCurrent = torch.zeros(len(DeltaTP))
+        for i in range(len(DeltaTP)):
+            DelCurrent[i] = STDPWindow[float(DeltaTP[i])]
+
         deltaW = torch.multiply(Neur, DelCurrent)
         self.w += deltaW
         # Bound the weights
@@ -29,15 +33,28 @@ class STDPSynapse:
         # This rounding allows simple implementation of this specific STDP window.
         DeltaTN = torch.round(DeltaTN * 2) / 2
         # 160 is currently hardcoded- to modularize.
-        DelCurrent = STDPWindow[(DeltaTN[0 : len(DeltaTN)] * 2 + 160).long()]
+        # DelCurrent = STDPWindow[(DeltaTN[0: len(DeltaTN)] * 2 + 160).long()]
+        DelCurrent = torch.zeros(len(DeltaTN))
+        for i in range(len(DeltaTN)):
+            DelCurrent[i] = STDPWindow[float(DeltaTN[i])]
+
         deltaW = torch.multiply(Neur, DelCurrent)
         self.w += deltaW
         # Bound the weights
         self.w = torch.clamp(self.w, self.wmin, self.wmax)
+        # print(self.w)
 
     def GetSTDP(self):
         b = np.loadtxt("STDPWindow.txt", delimiter=",")
-        return torch.tensor(b[1, :])
+        # return torch.tensor(b[1, :])
+        d = {}
+        for i in range(len(b[0, :])):
+            # Probably don't need conversion, we'll see*1e-3 #Convert to seconds
+            key = b[0, i]
+            val = b[1, i]
+            d[key] = val
+# Probably makes more sense to have STDP window stored at synapse level
+        return d
 
 
 class LIFNeuronGroup:

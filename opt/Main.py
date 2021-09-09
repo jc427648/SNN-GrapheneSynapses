@@ -84,7 +84,6 @@ def train(
                     ),
                     end="",
                 )
-            network.UpdateCurrentSample()
 
         if trial is not None:
             trial.report((correct / idx) * 100, epoch)

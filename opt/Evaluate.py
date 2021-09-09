@@ -9,9 +9,9 @@ if __name__ == "__main__":
     n_output_neurons = 10
     dt = 0.2e-3
     image_duration = 0.05
-    n_samples_train = 1
+    n_samples_train = 10
     # n_samples_test = 10000
-    log_interval = 10
+    log_interval = 1
     R = 1000
     fixed_inhibition_current = -1.0
     Ve = 0.0
@@ -39,8 +39,9 @@ if __name__ == "__main__":
         n_samples=n_samples_train,
         log_interval=log_interval,
         import_samples=True,
+        det_training_accuracy=False
     )
-    # print(network.Activity)
+    print(network.Activity)
     # test_set_accuracy = test(
     #     network,
     #     dt,
