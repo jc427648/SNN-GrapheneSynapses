@@ -36,7 +36,7 @@ if __name__ == "__main__":
     NoResp = 0
 
     if mode == 'train':
-        NImages = 10
+        NImages = 100
     # elif mode == 'test':
     #     NImages = 10000  # Can go up to 60000, but paper uses 40000
 
@@ -69,9 +69,6 @@ if __name__ == "__main__":
             # Generate the spike trains for the specific image
             image, label = X[idx], y[idx]
             spikes, spike_times = network.GenSpkTrain(image, time)
-
-            if PatCount == n - 1:  # Need to update this so that the variable makes sense
-                PatCount = 0
             # Set the activity so that past value is ignored
             network.resetActivity(PatCount)
             # RESET VOLTAGES (NEW cODE!!!) May also want to reset current
@@ -109,6 +106,8 @@ if __name__ == "__main__":
             # torch.save(weights,os.path.join(EvoPath,fileString))
 
             PatCount += 1
+            if PatCount == n:  # Need to update this so that the variable makes sense
+                PatCount = 0
 
     print(network.Activity)
     # if mode == 'train':

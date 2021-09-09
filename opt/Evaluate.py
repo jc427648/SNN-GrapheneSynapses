@@ -9,7 +9,7 @@ if __name__ == "__main__":
     n_output_neurons = 10
     dt = 0.2e-3
     image_duration = 0.05
-    n_samples_train = 10
+    n_samples_train = 100
     # n_samples_test = 10000
     log_interval = 1
     R = 1000

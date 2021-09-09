@@ -58,7 +58,7 @@ class STDPSynapse:
         for i in range(len(b[0, :])):
             # Probably don't need conversion, we'll see*1e-3 #Convert to seconds
             key = b[0, i]
-            val = b[1, i]
+            val = float(b[1, i])
             d[key] = val
 # Probably makes more sense to have STDP window stored at synapse level
         return d

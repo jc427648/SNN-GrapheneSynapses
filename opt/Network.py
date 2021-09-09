@@ -169,5 +169,5 @@ class Network:
 
     def UpdateCurrentSample(self):
         self.current_sample += 1
-        if self.current_sample == (self.n_samples_memory - 1):
+        if self.current_sample == self.n_samples_memory:
             self.current_sample = 0
