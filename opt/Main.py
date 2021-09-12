@@ -12,7 +12,7 @@ import timeit
 import random
 import os
 import sys
-import optuna
+#import optuna
 
 current = os.path.dirname(os.path.realpath(__file__))
 parent = os.path.dirname(current)
@@ -84,6 +84,7 @@ def train(
                     ),
                     end="",
                 )
+            network.UpdateCurrentSample()
 
         if trial is not None:
             trial.report((correct / idx) * 100, epoch)

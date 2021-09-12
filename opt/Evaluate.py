@@ -6,10 +6,10 @@ from set_all_seeds import set_all_seeds
 
 if __name__ == "__main__":
     set_all_seeds(0)
-    n_output_neurons = 10
+    n_output_neurons = 100
     dt = 0.2e-3
     image_duration = 0.05
-    n_samples_train = 100
+    n_samples_train = 60000
     # n_samples_test = 10000
     log_interval = 1
     R = 1000
@@ -41,7 +41,9 @@ if __name__ == "__main__":
         import_samples=True,
         det_training_accuracy=False
     )
-    print(network.Activity)
+    print(network.Assignment)
+
+    test_set_accuracy = test(network,use_validation_set=False)
     # test_set_accuracy = test(
     #     network,
     #     dt,

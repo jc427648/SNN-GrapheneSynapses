@@ -54,7 +54,7 @@ def getMNIST(
     dt=0.2e-3,
     load_train_samples=True,  # Load training samples
     load_validation_samples=False,  # Load validation samples
-    load_test_samples=False,  # Load test samples
+    load_test_samples=True,  # Load test samples
     validation_samples=0,  # Number of samples used to construct the validation set
     export_to_disk=True,
 ):
@@ -139,6 +139,6 @@ if __name__ == "__main__":
     (train_data, validation_data, test_data) = getMNIST(
         load_train_samples=True,
         load_validation_samples=False,
-        load_test_samples=False,
+        load_test_samples=True,
         export_to_disk=True,
     )

@@ -37,8 +37,8 @@ if __name__ == "__main__":
 
     if mode == 'train':
         NImages = 100
-    # elif mode == 'test':
-    #     NImages = 10000  # Can go up to 60000, but paper uses 40000
+    elif mode == 'test':
+        NImages = 10000  # Can go up to 60000, but paper uses 40000
 
     repetitions = 1
 
@@ -108,15 +108,56 @@ if __name__ == "__main__":
             PatCount += 1
             if PatCount == n:  # Need to update this so that the variable makes sense
                 PatCount = 0
+    mode = 'test'
+    prog = 0 
+    PatCount = 0
+    X = torch.load("test_images.pt")
+    y = torch.load("test_labels.pt")
+    NImages = 10000
+    print(network.Assignment)
+    values,classes = network.Assignment.max(axis = 1)       
+    for idx in range(NImages):
+        #Run a quick test for determining network accuracy to see if it is the same as well. Will just use the training, not testing set.
+        # Generate the spike trains for the specific image
+            image, label = X[idx], y[idx]
+            spikes, spike_times = network.GenSpkTrain(image, time)
+            # Set the activity so that past value is ignored
+            network.resetActivity(PatCount)
+            # RESET VOLTAGES (NEW cODE!!!) May also want to reset current
+            network.group.v[:] = network.group.Ve
+            network.current[:] = 0
+            network.CurrCtr[:] = 0
+            network.InhibVec[:] = 0
+            network.InhibCtr[:] = 0
+            # Run the image
+            network.run(mode, spikes, spike_times, time, PatCount)
+            prog += 1
+            # Print the progress
+            print('Training progress: (%d / %d) - Elapsed time: %.4f' %
+                  (prog, NImages, timeit.default_timer() - start))
+            # Add to label number
+            network.setAssignment(label.item(), PatCount)
 
-    print(network.Activity)
-    # if mode == 'train':
-    #     torch.save(network.synapse.w, 'WeightMatrix.pt')
-    #     torch.save(network.group.Vth, 'FinalThresholds.pt')
+            if mode == 'test':
+                TotalResp += network.Activity[:, PatCount]
+                values, indices = torch.max(
+                    network.Activity[:, PatCount], 0, keepdim=True)
+                 # Shouldn't be indices, should be neuron associated with index
+                if label.item() == classes[indices]:
+                    correct += 1
+                if torch.sum(network.Activity[:, PatCount], 0, keepdim=True) == 0:
+                    NoResp += 1
+
+    print(network.Assignment)
+    print(correct)
+
+    #if mode == 'train':
+    #    torch.save(network.synapse.w, 'WeightMatrix.pt')
+    #    torch.save(network.group.Vth, 'FinalThresholds.pt')
     # Rearrange the weights for plotting
 
-    # values, assignments = network.Assignment.max(axis=1)
-    # RWeights, assignments = ReshapeWeights(network.synapse.w, n, assignments)
+    #values, assignments = network.Assignment.max(axis=1)
+    #RWeights, assignments = ReshapeWeights(network.synapse.w, n, assignments)
 
     # torch.save(assignments, 'NeuronAssignments.pt')
     # plotWeights(RWeights, assignments,

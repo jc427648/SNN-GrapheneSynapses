@@ -53,7 +53,7 @@ class STDPSynapse:
     def GetSTDP(self):
         # Use the following lines to get the dictionary for the STDP window.
 
-        b = np.loadtxt('STDPWindow.txt', delimiter=",")
+        b = np.loadtxt('SNN-GrapheneSynapses/STDPWindow.txt', delimiter=",")
         d = {}
         for i in range(len(b[0, :])):
             # Probably don't need conversion, we'll see*1e-3 #Convert to seconds
