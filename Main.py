@@ -162,6 +162,6 @@ def test(
                     idx + 1,
                 )
             )
-        network.UpdateCurrentSample()
+        network.UpdateCurrentSample() #Placed at end of testing set
 
     return (correct / idx) * 100

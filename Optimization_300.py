@@ -12,20 +12,19 @@ import neptune.new.integrations.optuna as optuna_utils
 def objective(trial, n_output_neurons):
     """ Function with unknown internals we wish to maximize.
     """
-    tau = trial.suggest_float("tau", 1e-6, 1e-3, log=True)
-    R = trial.suggest_float("R", 1, 100)
-    gamma = trial.suggest_float("gamma", 1e-7, 1e-4, log=True)
-    target_activity = trial.suggest_float(
-        "target_activity", 0.5 * n_output_neurons, 1.5 * n_output_neurons)
-    v_th_max = trial.suggest_float("v_th_max", 0.1, 1.0)
-    fixed_inhibition_current = trial.suggest_float(
-        "fixed_inhibition_current", -1., -0.5)
+    tau = trial.suggest_float("tau", 0.05, 0.15, log=True)
+    gamma = trial.suggest_float("gamma", 1e-3, 1e-2, log=True)
 
     dt = 0.2e-3
     image_duration = 0.05
     n_samples_train = 50000
     n_samples_validate = 10000
     log_interval = 5000
+    target_activity = 10
+    v_th_max= 50
+    v_th_min = 0.25
+    R = 1000
+    fixed_inhibition_current = -1.0
     network = Network(
         n_output_neurons=n_output_neurons,
         n_samples_memory=n_output_neurons,
@@ -34,7 +33,7 @@ def objective(trial, n_output_neurons):
         R=R,
         gamma=gamma,
         target_activity=target_activity,
-        v_th_min=1e-2,
+        v_th_min=v_th_min,
         v_th_max=v_th_max,
         fixed_inhibition_current=fixed_inhibition_current,
         dt=dt,
@@ -63,14 +62,13 @@ def objective(trial, n_output_neurons):
 if __name__ == "__main__":
     n_output_neurons = 300
     sampler = optuna.samplers.TPESampler(seed=0)  # To ensure reproducibility
-    run = neptune.init(api_token=os.getenv("NEPTUNE_API_TOKEN"),
-                       project='JCU-NICE/SNN-Optimization')
+    run = neptune.init(api_token ="eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaHR0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiJlZmE1MzM2Ni1iNTc3LTRiYjctYWUyMC1lMjE0MWU0ODE0MzgifQ==",
+                       project='JCU-NICE/SNNOpt')
     neptune_callback = optuna_utils.NeptuneCallback(run)
     study = optuna.create_study(direction="maximize", sampler=sampler)
-    study.enqueue_trial({'tau': 0.002, 'R': 20, 'gamma': 0.0005,
-                        'target_activity': 10, 'v_th_max': 1, 'fixed_inhibition_current': -0.85})
+    study.enqueue_trial({'tau': 0.002, 'gamma': 0.0005})
     study.optimize(lambda trial: objective(
-        trial, n_output_neurons), n_trials=100, callbacks=[neptune_callback])
+        trial, n_output_neurons), n_trials=30, callbacks=[neptune_callback])
     pruned_trials = study.get_trials(
         deepcopy=False, states=[TrialState.PRUNED])
     complete_trials = study.get_trials(

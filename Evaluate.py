@@ -41,7 +41,7 @@ if __name__ == "__main__":
         dt,
         image_duration=image_duration,
         n_samples=n_samples_test,
-        use_validation_set=False,
+        use_validation_set=True,
         log_interval=log_interval,
         import_samples=True,
     )

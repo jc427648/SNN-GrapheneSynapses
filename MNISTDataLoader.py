@@ -50,7 +50,7 @@ def getMNIST(
     threshold=50,
     dt=0.2e-3,
     load_train_samples=True,  # Load training samples
-    load_validation_samples=False,  # Load validation samples
+    load_validation_samples=True,  # Load validation samples
     load_test_samples=False,  # Load test samples
     validation_samples=0,  # Number of samples used to construct the validation set
     export_to_disk=True,

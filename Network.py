@@ -145,6 +145,7 @@ class Network:
             self.setAssignment(
                 label
             )  # You only when update neuron when assignments when training, not testing.
+            #Removed update current sample as it happens at the end.
 
     def detPredictedLabel(self):
         return self.Assignment.max(dim=1)[1][
