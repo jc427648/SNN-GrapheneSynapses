@@ -1,9 +1,9 @@
 #!/bin/bash
 ### qstat -f -Q
-#PBS -N SNN-GrapheneSynapses_Optimization_10
+#PBS -N SNN-GrapheneSynapses_Optimization_500
 #PBS -P JCU-SNN
-#PBS -o /scratch/user/coreylammie/SNN-GrapheneSynapses/logs/10_out.txt
-#PBS -e /scratch/user/coreylammie/SNN-GrapheneSynapses/logs/10_error.txt
+#PBS -o /scratch/user/coreylammie/SNN-GrapheneSynapses/logs/500_out.txt
+#PBS -e /scratch/user/coreylammie/SNN-GrapheneSynapses/logs/500_error.txt
 #PBS -q Single
 #PBS -l walltime=167:00:00
 #PBS -l select=1:mem=10gb:ncpus=8:mpiprocs=8
@@ -13,4 +13,4 @@ module load anaconda/2020.02
 source /sw/RCC/Anaconda/2020.02/etc/profile.d/conda.sh
 conda activate /scratch/user/coreylammie/conda_env
 cd /scratch/user/coreylammie/SNN-GrapheneSynapses/
-python Optimization_10.py
+python Optimization_500.py

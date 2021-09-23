@@ -1,4 +1,4 @@
 from Optimize import optimize_parameters
 
 if __name__ == "__main__":
-    optimize_parameters(100, 50)
+    optimize_parameters(500, 50)
