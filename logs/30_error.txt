@@ -1,0 +1,79 @@
+########################### Execution Started #############################
+JobId:758190.awonmgr2
+UserName:coreylammie
+GroupName:qris-jcu
+ExecutionHost:aw030
+###############################################################################
+psutil is not installed. Hardware metrics will not be collected.
+[32m[I 2021-09-24 13:28:25,455][0m A new study created in memory with name: no-name-70f14c02-202b-4755-9b4d-c3681ba124e0[0m
+/scratch/user/coreylammie/SNN-GrapheneSynapses/Optimize.py:18: ExperimentalWarning: enqueue_trial is experimental (supported from v1.2.0). The interface can change in the future.
+  study.enqueue_trial({'tau': 0.05, 'gamma': 1e-3,
+/home/coreylammie/.local/lib/python3.8/site-packages/optuna/study.py:858: ExperimentalWarning: create_trial is experimental (supported from v2.0.0). The interface can change in the future.
+  create_trial(state=TrialState.WAITING, system_attrs={"fixed_params": params})
+/home/coreylammie/.local/lib/python3.8/site-packages/optuna/study.py:857: ExperimentalWarning: add_trial is experimental (supported from v2.0.0). The interface can change in the future.
+  self.add_trial(
+[32m[I 2021-09-24 15:37:36,467][0m Trial 0 finished with value: 65.85658565856586 and parameters: {'tau': 0.05, 'gamma': 0.001}. Best is trial 0 with value: 65.85658565856586.[0m
+[33m[W 2021-09-24 15:37:36,563][0m Param gamma unique value length is less than 2.[0m
+[32m[I 2021-09-24 17:31:07,641][0m Trial 1 finished with value: 71.55715571557155 and parameters: {'tau': 0.09137356971464283, 'gamma': 0.0051902630176951636}. Best is trial 1 with value: 71.55715571557155.[0m
+[32m[I 2021-09-24 19:46:32,906][0m Trial 2 finished with value: 74.35743574357436 and parameters: {'tau': 0.09695299345995445, 'gamma': 0.003506575410186656}. Best is trial 2 with value: 74.35743574357436.[0m
+[32m[I 2021-09-24 21:54:04,321][0m Trial 3 finished with value: 68.06680668066807 and parameters: {'tau': 0.07963513374162741, 'gamma': 0.00442480476419164}. Best is trial 2 with value: 74.35743574357436.[0m
+[32m[I 2021-09-24 23:38:46,330][0m Trial 4 finished with value: 72.46724672467246 and parameters: {'tau': 0.08086343087143194, 'gamma': 0.0077942261151609515}. Best is trial 2 with value: 74.35743574357436.[0m
+[32m[I 2021-09-25 01:12:38,718][0m Trial 5 pruned. [0m
+[32m[I 2021-09-25 02:58:45,159][0m Trial 6 finished with value: 71.1871187118712 and parameters: {'tau': 0.11932153946051532, 'gamma': 0.0033798304921413393}. Best is trial 2 with value: 74.35743574357436.[0m
+[32m[I 2021-09-25 04:43:09,594][0m Trial 7 finished with value: 74.72747274727473 and parameters: {'tau': 0.0933246001924851, 'gamma': 0.008425518534432113}. Best is trial 7 with value: 74.72747274727473.[0m
+[32m[I 2021-09-25 06:30:27,484][0m Trial 8 pruned. [0m
+[32m[I 2021-09-25 08:22:02,569][0m Trial 9 finished with value: 69.8969896989699 and parameters: {'tau': 0.051123035352583994, 'gamma': 0.006801737161546}. Best is trial 7 with value: 74.72747274727473.[0m
+[32m[I 2021-09-25 10:06:27,345][0m Trial 10 finished with value: 70.93709370937094 and parameters: {'tau': 0.0707494284740087, 'gamma': 0.00968449709061936}. Best is trial 7 with value: 74.72747274727473.[0m
+[32m[I 2021-09-25 11:42:15,411][0m Trial 11 pruned. [0m
+[32m[I 2021-09-25 13:20:20,107][0m Trial 12 pruned. [0m
+[32m[I 2021-09-25 15:07:29,387][0m Trial 13 finished with value: 71.13711371137114 and parameters: {'tau': 0.06512722850635498, 'gamma': 0.009928834625209874}. Best is trial 7 with value: 74.72747274727473.[0m
+[32m[I 2021-09-25 16:51:55,389][0m Trial 14 finished with value: 74.22742274227423 and parameters: {'tau': 0.13228678977391736, 'gamma': 0.003958976115185915}. Best is trial 7 with value: 74.72747274727473.[0m
+[32m[I 2021-09-25 18:25:34,247][0m Trial 15 pruned. [0m
+[32m[I 2021-09-25 20:01:47,062][0m Trial 16 pruned. [0m
+[32m[I 2021-09-25 21:50:16,709][0m Trial 17 finished with value: 74.35743574357436 and parameters: {'tau': 0.07024880394513693, 'gamma': 0.006943761931741503}. Best is trial 7 with value: 74.72747274727473.[0m
+[32m[I 2021-09-25 23:40:37,320][0m Trial 18 finished with value: 73.24732473247325 and parameters: {'tau': 0.061536101683823625, 'gamma': 0.007745263442923813}. Best is trial 7 with value: 74.72747274727473.[0m
+[32m[I 2021-09-26 01:25:43,766][0m Trial 19 pruned. [0m
+[32m[I 2021-09-26 03:08:36,210][0m Trial 20 pruned. [0m
+[32m[I 2021-09-26 05:04:49,394][0m Trial 21 finished with value: 74.53745374537453 and parameters: {'tau': 0.07105121566461037, 'gamma': 0.006052318625619962}. Best is trial 7 with value: 74.72747274727473.[0m
+[32m[I 2021-09-26 06:48:44,872][0m Trial 22 pruned. [0m
+[32m[I 2021-09-26 08:41:12,099][0m Trial 23 finished with value: 71.0971097109711 and parameters: {'tau': 0.08748091006363237, 'gamma': 0.009240595206202377}. Best is trial 7 with value: 74.72747274727473.[0m
+[32m[I 2021-09-26 10:38:20,670][0m Trial 24 finished with value: 77.05770577057706 and parameters: {'tau': 0.05884112805561856, 'gamma': 0.00569002917217075}. Best is trial 24 with value: 77.05770577057706.[0m
+[32m[I 2021-09-26 12:28:15,773][0m Trial 25 finished with value: 72.92729272927293 and parameters: {'tau': 0.06252878858756715, 'gamma': 0.006007790686228522}. Best is trial 24 with value: 77.05770577057706.[0m
+[32m[I 2021-09-26 14:06:31,178][0m Trial 26 pruned. [0m
+[32m[I 2021-09-26 15:53:01,133][0m Trial 27 finished with value: 72.997299729973 and parameters: {'tau': 0.0680612801130604, 'gamma': 0.00841757110949572}. Best is trial 24 with value: 77.05770577057706.[0m
+[32m[I 2021-09-26 17:34:28,483][0m Trial 28 pruned. [0m
+[32m[I 2021-09-26 19:15:48,686][0m Trial 29 pruned. [0m
+[32m[I 2021-09-26 21:07:20,901][0m Trial 30 finished with value: 73.48734873487349 and parameters: {'tau': 0.07529819987430555, 'gamma': 0.008521553024223229}. Best is trial 24 with value: 77.05770577057706.[0m
+[32m[I 2021-09-26 22:42:22,668][0m Trial 31 pruned. [0m
+[32m[I 2021-09-27 00:19:07,700][0m Trial 32 pruned. [0m
+[32m[I 2021-09-27 01:52:49,734][0m Trial 33 pruned. [0m
+[32m[I 2021-09-27 03:26:41,150][0m Trial 34 pruned. [0m
+[32m[I 2021-09-27 05:15:57,558][0m Trial 35 finished with value: 73.08730873087309 and parameters: {'tau': 0.06619012679990201, 'gamma': 0.006100267341417082}. Best is trial 24 with value: 77.05770577057706.[0m
+[32m[I 2021-09-27 07:04:34,464][0m Trial 36 finished with value: 73.46734673467347 and parameters: {'tau': 0.0757647264450682, 'gamma': 0.007457734296763556}. Best is trial 24 with value: 77.05770577057706.[0m
+[32m[I 2021-09-27 08:54:13,484][0m Trial 37 finished with value: 73.88738873887388 and parameters: {'tau': 0.08006504561261296, 'gamma': 0.003814122860538718}. Best is trial 24 with value: 77.05770577057706.[0m
+[32m[I 2021-09-27 10:27:46,854][0m Trial 38 pruned. [0m
+[32m[I 2021-09-27 12:04:23,064][0m Trial 39 pruned. [0m
+[32m[I 2021-09-27 13:46:04,148][0m Trial 40 pruned. [0m
+[32m[I 2021-09-27 15:44:26,765][0m Trial 41 finished with value: 76.87768776877688 and parameters: {'tau': 0.09937824084112357, 'gamma': 0.007178073443212702}. Best is trial 24 with value: 77.05770577057706.[0m
+[32m[I 2021-09-27 17:21:58,510][0m Trial 42 pruned. [0m
+[32m[I 2021-09-27 18:58:36,855][0m Trial 43 pruned. [0m
+[32m[I 2021-09-27 20:50:18,994][0m Trial 44 pruned. [0m
+[32m[I 2021-09-27 23:01:10,786][0m Trial 45 finished with value: 70.74707470747074 and parameters: {'tau': 0.08488077562148419, 'gamma': 0.007921850095547548}. Best is trial 24 with value: 77.05770577057706.[0m
+[32m[I 2021-09-28 01:13:01,949][0m Trial 46 finished with value: 73.0973097309731 and parameters: {'tau': 0.1050090611932621, 'gamma': 0.006388066028261583}. Best is trial 24 with value: 77.05770577057706.[0m
+[32m[I 2021-09-28 03:07:10,695][0m Trial 47 pruned. [0m
+[32m[I 2021-09-28 05:03:20,272][0m Trial 48 pruned. [0m
+[32m[I 2021-09-28 07:14:59,581][0m Trial 49 finished with value: 73.62736273627362 and parameters: {'tau': 0.1021687812482697, 'gamma': 0.005564864424347846}. Best is trial 24 with value: 77.05770577057706.[0m
+Waiting for the remaining 41 operations to synchronize with Neptune. Do not kill this process.
+Still waiting for the remaining 41 operations (0.00% done). Please wait.
+########################### Job Execution History #############################
+JobId:758190.awonmgr2
+UserName:coreylammie
+GroupName:qris-jcu
+JobName:SNN-GrapheneSynapses_Optimization_30
+SessionId:143820
+ResourcesRequested:mem=10gb,ncpus=8,place=free,walltime=167:00:00
+ResourcesUsed:cpupercent=601,cput=392:54:24,mem=570812kb,ncpus=8,vmem=2429388kb,walltime=89:47:49
+QueueUsed:Single
+AccountString:qris-jcu
+ExitStatus:0
+###############################################################################
