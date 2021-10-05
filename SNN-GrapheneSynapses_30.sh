@@ -13,4 +13,4 @@ module load anaconda/2020.02
 source /sw/RCC/Anaconda/2020.02/etc/profile.d/conda.sh
 conda activate /scratch/user/coreylammie/conda_env
 cd /scratch/user/coreylammie/SNN-GrapheneSynapses/
-python Optimization_30.py
+python Evaluate_30.py
