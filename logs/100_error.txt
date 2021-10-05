@@ -1,0 +1,18 @@
+########################### Execution Started #############################
+JobId:759508.awonmgr2
+UserName:coreylammie
+GroupName:qris-jcu
+ExecutionHost:aw121
+###############################################################################
+########################### Job Execution History #############################
+JobId:759508.awonmgr2
+UserName:coreylammie
+GroupName:qris-jcu
+JobName:SNN-GrapheneSynapses_Optimization_100
+SessionId:136385
+ResourcesRequested:mem=10gb,ncpus=8,place=free,walltime=24:00:00
+ResourcesUsed:cpupercent=664,cput=14:49:21,mem=419116kb,ncpus=8,vmem=2127416kb,walltime=02:15:15
+QueueUsed:Short
+AccountString:qris-jcu
+ExitStatus:0
+###############################################################################
