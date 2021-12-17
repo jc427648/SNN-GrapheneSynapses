@@ -23,4 +23,19 @@ All Python requirements can be installed using the following command:
 pip install -r requirements.txt
 ```
 
-Many scripts were developed for execution on a High Performance Computing (HPC) clsuter using `SLURM`. Consequently, for many scripts, we provide bash scripts which can be submitted using `SLURM` with some modification.
+Many scripts were developed for execution on a High Performance Computing (HPC) clsuter using `SLURM`. Consequently, for many scripts, parallelization is used.
+
+## Documentation
+This GitHub Repository is comprised of three folders: `Experimental Data`, `Handwritten Digit Classification`, `Interactive Figures`, and `Unsupervised Binary Pattern Classification`.
+
+### Experimental Data
+Contains all experimental data (`pentacenesingle200_2_slow_k2400.txt`, `pentacenesingle200_3_slow_k2400.txt`, `pentacenesingle200_4_slow_k2400.txt`, and `pentacenesingle200_slow_k2400.txt`), the VTEAM model fitting script (`VTEAM_fit.m`), and a script used to generate the STDP window used in our simulations (`gen_STDP_window.m`).
+
+### Handwritten Digit Classification
+Contains all scripts (`Main.py`, `MNISTDataLoader.py`, `Network.py`, `Plotting.py`, `set_all_seeds.py`, and `STDPsynapses.py`) required to train and evaluate our simulated SNN architectures. `Evaluate.py` can be used to evaluate different network architectures using the parameters reported in Table 2 in conjunction with `Evaluate_10.py`, `Evaluate_30.py`, `Evaluate_100.py`, `Evaluate_300.py`, and `Evaluate_500.py`, for 10, 30, 100, 300, and 500 neuron configurations, respectively.
+
+### Interactive Figures
+Contains all interactive figures embedded using Authorea. Files are named using `Figure_X.py`, where `X` is the corresponding figure number. All interactive figure generation scripts produce a svg and `html` `file`.
+
+### Unsupervised Binary Pattern Classification
+Contains all scripts used to perform binary pattern classification. `Main.m` can be used to regenerate the receptive field which has been reported in our paper.
