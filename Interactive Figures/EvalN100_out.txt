@@ -1,0 +1,916 @@
+Loading MNIST training samples...
+Training...
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 90.5250 - Running accuracy: 34.53% ( 345 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 180.9470 - Running accuracy: 34.02% ( 680 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 269.6641 - Running accuracy: 35.05% ( 1051 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 357.9015 - Running accuracy: 34.88% ( 1395 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 446.3606 - Running accuracy: 34.39% ( 1719 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 535.1753 - Running accuracy: 34.34% ( 2060 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 624.1534 - Running accuracy: 33.95% ( 2376 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 713.7960 - Running accuracy: 32.99% ( 2639 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 803.6231 - Running accuracy: 33.09% ( 2978 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 894.7336 - Running accuracy: 32.89% ( 3289 / 10000 )
+Training progress: sample (1000 / 60000) of epoch (1 / 1) - Elapsed time: 1059.6674 - Running accuracy: 32.89%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 88.2355 - Running accuracy: 41.84% ( 418 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 176.1334 - Running accuracy: 40.82% ( 816 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 263.9014 - Running accuracy: 40.65% ( 1219 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 352.3624 - Running accuracy: 40.71% ( 1628 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 440.3889 - Running accuracy: 40.59% ( 2029 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 528.5401 - Running accuracy: 41.69% ( 2501 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 616.9011 - Running accuracy: 42.86% ( 3000 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 705.1278 - Running accuracy: 43.91% ( 3512 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 793.7531 - Running accuracy: 45.12% ( 4060 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 893.4564 - Running accuracy: 45.43% ( 4543 / 10000 )
+Training progress: sample (2000 / 60000) of epoch (1 / 1) - Elapsed time: 2147.2004 - Running accuracy: 45.43%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 99.8224 - Running accuracy: 69.37% ( 693 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 200.4524 - Running accuracy: 67.08% ( 1341 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 298.1328 - Running accuracy: 67.22% ( 2016 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 395.6961 - Running accuracy: 67.54% ( 2701 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 490.7798 - Running accuracy: 67.51% ( 3375 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 587.9487 - Running accuracy: 68.71% ( 4122 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 691.3465 - Running accuracy: 69.48% ( 4863 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 792.2885 - Running accuracy: 70.12% ( 5609 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 892.0554 - Running accuracy: 71.22% ( 6409 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 987.2271 - Running accuracy: 71.50% ( 7149 / 10000 )
+Training progress: sample (3000 / 60000) of epoch (1 / 1) - Elapsed time: 3300.0126 - Running accuracy: 71.50%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 98.2882 - Running accuracy: 68.67% ( 686 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 190.4985 - Running accuracy: 68.08% ( 1361 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 287.0978 - Running accuracy: 68.02% ( 2040 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 382.1546 - Running accuracy: 68.34% ( 2733 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 479.2018 - Running accuracy: 68.43% ( 3421 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 578.5844 - Running accuracy: 69.74% ( 4184 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 676.4683 - Running accuracy: 70.78% ( 4954 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 775.5338 - Running accuracy: 71.36% ( 5708 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 870.7968 - Running accuracy: 72.13% ( 6491 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 965.1702 - Running accuracy: 72.55% ( 7254 / 10000 )
+Training progress: sample (4000 / 60000) of epoch (1 / 1) - Elapsed time: 4417.2208 - Running accuracy: 72.55%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 93.8369 - Running accuracy: 70.57% ( 705 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 188.9264 - Running accuracy: 69.63% ( 1392 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 282.8401 - Running accuracy: 69.49% ( 2084 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 379.4242 - Running accuracy: 69.27% ( 2770 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 476.9160 - Running accuracy: 68.93% ( 3446 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 571.2337 - Running accuracy: 70.25% ( 4214 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 673.6240 - Running accuracy: 71.12% ( 4978 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 766.3141 - Running accuracy: 71.82% ( 5745 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 867.4393 - Running accuracy: 72.52% ( 6526 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 959.3791 - Running accuracy: 72.71% ( 7270 / 10000 )
+Training progress: sample (5000 / 60000) of epoch (1 / 1) - Elapsed time: 5523.5940 - Running accuracy: 72.71%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 94.4410 - Running accuracy: 69.87% ( 698 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 190.7182 - Running accuracy: 67.78% ( 1355 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 283.0809 - Running accuracy: 67.96% ( 2038 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 381.1909 - Running accuracy: 68.42% ( 2736 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 476.6016 - Running accuracy: 68.99% ( 3449 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 575.9571 - Running accuracy: 70.03% ( 4201 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 674.0572 - Running accuracy: 70.78% ( 4954 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 771.1797 - Running accuracy: 71.26% ( 5700 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 868.4782 - Running accuracy: 72.15% ( 6493 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 966.2418 - Running accuracy: 72.52% ( 7251 / 10000 )
+Training progress: sample (6000 / 60000) of epoch (1 / 1) - Elapsed time: 6638.4265 - Running accuracy: 72.52%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 96.6027 - Running accuracy: 71.87% ( 718 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 194.3865 - Running accuracy: 70.69% ( 1413 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 293.2958 - Running accuracy: 70.76% ( 2122 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 390.8564 - Running accuracy: 71.27% ( 2850 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 488.4226 - Running accuracy: 71.41% ( 3570 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 585.7844 - Running accuracy: 72.20% ( 4331 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 683.6661 - Running accuracy: 73.12% ( 5118 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 782.2129 - Running accuracy: 73.83% ( 5906 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 879.4265 - Running accuracy: 74.71% ( 6723 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 978.2245 - Running accuracy: 75.16% ( 7515 / 10000 )
+Training progress: sample (7000 / 60000) of epoch (1 / 1) - Elapsed time: 7767.6135 - Running accuracy: 75.16%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 101.6138 - Running accuracy: 71.47% ( 714 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 196.7154 - Running accuracy: 69.28% ( 1385 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 295.8856 - Running accuracy: 69.59% ( 2087 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 391.7397 - Running accuracy: 70.24% ( 2809 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 495.8557 - Running accuracy: 70.67% ( 3533 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 598.1363 - Running accuracy: 71.63% ( 4297 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 697.7949 - Running accuracy: 72.42% ( 5069 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 796.4288 - Running accuracy: 73.03% ( 5842 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 898.9344 - Running accuracy: 73.93% ( 6653 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 994.8272 - Running accuracy: 74.19% ( 7418 / 10000 )
+Training progress: sample (8000 / 60000) of epoch (1 / 1) - Elapsed time: 8910.2335 - Running accuracy: 74.19%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 101.6590 - Running accuracy: 73.47% ( 734 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 204.5808 - Running accuracy: 72.49% ( 1449 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 304.1716 - Running accuracy: 72.22% ( 2166 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 403.8454 - Running accuracy: 72.47% ( 2898 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 501.5995 - Running accuracy: 72.67% ( 3633 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 600.2997 - Running accuracy: 73.73% ( 4423 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 697.8680 - Running accuracy: 74.34% ( 5203 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 791.1179 - Running accuracy: 74.83% ( 5986 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 886.4062 - Running accuracy: 75.71% ( 6813 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 992.1578 - Running accuracy: 75.79% ( 7578 / 10000 )
+Training progress: sample (9000 / 60000) of epoch (1 / 1) - Elapsed time: 10053.9257 - Running accuracy: 75.79%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 99.3858 - Running accuracy: 75.18% ( 751 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 195.8923 - Running accuracy: 73.19% ( 1463 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 293.2425 - Running accuracy: 73.29% ( 2198 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 391.7858 - Running accuracy: 73.27% ( 2930 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 487.4421 - Running accuracy: 73.33% ( 3666 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 586.5210 - Running accuracy: 74.30% ( 4457 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 687.4621 - Running accuracy: 74.84% ( 5238 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 786.0983 - Running accuracy: 75.41% ( 6032 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 888.6954 - Running accuracy: 76.05% ( 6844 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 984.7278 - Running accuracy: 76.24% ( 7623 / 10000 )
+Training progress: sample (10000 / 60000) of epoch (1 / 1) - Elapsed time: 11181.8334 - Running accuracy: 76.24%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 97.7727 - Running accuracy: 75.28% ( 752 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 191.4951 - Running accuracy: 73.64% ( 1472 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 293.8017 - Running accuracy: 73.26% ( 2197 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 393.8136 - Running accuracy: 73.44% ( 2937 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 491.3252 - Running accuracy: 73.85% ( 3692 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 595.3248 - Running accuracy: 74.78% ( 4486 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 688.6125 - Running accuracy: 75.08% ( 5255 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 782.7216 - Running accuracy: 75.58% ( 6046 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 882.2178 - Running accuracy: 76.34% ( 6870 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 978.7222 - Running accuracy: 76.44% ( 7643 / 10000 )
+Training progress: sample (11000 / 60000) of epoch (1 / 1) - Elapsed time: 12307.3804 - Running accuracy: 76.44%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 96.3376 - Running accuracy: 77.58% ( 775 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 193.7987 - Running accuracy: 76.64% ( 1532 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 290.7648 - Running accuracy: 75.66% ( 2269 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 390.8816 - Running accuracy: 75.99% ( 3039 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 483.0868 - Running accuracy: 76.44% ( 3821 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 577.0726 - Running accuracy: 77.13% ( 4627 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 678.7785 - Running accuracy: 77.38% ( 5416 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 779.4988 - Running accuracy: 77.83% ( 6226 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 875.0844 - Running accuracy: 78.40% ( 7055 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 973.5633 - Running accuracy: 78.57% ( 7856 / 10000 )
+Training progress: sample (12000 / 60000) of epoch (1 / 1) - Elapsed time: 13427.2671 - Running accuracy: 78.57%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 97.8511 - Running accuracy: 76.98% ( 769 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 202.2210 - Running accuracy: 75.54% ( 1510 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 300.6379 - Running accuracy: 74.79% ( 2243 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 396.6299 - Running accuracy: 75.24% ( 3009 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 492.4142 - Running accuracy: 75.50% ( 3774 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 587.8709 - Running accuracy: 76.28% ( 4576 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 682.7353 - Running accuracy: 76.90% ( 5382 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 778.5639 - Running accuracy: 77.17% ( 6173 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 873.6400 - Running accuracy: 78.03% ( 7022 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 969.3862 - Running accuracy: 78.03% ( 7802 / 10000 )
+Training progress: sample (13000 / 60000) of epoch (1 / 1) - Elapsed time: 14541.1005 - Running accuracy: 78.03%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 95.6337 - Running accuracy: 76.58% ( 765 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 189.3316 - Running accuracy: 75.74% ( 1514 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 280.8671 - Running accuracy: 74.96% ( 2248 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 373.5022 - Running accuracy: 75.77% ( 3030 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 469.4831 - Running accuracy: 76.18% ( 3808 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 561.8529 - Running accuracy: 76.93% ( 4615 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 655.3805 - Running accuracy: 77.41% ( 5418 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 752.5368 - Running accuracy: 77.52% ( 6201 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 849.1488 - Running accuracy: 78.28% ( 7044 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 945.1436 - Running accuracy: 78.38% ( 7837 / 10000 )
+Training progress: sample (14000 / 60000) of epoch (1 / 1) - Elapsed time: 15630.3033 - Running accuracy: 78.38%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 94.7086 - Running accuracy: 76.58% ( 765 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 190.7918 - Running accuracy: 76.14% ( 1522 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 281.2919 - Running accuracy: 75.49% ( 2264 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 377.0601 - Running accuracy: 75.84% ( 3033 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 470.1074 - Running accuracy: 76.06% ( 3802 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 563.7873 - Running accuracy: 76.58% ( 4594 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 656.8195 - Running accuracy: 77.15% ( 5400 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 752.6688 - Running accuracy: 77.36% ( 6188 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 847.9668 - Running accuracy: 77.99% ( 7018 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 943.7958 - Running accuracy: 78.05% ( 7804 / 10000 )
+Training progress: sample (15000 / 60000) of epoch (1 / 1) - Elapsed time: 16717.6253 - Running accuracy: 78.05%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 94.2484 - Running accuracy: 77.28% ( 772 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 191.9118 - Running accuracy: 76.09% ( 1521 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 288.8530 - Running accuracy: 75.43% ( 2262 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 382.2455 - Running accuracy: 76.17% ( 3046 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 479.0281 - Running accuracy: 76.62% ( 3830 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 575.1960 - Running accuracy: 77.53% ( 4651 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 669.0810 - Running accuracy: 77.84% ( 5448 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 763.1600 - Running accuracy: 77.98% ( 6238 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 858.4589 - Running accuracy: 78.79% ( 7090 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 953.0935 - Running accuracy: 78.88% ( 7887 / 10000 )
+Training progress: sample (16000 / 60000) of epoch (1 / 1) - Elapsed time: 17814.8520 - Running accuracy: 78.88%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 95.8321 - Running accuracy: 81.68% ( 816 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 192.3992 - Running accuracy: 79.74% ( 1594 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 291.8913 - Running accuracy: 78.76% ( 2362 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 389.0869 - Running accuracy: 78.57% ( 3142 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 486.8007 - Running accuracy: 78.72% ( 3935 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 583.3388 - Running accuracy: 79.45% ( 4766 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 680.0757 - Running accuracy: 80.10% ( 5606 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 779.9979 - Running accuracy: 80.39% ( 6430 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 875.3265 - Running accuracy: 81.22% ( 7309 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 974.0183 - Running accuracy: 81.34% ( 8133 / 10000 )
+Training progress: sample (17000 / 60000) of epoch (1 / 1) - Elapsed time: 18929.0860 - Running accuracy: 81.34%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 94.8995 - Running accuracy: 79.98% ( 799 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 191.9463 - Running accuracy: 78.34% ( 1566 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 285.6855 - Running accuracy: 77.69% ( 2330 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 382.0385 - Running accuracy: 77.97% ( 3118 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 484.0302 - Running accuracy: 78.14% ( 3906 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 581.2489 - Running accuracy: 78.95% ( 4736 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 677.6177 - Running accuracy: 79.43% ( 5559 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 772.5000 - Running accuracy: 79.81% ( 6384 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 866.2566 - Running accuracy: 80.69% ( 7261 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 961.9047 - Running accuracy: 80.85% ( 8084 / 10000 )
+Training progress: sample (18000 / 60000) of epoch (1 / 1) - Elapsed time: 20037.0685 - Running accuracy: 80.85%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 98.0156 - Running accuracy: 80.68% ( 806 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 193.4292 - Running accuracy: 79.04% ( 1580 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 286.8684 - Running accuracy: 78.43% ( 2352 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 381.8259 - Running accuracy: 78.74% ( 3149 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 477.7894 - Running accuracy: 78.80% ( 3939 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 577.5622 - Running accuracy: 79.76% ( 4785 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 676.9973 - Running accuracy: 80.50% ( 5634 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 774.2903 - Running accuracy: 80.81% ( 6464 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 872.0262 - Running accuracy: 81.51% ( 7335 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 970.3738 - Running accuracy: 81.57% ( 8156 / 10000 )
+Training progress: sample (19000 / 60000) of epoch (1 / 1) - Elapsed time: 21151.8584 - Running accuracy: 81.57%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 95.5955 - Running accuracy: 80.28% ( 802 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 192.6097 - Running accuracy: 78.59% ( 1571 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 288.5033 - Running accuracy: 78.66% ( 2359 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 386.3150 - Running accuracy: 78.82% ( 3152 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 481.9999 - Running accuracy: 79.06% ( 3952 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 575.3880 - Running accuracy: 79.90% ( 4793 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 668.4108 - Running accuracy: 80.44% ( 5630 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 765.2306 - Running accuracy: 80.74% ( 6458 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 861.4169 - Running accuracy: 81.36% ( 7322 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 954.5700 - Running accuracy: 81.45% ( 8144 / 10000 )
+Training progress: sample (20000 / 60000) of epoch (1 / 1) - Elapsed time: 22251.2390 - Running accuracy: 81.45%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 92.7264 - Running accuracy: 78.98% ( 789 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 184.7033 - Running accuracy: 77.44% ( 1548 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 276.9212 - Running accuracy: 77.89% ( 2336 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 367.3876 - Running accuracy: 78.04% ( 3121 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 459.0759 - Running accuracy: 78.16% ( 3907 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 551.4805 - Running accuracy: 79.05% ( 4742 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 650.1093 - Running accuracy: 79.57% ( 5569 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 746.9176 - Running accuracy: 79.81% ( 6384 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 845.2406 - Running accuracy: 80.55% ( 7249 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 940.3022 - Running accuracy: 80.69% ( 8068 / 10000 )
+Training progress: sample (21000 / 60000) of epoch (1 / 1) - Elapsed time: 23329.3251 - Running accuracy: 80.69%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 98.3171 - Running accuracy: 77.88% ( 778 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 192.9466 - Running accuracy: 77.34% ( 1546 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 288.9087 - Running accuracy: 77.19% ( 2315 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 386.6150 - Running accuracy: 77.57% ( 3102 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 482.7632 - Running accuracy: 77.78% ( 3888 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 578.8191 - Running accuracy: 78.66% ( 4719 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 678.5586 - Running accuracy: 79.11% ( 5537 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 778.0529 - Running accuracy: 79.51% ( 6360 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 874.6698 - Running accuracy: 79.96% ( 7196 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 970.9852 - Running accuracy: 80.14% ( 8013 / 10000 )
+Training progress: sample (22000 / 60000) of epoch (1 / 1) - Elapsed time: 24441.0540 - Running accuracy: 80.14%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 97.4357 - Running accuracy: 79.48% ( 794 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 195.0439 - Running accuracy: 78.89% ( 1577 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 292.4473 - Running accuracy: 78.73% ( 2361 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 388.5572 - Running accuracy: 79.09% ( 3163 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 483.2060 - Running accuracy: 79.44% ( 3971 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 581.6705 - Running accuracy: 80.10% ( 4805 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 678.7852 - Running accuracy: 80.54% ( 5637 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 772.3389 - Running accuracy: 80.87% ( 6469 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 867.3613 - Running accuracy: 81.54% ( 7338 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 960.9650 - Running accuracy: 81.71% ( 8170 / 10000 )
+Training progress: sample (23000 / 60000) of epoch (1 / 1) - Elapsed time: 25545.7367 - Running accuracy: 81.71%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 93.6125 - Running accuracy: 78.48% ( 784 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 186.7080 - Running accuracy: 77.54% ( 1550 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 280.6918 - Running accuracy: 77.93% ( 2337 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 376.4620 - Running accuracy: 78.14% ( 3125 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 468.9287 - Running accuracy: 78.32% ( 3915 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 565.6492 - Running accuracy: 79.20% ( 4751 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 663.2359 - Running accuracy: 79.63% ( 5573 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 760.7551 - Running accuracy: 79.92% ( 6393 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 855.9825 - Running accuracy: 80.51% ( 7245 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 952.6136 - Running accuracy: 80.52% ( 8051 / 10000 )
+Training progress: sample (24000 / 60000) of epoch (1 / 1) - Elapsed time: 26638.6191 - Running accuracy: 80.52%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 97.0328 - Running accuracy: 79.58% ( 795 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 192.2292 - Running accuracy: 78.89% ( 1577 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 287.8055 - Running accuracy: 79.19% ( 2375 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 381.7300 - Running accuracy: 79.37% ( 3174 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 482.0543 - Running accuracy: 79.44% ( 3971 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 576.6248 - Running accuracy: 80.48% ( 4828 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 673.6685 - Running accuracy: 81.01% ( 5670 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 768.7125 - Running accuracy: 81.15% ( 6491 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 861.9683 - Running accuracy: 81.73% ( 7355 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 964.3692 - Running accuracy: 81.96% ( 8195 / 10000 )
+Training progress: sample (25000 / 60000) of epoch (1 / 1) - Elapsed time: 27746.3619 - Running accuracy: 81.96%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 96.9925 - Running accuracy: 78.38% ( 783 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 195.3131 - Running accuracy: 77.64% ( 1552 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 292.1994 - Running accuracy: 77.66% ( 2329 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 390.1513 - Running accuracy: 77.99% ( 3119 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 487.3294 - Running accuracy: 78.02% ( 3900 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 583.1946 - Running accuracy: 79.08% ( 4744 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 679.3619 - Running accuracy: 79.65% ( 5575 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 777.4241 - Running accuracy: 79.62% ( 6369 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 872.8651 - Running accuracy: 80.08% ( 7206 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 975.5247 - Running accuracy: 80.32% ( 8031 / 10000 )
+Training progress: sample (26000 / 60000) of epoch (1 / 1) - Elapsed time: 28862.9593 - Running accuracy: 80.32%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 95.6262 - Running accuracy: 77.88% ( 778 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 190.2006 - Running accuracy: 77.14% ( 1542 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 291.6672 - Running accuracy: 77.39% ( 2321 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 390.4470 - Running accuracy: 77.69% ( 3107 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 482.5146 - Running accuracy: 77.84% ( 3891 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 575.7451 - Running accuracy: 78.86% ( 4731 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 669.1159 - Running accuracy: 79.40% ( 5557 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 764.9968 - Running accuracy: 79.52% ( 6361 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 857.5462 - Running accuracy: 80.11% ( 7209 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 947.1512 - Running accuracy: 80.34% ( 8033 / 10000 )
+Training progress: sample (27000 / 60000) of epoch (1 / 1) - Elapsed time: 29951.5714 - Running accuracy: 80.34%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 94.5921 - Running accuracy: 80.28% ( 802 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 194.5351 - Running accuracy: 80.04% ( 1600 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 291.1277 - Running accuracy: 79.86% ( 2395 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 386.4182 - Running accuracy: 79.84% ( 3193 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 484.4062 - Running accuracy: 80.12% ( 4005 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 577.8798 - Running accuracy: 80.71% ( 4842 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 673.6406 - Running accuracy: 81.11% ( 5677 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 769.4623 - Running accuracy: 80.85% ( 6467 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 860.4924 - Running accuracy: 81.31% ( 7317 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 959.5396 - Running accuracy: 81.41% ( 8140 / 10000 )
+Training progress: sample (28000 / 60000) of epoch (1 / 1) - Elapsed time: 31048.3239 - Running accuracy: 81.41%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 91.0091 - Running accuracy: 80.88% ( 808 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 181.6490 - Running accuracy: 79.84% ( 1596 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 273.5242 - Running accuracy: 79.73% ( 2391 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 364.3044 - Running accuracy: 80.15% ( 3205 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 456.4434 - Running accuracy: 80.02% ( 4000 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 554.7205 - Running accuracy: 80.76% ( 4845 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 647.1392 - Running accuracy: 81.35% ( 5694 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 738.7600 - Running accuracy: 81.52% ( 6521 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 832.1933 - Running accuracy: 82.09% ( 7387 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 929.3512 - Running accuracy: 82.23% ( 8222 / 10000 )
+Training progress: sample (29000 / 60000) of epoch (1 / 1) - Elapsed time: 32119.1992 - Running accuracy: 82.23%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 93.1640 - Running accuracy: 83.28% ( 832 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 184.7444 - Running accuracy: 81.44% ( 1628 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 275.3313 - Running accuracy: 81.23% ( 2436 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 370.6021 - Running accuracy: 81.50% ( 3259 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 466.6562 - Running accuracy: 81.56% ( 4077 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 564.6077 - Running accuracy: 82.11% ( 4926 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 658.1424 - Running accuracy: 82.77% ( 5793 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 749.1645 - Running accuracy: 82.91% ( 6632 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 843.3724 - Running accuracy: 83.51% ( 7515 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 941.5763 - Running accuracy: 83.67% ( 8366 / 10000 )
+Training progress: sample (30000 / 60000) of epoch (1 / 1) - Elapsed time: 33202.9432 - Running accuracy: 83.67%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 97.1239 - Running accuracy: 82.88% ( 828 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 189.6218 - Running accuracy: 81.49% ( 1629 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 287.2203 - Running accuracy: 81.26% ( 2437 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 380.2458 - Running accuracy: 81.47% ( 3258 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 471.3577 - Running accuracy: 81.70% ( 4084 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 564.0033 - Running accuracy: 82.50% ( 4949 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 654.7129 - Running accuracy: 83.17% ( 5821 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 749.9202 - Running accuracy: 83.25% ( 6659 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 843.2267 - Running accuracy: 83.92% ( 7552 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 937.5853 - Running accuracy: 84.02% ( 8401 / 10000 )
+Training progress: sample (31000 / 60000) of epoch (1 / 1) - Elapsed time: 34280.5781 - Running accuracy: 84.02%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 95.7556 - Running accuracy: 80.58% ( 805 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 188.8068 - Running accuracy: 80.44% ( 1608 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 283.7095 - Running accuracy: 80.59% ( 2417 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 381.8032 - Running accuracy: 80.62% ( 3224 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 474.4440 - Running accuracy: 80.38% ( 4018 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 571.6314 - Running accuracy: 81.13% ( 4867 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 669.7963 - Running accuracy: 81.98% ( 5738 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 761.8689 - Running accuracy: 82.17% ( 6573 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 853.0644 - Running accuracy: 82.75% ( 7447 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 946.4293 - Running accuracy: 82.72% ( 8271 / 10000 )
+Training progress: sample (32000 / 60000) of epoch (1 / 1) - Elapsed time: 35368.3954 - Running accuracy: 82.72%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 90.8529 - Running accuracy: 81.58% ( 815 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 180.2248 - Running accuracy: 80.59% ( 1611 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 272.3657 - Running accuracy: 81.26% ( 2437 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 362.9121 - Running accuracy: 81.40% ( 3255 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 454.9329 - Running accuracy: 81.14% ( 4056 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 545.1191 - Running accuracy: 81.98% ( 4918 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 636.4205 - Running accuracy: 82.57% ( 5779 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 728.9096 - Running accuracy: 82.62% ( 6609 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 821.9374 - Running accuracy: 83.20% ( 7487 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 913.6086 - Running accuracy: 83.35% ( 8334 / 10000 )
+Training progress: sample (33000 / 60000) of epoch (1 / 1) - Elapsed time: 36418.7520 - Running accuracy: 83.35%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 91.7952 - Running accuracy: 81.98% ( 819 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 185.6836 - Running accuracy: 81.24% ( 1624 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 276.4642 - Running accuracy: 81.46% ( 2443 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 369.1141 - Running accuracy: 81.47% ( 3258 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 463.7165 - Running accuracy: 81.12% ( 4055 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 557.2047 - Running accuracy: 81.63% ( 4897 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 652.4002 - Running accuracy: 82.10% ( 5746 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 745.9911 - Running accuracy: 82.50% ( 6599 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 838.6824 - Running accuracy: 83.05% ( 7474 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 930.4297 - Running accuracy: 83.19% ( 8318 / 10000 )
+Training progress: sample (34000 / 60000) of epoch (1 / 1) - Elapsed time: 37493.6778 - Running accuracy: 83.19%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 92.8787 - Running accuracy: 80.88% ( 808 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 186.9812 - Running accuracy: 80.14% ( 1602 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 285.0289 - Running accuracy: 80.33% ( 2409 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 379.3709 - Running accuracy: 80.35% ( 3213 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 472.8126 - Running accuracy: 79.90% ( 3994 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 565.3037 - Running accuracy: 80.50% ( 4829 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 657.6123 - Running accuracy: 81.17% ( 5681 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 748.5225 - Running accuracy: 81.39% ( 6510 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 845.3646 - Running accuracy: 81.90% ( 7370 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 937.0676 - Running accuracy: 82.09% ( 8208 / 10000 )
+Training progress: sample (35000 / 60000) of epoch (1 / 1) - Elapsed time: 38570.6729 - Running accuracy: 82.09%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 93.3933 - Running accuracy: 81.38% ( 813 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 187.9593 - Running accuracy: 80.04% ( 1600 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 280.9291 - Running accuracy: 80.36% ( 2410 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 372.0505 - Running accuracy: 80.57% ( 3222 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 462.6469 - Running accuracy: 80.36% ( 4017 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 553.1024 - Running accuracy: 81.05% ( 4862 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 644.2731 - Running accuracy: 81.63% ( 5713 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 737.0402 - Running accuracy: 81.89% ( 6550 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 829.1613 - Running accuracy: 82.45% ( 7420 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 921.8735 - Running accuracy: 82.59% ( 8258 / 10000 )
+Training progress: sample (36000 / 60000) of epoch (1 / 1) - Elapsed time: 39632.2527 - Running accuracy: 82.59%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 92.1695 - Running accuracy: 81.88% ( 818 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 182.9842 - Running accuracy: 80.44% ( 1608 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 273.2319 - Running accuracy: 80.89% ( 2426 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 365.4048 - Running accuracy: 81.37% ( 3254 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 456.2373 - Running accuracy: 81.10% ( 4054 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 546.4549 - Running accuracy: 81.90% ( 4913 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 637.7273 - Running accuracy: 82.64% ( 5784 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 729.6379 - Running accuracy: 82.74% ( 6618 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 823.1611 - Running accuracy: 83.25% ( 7492 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 915.6567 - Running accuracy: 83.38% ( 8337 / 10000 )
+Training progress: sample (37000 / 60000) of epoch (1 / 1) - Elapsed time: 40686.1565 - Running accuracy: 83.38%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 93.5530 - Running accuracy: 80.98% ( 809 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 184.2441 - Running accuracy: 80.74% ( 1614 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 277.1976 - Running accuracy: 80.83% ( 2424 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 369.9604 - Running accuracy: 81.00% ( 3239 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 463.5015 - Running accuracy: 81.14% ( 4056 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 560.4312 - Running accuracy: 81.98% ( 4918 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 656.5658 - Running accuracy: 82.94% ( 5805 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 754.7869 - Running accuracy: 83.21% ( 6656 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 851.7351 - Running accuracy: 83.91% ( 7551 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 946.6471 - Running accuracy: 84.21% ( 8420 / 10000 )
+Training progress: sample (38000 / 60000) of epoch (1 / 1) - Elapsed time: 41770.6739 - Running accuracy: 84.21%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 102.5104 - Running accuracy: 82.48% ( 824 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 209.4287 - Running accuracy: 81.34% ( 1626 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 316.5308 - Running accuracy: 81.29% ( 2438 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 413.6760 - Running accuracy: 81.72% ( 3268 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 512.6251 - Running accuracy: 81.62% ( 4080 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 607.8292 - Running accuracy: 82.41% ( 4944 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 705.1141 - Running accuracy: 83.27% ( 5828 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 803.2698 - Running accuracy: 83.64% ( 6690 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 899.2128 - Running accuracy: 84.30% ( 7586 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 996.0945 - Running accuracy: 84.47% ( 8446 / 10000 )
+Training progress: sample (39000 / 60000) of epoch (1 / 1) - Elapsed time: 42916.5744 - Running accuracy: 84.47%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 98.1613 - Running accuracy: 83.08% ( 830 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 195.0555 - Running accuracy: 82.34% ( 1646 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 292.8338 - Running accuracy: 82.39% ( 2471 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 389.8634 - Running accuracy: 82.35% ( 3293 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 488.4409 - Running accuracy: 82.16% ( 4107 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 586.3305 - Running accuracy: 83.06% ( 4983 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 685.4570 - Running accuracy: 83.64% ( 5854 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 782.9635 - Running accuracy: 83.89% ( 6710 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 881.9996 - Running accuracy: 84.43% ( 7598 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 979.1196 - Running accuracy: 84.50% ( 8449 / 10000 )
+Training progress: sample (40000 / 60000) of epoch (1 / 1) - Elapsed time: 44039.5386 - Running accuracy: 84.50%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 97.9063 - Running accuracy: 80.88% ( 808 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 195.3117 - Running accuracy: 80.49% ( 1609 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 292.5635 - Running accuracy: 81.16% ( 2434 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 387.2030 - Running accuracy: 81.32% ( 3252 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 481.9920 - Running accuracy: 81.16% ( 4057 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 578.8106 - Running accuracy: 81.98% ( 4918 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 675.0160 - Running accuracy: 82.54% ( 5777 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 772.6399 - Running accuracy: 82.94% ( 6634 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 870.0878 - Running accuracy: 83.36% ( 7502 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 970.1695 - Running accuracy: 83.58% ( 8357 / 10000 )
+Training progress: sample (41000 / 60000) of epoch (1 / 1) - Elapsed time: 45152.0802 - Running accuracy: 83.58%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 96.4940 - Running accuracy: 81.48% ( 814 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 201.7279 - Running accuracy: 80.89% ( 1617 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 301.1038 - Running accuracy: 80.99% ( 2429 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 403.8910 - Running accuracy: 81.32% ( 3252 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 505.0806 - Running accuracy: 81.28% ( 4063 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 611.7142 - Running accuracy: 82.41% ( 4944 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 715.5085 - Running accuracy: 83.17% ( 5821 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 821.1465 - Running accuracy: 83.62% ( 6689 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 921.8726 - Running accuracy: 84.28% ( 7584 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 1029.6665 - Running accuracy: 84.45% ( 8444 / 10000 )
+Training progress: sample (42000 / 60000) of epoch (1 / 1) - Elapsed time: 46323.1403 - Running accuracy: 84.45%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 95.3623 - Running accuracy: 83.38% ( 833 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 187.0488 - Running accuracy: 82.14% ( 1642 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 280.1196 - Running accuracy: 82.53% ( 2475 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 372.6855 - Running accuracy: 82.82% ( 3312 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 464.7514 - Running accuracy: 82.70% ( 4134 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 553.9210 - Running accuracy: 83.53% ( 5011 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 644.1940 - Running accuracy: 84.14% ( 5889 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 732.3218 - Running accuracy: 84.39% ( 6750 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 820.7823 - Running accuracy: 85.21% ( 7668 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 911.6055 - Running accuracy: 85.35% ( 8534 / 10000 )
+Training progress: sample (43000 / 60000) of epoch (1 / 1) - Elapsed time: 47385.8608 - Running accuracy: 85.35%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 89.2751 - Running accuracy: 81.48% ( 814 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 178.5787 - Running accuracy: 81.34% ( 1626 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 266.3149 - Running accuracy: 81.29% ( 2438 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 357.0461 - Running accuracy: 81.40% ( 3255 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 445.0748 - Running accuracy: 81.50% ( 4074 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 533.0903 - Running accuracy: 82.30% ( 4937 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 621.0352 - Running accuracy: 82.75% ( 5792 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 710.3832 - Running accuracy: 83.20% ( 6655 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 800.4062 - Running accuracy: 83.96% ( 7556 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 889.2970 - Running accuracy: 83.98% ( 8397 / 10000 )
+Training progress: sample (44000 / 60000) of epoch (1 / 1) - Elapsed time: 48409.3463 - Running accuracy: 83.98%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 90.7774 - Running accuracy: 83.38% ( 833 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 179.9079 - Running accuracy: 82.24% ( 1644 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 267.7250 - Running accuracy: 82.13% ( 2463 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 357.5391 - Running accuracy: 82.25% ( 3289 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 447.6854 - Running accuracy: 82.30% ( 4114 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 539.2716 - Running accuracy: 83.18% ( 4990 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 630.2671 - Running accuracy: 83.57% ( 5849 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 722.0208 - Running accuracy: 83.84% ( 6706 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 814.9595 - Running accuracy: 84.54% ( 7608 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 905.5241 - Running accuracy: 84.54% ( 8453 / 10000 )
+Training progress: sample (45000 / 60000) of epoch (1 / 1) - Elapsed time: 49447.5996 - Running accuracy: 84.54%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 92.3383 - Running accuracy: 81.98% ( 819 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 185.2675 - Running accuracy: 81.34% ( 1626 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 277.2388 - Running accuracy: 81.39% ( 2441 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 367.8349 - Running accuracy: 81.45% ( 3257 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 460.8277 - Running accuracy: 81.28% ( 4063 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 551.1213 - Running accuracy: 82.25% ( 4934 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 641.8825 - Running accuracy: 82.94% ( 5805 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 731.0805 - Running accuracy: 83.19% ( 6654 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 820.2752 - Running accuracy: 83.81% ( 7542 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 909.9250 - Running accuracy: 83.82% ( 8381 / 10000 )
+Training progress: sample (46000 / 60000) of epoch (1 / 1) - Elapsed time: 50491.8442 - Running accuracy: 83.82%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 89.2371 - Running accuracy: 81.48% ( 814 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 177.6366 - Running accuracy: 80.89% ( 1617 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 267.2546 - Running accuracy: 81.19% ( 2435 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 357.7976 - Running accuracy: 81.50% ( 3259 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 448.2987 - Running accuracy: 81.40% ( 4069 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 538.6742 - Running accuracy: 82.26% ( 4935 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 630.4456 - Running accuracy: 82.91% ( 5803 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 722.7900 - Running accuracy: 83.15% ( 6651 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 816.7003 - Running accuracy: 83.91% ( 7551 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 909.7483 - Running accuracy: 83.92% ( 8391 / 10000 )
+Training progress: sample (47000 / 60000) of epoch (1 / 1) - Elapsed time: 51534.8550 - Running accuracy: 83.92%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 90.4477 - Running accuracy: 80.88% ( 808 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 181.4679 - Running accuracy: 80.39% ( 1607 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 269.9489 - Running accuracy: 80.93% ( 2427 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 358.1572 - Running accuracy: 81.30% ( 3251 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 447.0288 - Running accuracy: 81.32% ( 4065 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 536.6499 - Running accuracy: 82.13% ( 4927 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 626.0699 - Running accuracy: 82.91% ( 5803 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 715.8247 - Running accuracy: 83.32% ( 6665 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 808.4648 - Running accuracy: 84.10% ( 7568 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 897.1556 - Running accuracy: 84.16% ( 8415 / 10000 )
+Training progress: sample (48000 / 60000) of epoch (1 / 1) - Elapsed time: 52567.8047 - Running accuracy: 84.16%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 89.4949 - Running accuracy: 81.78% ( 817 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 178.3107 - Running accuracy: 80.99% ( 1619 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 266.7712 - Running accuracy: 81.23% ( 2436 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 357.3615 - Running accuracy: 81.40% ( 3255 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 446.0636 - Running accuracy: 81.60% ( 4079 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 535.0001 - Running accuracy: 82.45% ( 4946 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 624.8466 - Running accuracy: 83.30% ( 5830 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 716.5567 - Running accuracy: 83.67% ( 6693 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 806.9776 - Running accuracy: 84.60% ( 7613 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 896.6559 - Running accuracy: 84.69% ( 8468 / 10000 )
+Training progress: sample (49000 / 60000) of epoch (1 / 1) - Elapsed time: 53597.1147 - Running accuracy: 84.69%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 90.7069 - Running accuracy: 81.98% ( 819 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 180.9155 - Running accuracy: 81.34% ( 1626 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 269.1189 - Running accuracy: 81.03% ( 2430 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 360.6106 - Running accuracy: 81.17% ( 3246 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 450.4717 - Running accuracy: 81.46% ( 4072 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 540.9727 - Running accuracy: 82.21% ( 4932 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 631.1943 - Running accuracy: 83.24% ( 5826 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 723.1667 - Running accuracy: 83.49% ( 6678 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 811.7967 - Running accuracy: 84.48% ( 7602 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 902.2026 - Running accuracy: 84.59% ( 8458 / 10000 )
+Training progress: sample (50000 / 60000) of epoch (1 / 1) - Elapsed time: 54632.2286 - Running accuracy: 84.59%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 103.0499 - Running accuracy: 82.18% ( 821 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 199.4801 - Running accuracy: 80.84% ( 1616 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 296.2197 - Running accuracy: 80.66% ( 2419 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 391.3568 - Running accuracy: 80.70% ( 3227 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 488.2765 - Running accuracy: 80.86% ( 4042 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 585.5664 - Running accuracy: 81.88% ( 4912 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 681.7825 - Running accuracy: 82.88% ( 5801 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 777.4893 - Running accuracy: 83.09% ( 6646 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 875.2738 - Running accuracy: 84.01% ( 7560 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 973.1934 - Running accuracy: 84.22% ( 8421 / 10000 )
+Training progress: sample (51000 / 60000) of epoch (1 / 1) - Elapsed time: 55739.5527 - Running accuracy: 84.22%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 96.0308 - Running accuracy: 81.48% ( 814 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 193.7381 - Running accuracy: 80.14% ( 1602 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 290.2703 - Running accuracy: 80.76% ( 2422 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 386.6379 - Running accuracy: 81.02% ( 3240 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 484.7932 - Running accuracy: 80.80% ( 4039 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 583.7030 - Running accuracy: 81.61% ( 4896 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 679.2932 - Running accuracy: 82.33% ( 5762 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 775.7685 - Running accuracy: 82.61% ( 6608 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 874.2263 - Running accuracy: 83.40% ( 7505 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 971.0211 - Running accuracy: 83.52% ( 8351 / 10000 )
+Training progress: sample (52000 / 60000) of epoch (1 / 1) - Elapsed time: 56850.6833 - Running accuracy: 83.52%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 107.7978 - Running accuracy: 81.98% ( 819 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 208.9934 - Running accuracy: 80.09% ( 1601 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 320.4306 - Running accuracy: 80.83% ( 2424 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 424.4676 - Running accuracy: 81.25% ( 3249 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 527.9175 - Running accuracy: 81.50% ( 4074 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 632.8287 - Running accuracy: 82.20% ( 4931 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 746.0284 - Running accuracy: 83.04% ( 5812 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 852.6903 - Running accuracy: 83.25% ( 6659 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 959.9489 - Running accuracy: 84.15% ( 7573 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 1070.9384 - Running accuracy: 84.29% ( 8428 / 10000 )
+Training progress: sample (53000 / 60000) of epoch (1 / 1) - Elapsed time: 58077.5522 - Running accuracy: 84.29%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 96.5851 - Running accuracy: 82.28% ( 822 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 192.1064 - Running accuracy: 80.94% ( 1618 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 307.3814 - Running accuracy: 80.73% ( 2421 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 421.9571 - Running accuracy: 80.97% ( 3238 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 538.5372 - Running accuracy: 81.04% ( 4051 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 654.6333 - Running accuracy: 81.70% ( 4901 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 762.3525 - Running accuracy: 82.68% ( 5787 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 866.6493 - Running accuracy: 83.09% ( 6646 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 962.5092 - Running accuracy: 83.88% ( 7548 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 1060.1745 - Running accuracy: 84.07% ( 8406 / 10000 )
+Training progress: sample (54000 / 60000) of epoch (1 / 1) - Elapsed time: 59291.9113 - Running accuracy: 84.07%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 98.5501 - Running accuracy: 81.78% ( 817 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 194.9367 - Running accuracy: 80.29% ( 1605 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 292.6886 - Running accuracy: 80.53% ( 2415 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 389.8988 - Running accuracy: 80.85% ( 3233 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 485.2726 - Running accuracy: 81.00% ( 4049 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 582.9154 - Running accuracy: 81.73% ( 4903 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 695.3503 - Running accuracy: 82.71% ( 5789 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 810.2145 - Running accuracy: 83.02% ( 6641 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 926.7522 - Running accuracy: 83.91% ( 7551 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 1025.3228 - Running accuracy: 83.92% ( 8391 / 10000 )
+Training progress: sample (55000 / 60000) of epoch (1 / 1) - Elapsed time: 60459.1707 - Running accuracy: 83.92%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 100.8929 - Running accuracy: 80.78% ( 807 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 214.2611 - Running accuracy: 79.54% ( 1590 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 321.2398 - Running accuracy: 79.79% ( 2393 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 428.1509 - Running accuracy: 80.37% ( 3214 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 528.5485 - Running accuracy: 80.66% ( 4032 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 629.9741 - Running accuracy: 81.46% ( 4887 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 732.5755 - Running accuracy: 82.35% ( 5764 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 836.6336 - Running accuracy: 82.50% ( 6599 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 942.0996 - Running accuracy: 83.46% ( 7511 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 1050.2365 - Running accuracy: 83.51% ( 8350 / 10000 )
+Training progress: sample (56000 / 60000) of epoch (1 / 1) - Elapsed time: 61660.1204 - Running accuracy: 83.51%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 117.0487 - Running accuracy: 81.18% ( 811 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 231.2472 - Running accuracy: 80.09% ( 1601 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 329.8688 - Running accuracy: 80.33% ( 2409 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 444.0508 - Running accuracy: 80.70% ( 3227 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 546.1960 - Running accuracy: 80.98% ( 4048 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 665.7942 - Running accuracy: 81.76% ( 4905 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 763.8331 - Running accuracy: 82.54% ( 5777 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 861.8609 - Running accuracy: 82.52% ( 6601 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 959.4775 - Running accuracy: 83.59% ( 7522 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 1055.7076 - Running accuracy: 83.49% ( 8348 / 10000 )
+Training progress: sample (57000 / 60000) of epoch (1 / 1) - Elapsed time: 62875.4282 - Running accuracy: 83.49%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 99.7457 - Running accuracy: 81.18% ( 811 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 204.3211 - Running accuracy: 79.79% ( 1595 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 308.6377 - Running accuracy: 80.03% ( 2400 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 416.3294 - Running accuracy: 80.65% ( 3225 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 520.0054 - Running accuracy: 80.90% ( 4044 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 641.6194 - Running accuracy: 81.35% ( 4880 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 751.6513 - Running accuracy: 82.25% ( 5757 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 860.6328 - Running accuracy: 82.55% ( 6603 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 958.7587 - Running accuracy: 83.40% ( 7505 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 1060.5561 - Running accuracy: 83.44% ( 8343 / 10000 )
+Training progress: sample (58000 / 60000) of epoch (1 / 1) - Elapsed time: 64078.3258 - Running accuracy: 83.44%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 98.9773 - Running accuracy: 81.58% ( 815 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 196.5645 - Running accuracy: 80.74% ( 1614 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 297.3644 - Running accuracy: 80.86% ( 2425 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 392.8649 - Running accuracy: 81.02% ( 3240 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 491.7965 - Running accuracy: 81.24% ( 4061 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 590.1891 - Running accuracy: 81.70% ( 4901 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 689.1922 - Running accuracy: 82.68% ( 5787 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 787.9589 - Running accuracy: 83.04% ( 6642 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 885.3998 - Running accuracy: 83.94% ( 7554 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 982.8115 - Running accuracy: 83.99% ( 8398 / 10000 )
+Training progress: sample (59000 / 60000) of epoch (1 / 1) - Elapsed time: 65203.7175 - Running accuracy: 83.99%
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 97.7189 - Running accuracy: 80.38% ( 803 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 196.2256 - Running accuracy: 79.99% ( 1599 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 293.6995 - Running accuracy: 80.06% ( 2401 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 391.7102 - Running accuracy: 80.27% ( 3210 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 489.2560 - Running accuracy: 80.48% ( 4023 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 586.0157 - Running accuracy: 81.35% ( 4880 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 683.4817 - Running accuracy: 82.33% ( 5762 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 781.2991 - Running accuracy: 82.60% ( 6607 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 881.0520 - Running accuracy: 83.62% ( 7525 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 977.4329 - Running accuracy: 83.65% ( 8364 / 10000 )
+Training progress: sample (60000 / 60000) of epoch (1 / 1) - Elapsed time: 66328.9697 - Running accuracy: 83.65%
+Loading MNIST test samples...
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 96.5315 - Running accuracy: 80.08% ( 800 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 196.7899 - Running accuracy: 80.04% ( 1600 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 292.3729 - Running accuracy: 79.96% ( 2398 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 389.1339 - Running accuracy: 80.37% ( 3214 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 486.8388 - Running accuracy: 80.46% ( 4022 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 600.6199 - Running accuracy: 81.15% ( 4868 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 702.8922 - Running accuracy: 82.10% ( 5746 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 800.7384 - Running accuracy: 82.45% ( 6595 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 910.7892 - Running accuracy: 83.39% ( 7504 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 1020.6061 - Running accuracy: 83.45% ( 8344 / 10000 )
+83.44834483448345
+Parameters used: No. of Neurons = 100.000000, R = 1000.000000, Tau = 0.100000, VthMax = 50.000000, Target = 10.000000, F.I.C = -1.000000, gamma = 0.005000, VthMin = 0.250000, Ve = 0.000000
