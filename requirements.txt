@@ -1,10 +1,11 @@
 sklearn
 numpy
 pandas
+seaborn
 timeit
 struct
 pickle
-bayesian-optimization
 torch
+joblib
 
 
