@@ -44,9 +44,9 @@ def train(
         )[0]
 
     print("Training...")
-    correct = 0
     start_time = timeit.default_timer()
     for epoch in range(n_epochs):
+        correct = 0
         for idx in range(n_samples):
             image, label = training_data[idx], training_labels[idx].item()
             network.OverwriteActivity()
