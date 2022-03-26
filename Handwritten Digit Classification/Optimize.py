@@ -12,11 +12,10 @@ import neptune.new.integrations.optuna as optuna_utils
 def optimize_parameters(n_output_neurons, n_trials=50):
     sampler = optuna.samplers.TPESampler(seed=0)  # To ensure reproducibility
     run = neptune.init(api_token=os.getenv("NEPTUNE_API_TOKEN"),
-                       project='JCU-NICE/Final-SNN-Optimization')
+                       project='JCU-NICE/Updated-SNN-Optimization')
     neptune_callback = optuna_utils.NeptuneCallback(run)
     study = optuna.create_study(direction="maximize", sampler=sampler)
-    study.enqueue_trial({'tau': 0.05, 'gamma': 1e-3,
-                        'target_activity': 10, 'v_th_max': 50, 'fixed_inhibition_current': -1.0})
+    study.enqueue_trial({'tau': 0.0015744, 'gamma': 0.029254})
     study.optimize(lambda trial: objective(
         trial, n_output_neurons), n_trials=n_trials, callbacks=[neptune_callback])
     pruned_trials = study.get_trials(
@@ -29,18 +28,18 @@ def optimize_parameters(n_output_neurons, n_trials=50):
 def objective(trial, n_output_neurons):
     """ Function with unknown internals we wish to maximize.
     """
-    tau = trial.suggest_float("tau", 0.05, 0.15, log=True)
-    gamma = trial.suggest_float("gamma", 1e-3, 1e-2, log=True)
-    dt = 0.2e-3
-    image_duration = 0.05
+    tau = trial.suggest_float("tau", 1e-4, 1e-2, log=True)
+    gamma = trial.suggest_float("gamma", 0.01, 0.10)
+    dt = 2e-4
+    image_duration = 0.1
     n_samples_train = 50000
     n_samples_validate = 10000
     log_interval = 5000
-    R = 1000
-    v_th_max = 50
-    v_th_min = 0.25
-    target_activity = 10
-    fixed_inhibition_current = -1.0
+    R = 499.12
+    v_th_max = 0.029254
+    v_th_min = 10e-3
+    target_activity = 16.121
+    fixed_inhibition_current = -6.0241e-05
     network = Network(
         n_output_neurons=n_output_neurons,
         n_samples_memory=n_output_neurons,
