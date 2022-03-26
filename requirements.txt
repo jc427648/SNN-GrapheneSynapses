@@ -2,9 +2,6 @@ sklearn
 numpy
 pandas
 seaborn
-timeit
-struct
-pickle
 torch
 joblib
 plotly

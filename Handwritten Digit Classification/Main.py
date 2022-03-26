@@ -26,6 +26,7 @@ def train(
     log_interval=1000,
     det_training_accuracy=True,
     import_samples=False,
+    trial=None,
 ):
     assert n_samples >= 0 and n_samples <= 60000, "Invalid n_samples value."
     print("Loading MNIST training samples...")
@@ -78,7 +79,15 @@ def train(
                 )
             network.UpdateCurrentSample()
 
-    return network, (correct / idx) * 100
+        if trial is not None:
+            trial.report((correct / idx) * 100, epoch)
+            if trial.should_prune():
+                raise optuna.exceptions.TrialPruned()
+
+    if trial is not None:
+        return network, (correct / idx) * 100, trial
+    else:
+        return network, (correct / idx) * 100
 
 
 def test(

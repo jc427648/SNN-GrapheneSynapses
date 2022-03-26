@@ -135,8 +135,8 @@ if __name__ == "__main__":
     # Validate operation
     (train_data, validation_data, test_data) = getMNIST(
         load_train_samples=True,
-        load_validation_samples=False,
+        load_validation_samples=True,
         load_test_samples=True,
-        validation_samples=0,
+        validation_samples=10000,
         export_to_disk=True,
     )
