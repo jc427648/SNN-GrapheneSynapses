@@ -8,6 +8,7 @@ __pycache__/
 *.pt
 *.asv
 *.csv
+*.svg
 .vscode/
 .neptune/
 logs/
