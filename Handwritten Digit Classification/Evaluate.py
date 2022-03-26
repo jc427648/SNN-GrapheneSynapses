@@ -5,14 +5,14 @@ from set_all_seeds import set_all_seeds
 
 
 def evaluate(n_output_neurons, tau, gamma, n_epochs=1):
-    dt = 0.2e-3
-    image_duration = 0.05
+    dt = 2e-4
+    image_duration = 0.1
     n_samples_test = 10000
-    R = 1000
-    v_th_min = 0.25
-    v_th_max = 50
+    R = 499.12
+    v_th_min = 10e-3
+    v_th_max = 0.029254
     target_activity = 10
-    fixed_inhibition_current = -1.0
+    fixed_inhibition_current = -6.0241e-05
     n_samples_train = 60000
     n_samples_test = 10000
     log_interval = 1000

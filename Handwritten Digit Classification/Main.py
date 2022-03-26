@@ -17,9 +17,9 @@ import os
 def train(
     network,
     dt=0.2e-3,
-    image_duration=0.05,
+    image_duration=0.1,
     n_epochs=1,
-    lower_freq=20,
+    lower_freq=5,
     upper_freq=200,
     image_threshold=50,
     n_samples=60000,
@@ -84,8 +84,8 @@ def train(
 def test(
     network,
     dt=0.2e-3,
-    image_duration=0.05,
-    lower_freq=20,
+    image_duration=0.1,
+    lower_freq=5,
     upper_freq=200,
     image_threshold=50,
     n_samples=10000,

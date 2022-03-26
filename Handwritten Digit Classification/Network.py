@@ -7,23 +7,36 @@ import pickle
 from STDPsynapses import STDPSynapse, LIFNeuronGroup
 
 
+def closest_argmin(A, B):
+    L = B.size
+    sidx_B = B.argsort()
+    sorted_B = B[sidx_B]
+    sorted_idx = np.searchsorted(sorted_B, A)
+    if type(sorted_idx) is not np.ndarray:
+        sorted_idx = np.array([sorted_idx])
+        
+    sorted_idx[sorted_idx==L] = L-1
+    mask = (sorted_idx > 0) & \
+    ((np.abs(A - sorted_B[sorted_idx-1]) < np.abs(A - sorted_B[sorted_idx])) )
+    return sidx_B[sorted_idx-mask]
+
 class Network:
     def __init__(
         self,
         n_output_neurons=30,
         n_samples_memory=30,
-        Ve=0.0,
-        tau=0.1,
-        R=1000,
-        gamma=0.005,
+        Ve=0.0095464,
+        tau=0.0015744,
+        R=499.12,
+        gamma=0.029254,
         target_activity=10,
-        v_th_min=0.25,
-        v_th_max=50,
-        fixed_inhibition_current=-1.0,
-        dt=0.2e-3,
+        v_th_min=10e-3,
+        v_th_max=0.029254,
+        fixed_inhibition_current=-6.0241e-05,
+        dt=2e-4,
         output_dir="output",
     ):
-        self.synapse = STDPSynapse(n_output_neurons, wmin=-45e-3, wmax=45e-3)
+        self.synapse = STDPSynapse(n_output_neurons, wmin=-10e-6, wmax=10e-6)
         self.group = LIFNeuronGroup(
             n_output_neurons,
             Ve=Ve,
@@ -53,8 +66,8 @@ class Network:
 
     def run(self, spikes, spike_times, time, update_parameters=True):
         # In this instance, mode is either train or test, and time is the time the image is presented.
-        c_p_w = 1e-3  # Current Pulse Width (s)
-        i_p_w = 1e-3  # Inhibition Pulse Width (s)
+        c_p_w = 10 * self.dt  # Current Pulse Width
+        i_p_w = 27 * self.dt  # Inhibition Pulse Width
         inhib = self.fixed_inhibition_current  # Fixed inhibition current (A)
 
         for t in range(int(time / self.dt)):
@@ -73,19 +86,22 @@ class Network:
             self.InhibCtr -= self.dt
             if torch.sum(self.group.s) > 0:
                 if update_parameters:
-                    # Update synaptic weights
                     DeltaT = t - spike_times
-                    # Ensure time is 80ms long (off STDP)
-                    DeltaT[DeltaT == t] = 80e-3 / self.dt
-                    DeltaTP = torch.where(DeltaT > 0, DeltaT, 400).min(axis=0)[
-                        0
-                    ]  # 400 should be some variable
-                    DeltaTP = 1e3 * self.dt * DeltaTP
-                    DeltaTN = torch.where(DeltaT < 0, DeltaT, -400).max(axis=0)[0]
-                    DeltaTN = 1e3 * self.dt * DeltaTN
+                    DeltaT = DeltaT * self.dt
                     Neur = torch.unsqueeze(self.group.s, 1)
-                    self.synapse.potentiate(DeltaTP, Neur, self.STDPWindow)
-                    self.synapse.depress(DeltaTN, Neur, self.STDPWindow)
+                    DeltaTP = DeltaT[DeltaT > 0.]
+                    if DeltaTP.numel() > 0:
+                        DeltaTP = DeltaTP.min(axis=0)[0]
+                        integrated_current_p = torch.tensor(self.STDPWindow[1, closest_argmin(DeltaTP.numpy(), self.STDPWindow[0, :])])
+                        self.synapse.w += torch.multiply(Neur, integrated_current_p)
+
+                    DeltaTN = DeltaT[DeltaT < 0.]
+                    if DeltaTN.numel() > 0:
+                        DeltaTN = DeltaTN.max(axis=0)[0]
+                        integrated_current_n = torch.tensor(self.STDPWindow[1, closest_argmin(DeltaTN.numpy(), self.STDPWindow[0, :])])
+                        self.synapse.w += torch.multiply(Neur, integrated_current_n)
+                    
+                    self.synapse.w = torch.clamp(self.synapse.w, self.synapse.wmin, self.synapse.wmax)
 
                 # Update activity
                 self.Activity[
