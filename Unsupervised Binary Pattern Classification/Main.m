@@ -1,33 +1,33 @@
 clc; clear all;
 rng('default');
-rng(12);
+rng(101);
 
 % Define paramaters
 num_neurons = 10;
-epochs = 40;
-VthMin = 0.25;
-VthMax = 20;
-Ve = 0.2;
-tau = 0.030; % Timing constant
-R = 1e3; % Membrane resistance
-dt = 0.0002; % Timestep (s)
-T = 0:dt:0.1; % Simulation timesteps
+epochs = 100;
+VthMin = 10e-3;
+VthMax = 0.029254;
+Ve = 0.0095464;
+tau = 0.0015744;
+R = 499.12;
+dt = 2e-4;
+T = 0:dt:0.1;
 % Homeostatic plasticity parameters
-Target = 25; % Ideal neuron firing rate
-gamma = 35; % Multiplicative constant
+Target = 16.121;
+gamma = 0.029254;
 
 % Define maximum and minimum levels of current
-Imax = 25e-3;
-Imin = -25e-3;
+Imax = 10e-6;
+Imin = -10e-6;
 c_p_w = 10; % Current pulse width (index value)
-i_p_w = 15; % Inhibition pulse width (index value)
+i_p_w = 27; % Inhibition pulse width (index value)
 
 % Define an inhibition current
-inhib = 185e-3;
+inhib = 6.0241e-05;
 
 %Set low and high frequencies
 hr = 200;
-lr = 20;
+lr = 5;
 
 % Define the input as a matrix (for character recognition).
 % Use 10Hz for whitened pixels and 200Hz for darkened pixels. Each row
@@ -61,7 +61,7 @@ memVOut = zeros(num_neurons, length(T), num_neurons);
 
 % Initialise with random currents
 init_w = Imin / 1 +(Imax - Imin) / 1. *rand(5, 5, num_neurons);
-Vth = 1.5 .* ones(num_neurons, 1); % Threshold of neuron (V)
+Vth = VthMin .* ones(num_neurons, 1); % Threshold of neuron (V)
 
 % Have a reshaped initial weight for ease of computation
 init_w_rs = reshape(permute(init_w, [2 1 3]), [num_inputs 1 num_neurons]);
@@ -90,8 +90,7 @@ cb.Layout.Tile = 'east';
 set(H2,'Position',[500 500 1400 550]);
 
 % Load the STDP data
-STDP_data = load('STDP_Window.mat');
-Interpdata = STDP_data.out;
+STDP_data = importdata("current.txt");
 Activity = zeros(num_neurons,length(T),num_neurons);
 
 for run = 1:epochs
@@ -181,12 +180,10 @@ for run = 1:epochs
                             else
                                 del_t(2) = min(delta_t(b));
                             end
+                            curr_change = [0, 0];
                             for p = 1:2
-                                time_ind = find(del_t(p)-0.25e-3<1e-3*Interpdata(1,:) &  1e-3*Interpdata(1,:)<del_t(p)+0.25e-3);
-                                if isempty(time_ind)
-                                    curr_change(p) = 0;
-                                else
-                                    curr_change(p) = Interpdata(2,time_ind);
+                                if (abs(del_t(p)) <= 85e-3)
+                                    curr_change(p) = STDP_data(2, find(STDP_data(1, :) == interp1(STDP_data(1, :),STDP_data(1, :),del_t(p), 'nearest'), 1));
                                 end
                             end
                             % Potentiation
@@ -214,7 +211,7 @@ for run = 1:epochs
             csum = squeeze(permute(current_sum, [3 2 1]));
             Vm(No_spk,i+1) = Vm(No_spk,i) + dt/tau*(Ve-Vm(No_spk,i) + (csum(No_spk,i)+inhibition(No_spk,i,z))*R);
             Vm(Vm<Ve) = Ve;
-            i = i+1;   
+            i = i + 1;   
         end
         % Need to re-initialise the weights.
         for n = 1:num_neurons
@@ -248,7 +245,7 @@ for run = 1:epochs
     data = [tvec; rastor]';
     writematrix(data, sprintf('epoch_%d.csv', run));
     % Update the receptive field
-    figure(1);
+    fig = figure(1);
     bax = tiledlayout(2,5);
     for n = 1:num_neurons
         ax = nexttile;
@@ -265,7 +262,7 @@ for run = 1:epochs
         title(sprintf('Neuron %d',n), 'fontsize', 18, 'fontname', 'arial');
     end
     cb = colorbar('FontSize', 16, 'Limits', [Imin, Imax]);
-    cb.Ticks = -0.025:0.005:0.025;
     cb.Layout.Tile = 'east';
     set(H2,'Position',[500 500 1400 550]);
+    saveas(fig, sprintf('epoch_%d', run), 'svg');
 end
