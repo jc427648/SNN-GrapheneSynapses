@@ -13,6 +13,8 @@ import timeit
 import random
 import os
 
+import optuna
+
 
 def train(
     network,
