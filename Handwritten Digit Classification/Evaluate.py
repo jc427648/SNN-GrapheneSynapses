@@ -6,7 +6,7 @@ from set_all_seeds import set_all_seeds
 
 def evaluate(n_output_neurons, tau, gamma, n_epochs=1):
     dt = 2e-4
-    image_duration = 0.1
+    image_duration = 0.05
     n_samples_test = 10000
     R = 499.12
     v_th_min = 10e-3

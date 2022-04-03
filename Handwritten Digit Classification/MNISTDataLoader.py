@@ -45,7 +45,7 @@ def unpack_MNIST_samples(
 
 
 def getMNIST(
-    lower_freq=5,
+    lower_freq=20,
     upper_freq=200,
     threshold=50,
     dt=0.2e-3,
@@ -135,8 +135,8 @@ if __name__ == "__main__":
     # Validate operation
     (train_data, validation_data, test_data) = getMNIST(
         load_train_samples=True,
-        load_validation_samples=True,
+        load_validation_samples=False,
         load_test_samples=True,
-        validation_samples=10000,
+        validation_samples=0,
         export_to_disk=True,
     )
