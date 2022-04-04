@@ -17,10 +17,12 @@ def optimize_parameters(n_output_neurons, n_trials=50):
     neptune_callback = optuna_utils.NeptuneCallback(run)
     storage_name = "sqlite:///{}.db".format(n_output_neurons)
     study = optuna.create_study(study_name=str(n_output_neurons), direction="maximize", sampler=sampler, storage=storage_name, load_if_exists=True)
-    study.enqueue_trial({'tau': 0.0015744,
-                         'gamma': 0.029254,
-                         'v_th_max': 0.029254,
-                         'fixed_inhibition_current': -6.0241e-05})
+    study.enqueue_trial({'tau': 0.0456969078761216,
+                         'gamma': 0.00155657657413122,
+                         'v_th_max': 0.0444124263767494,
+                         'fixed_inhibition_current': 7.50e-5,
+                         'R': 499.12
+                         })
     study.optimize(lambda trial: objective(
         trial, n_output_neurons), n_trials=n_trials, callbacks=[neptune_callback])
 
@@ -35,12 +37,10 @@ def objective(trial, n_output_neurons):
     n_samples_train = 60000
     n_samples_validate = 10000
     log_interval = 5000
-    R = 499.12
-    # v_th_max = 0.029254
-    v_th_max = trial.suggest_float("v_th_max", 0.02, 0.10)
+    R = trial.suggest_float("R", 400.0, 1000.0)
+    v_th_max = trial.suggest_float("v_th_max", 0.02, 0.20)
     v_th_min = 10e-3
-    target_activity = 20
-    # fixed_inhibition_current = -6.0241e-05 * (784 / 25)
+    target_activity = 10
     fixed_inhibition_current = -trial.suggest_float("fixed_inhibition_current", 1e-5, 1e-4)
     network = Network(
         n_output_neurons=n_output_neurons,
@@ -59,6 +59,7 @@ def objective(trial, n_output_neurons):
         network,
         dt,
         image_duration,
+        n_epochs=2,
         n_samples=n_samples_train,
         log_interval=log_interval,
         import_samples=True,
