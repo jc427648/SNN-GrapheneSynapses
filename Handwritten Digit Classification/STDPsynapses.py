@@ -33,9 +33,8 @@ class LIFNeuronGroup:
         self.VthMax = VthMax  # Maximum threshold.
         # Membrane potential at current point in time.
         self.v = self.Ve * torch.ones_like(torch.Tensor(n))
-        # Randomise intial thresholds
-        # self.Vth = (VthMax-VthMin)*torch.rand(n)+torch.ones_like(torch.Tensor(n))*VthMin#The thresholds for each neuron, initially Vthmin.
-        self.Vth = 5 * torch.ones_like(torch.Tensor(n))
+        # Randomise Intialize neuron voltage thresholds
+        self.Vth = VthMin * torch.ones_like(torch.Tensor(n))
         # Determine the occurrances of post-synaptic spikes.
         self.s = torch.zeros_like(torch.Tensor(n))
 

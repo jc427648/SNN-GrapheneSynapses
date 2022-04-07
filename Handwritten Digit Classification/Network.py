@@ -89,18 +89,17 @@ class Network:
                     DeltaT = t - spike_times
                     DeltaT = DeltaT * self.dt
                     Neur = torch.unsqueeze(self.group.s, 1)
-                    DeltaTP = DeltaT[DeltaT > 0.]
-                    if DeltaTP.numel() > 0:
-                        DeltaTP = DeltaTP.min(axis=0)[0]
-                        integrated_current_p = torch.tensor(self.STDPWindow[1, closest_argmin(DeltaTP.numpy(), self.STDPWindow[0, :])])
-                        self.synapse.w += torch.multiply(Neur, integrated_current_p)
-
-                    DeltaTN = DeltaT[DeltaT < 0.]
-                    if DeltaTN.numel() > 0:
-                        DeltaTN = DeltaTN.max(axis=0)[0]
-                        integrated_current_n = torch.tensor(self.STDPWindow[1, closest_argmin(DeltaTN.numpy(), self.STDPWindow[0, :])])
-                        self.synapse.w += torch.multiply(Neur, integrated_current_n)
-                    
+                    DeltaTP = copy.deepcopy(DeltaT)
+                    DeltaTP[DeltaTP <= 0.] = 8.5e-2
+                    DeltaTP = DeltaTP.min(axis=0)[0]
+                    integrated_current_p = torch.tensor(self.STDPWindow[1, closest_argmin(DeltaTP.numpy(), self.STDPWindow[0, :])])
+                    self.synapse.w += torch.multiply(Neur, integrated_current_p)
+                    self.synapse.w = torch.clamp(self.synapse.w, self.synapse.wmin, self.synapse.wmax)
+                    DeltaTN = copy.deepcopy(DeltaT)
+                    DeltaTN[DeltaTN >= 0.] = -8.5e-2
+                    DeltaTN = DeltaTN.max(axis=0)[0]
+                    integrated_current_n = torch.tensor(self.STDPWindow[1, closest_argmin(DeltaTN.numpy(), self.STDPWindow[0, :])])
+                    self.synapse.w += torch.multiply(Neur, integrated_current_n)
                     self.synapse.w = torch.clamp(self.synapse.w, self.synapse.wmin, self.synapse.wmax)
 
                 # Update activity

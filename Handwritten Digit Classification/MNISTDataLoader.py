@@ -45,7 +45,7 @@ def unpack_MNIST_samples(
 
 
 def getMNIST(
-    lower_freq=20,
+    lower_freq=5,
     upper_freq=200,
     threshold=50,
     dt=0.2e-3,

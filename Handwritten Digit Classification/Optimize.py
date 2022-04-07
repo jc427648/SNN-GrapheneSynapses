@@ -34,9 +34,9 @@ def objective(trial, n_output_neurons):
     gamma = trial.suggest_float("gamma", 5e-10, 5e-1, log=True)
     dt = 2e-4
     image_duration = 0.05
-    n_samples_train = 60000
-    n_samples_validate = 10000
-    log_interval = 5000
+    n_samples_train = 20000 #60000
+    n_samples_validate = 2000 #10000
+    log_interval = 2000 # 5000
     R = trial.suggest_float("R", 400.0, 1000.0)
     v_th_max = trial.suggest_float("v_th_max", 0.02, 0.20)
     v_th_min = 10e-3
@@ -59,7 +59,7 @@ def objective(trial, n_output_neurons):
         network,
         dt,
         image_duration,
-        n_epochs=2,
+        n_epochs=1,
         n_samples=n_samples_train,
         log_interval=log_interval,
         import_samples=True,
