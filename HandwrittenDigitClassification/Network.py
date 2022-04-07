@@ -30,9 +30,9 @@ class Network:
         R=499.12,
         gamma=0.029254,
         target_activity=10,
-        v_th_min=10e-3,
-        v_th_max=0.029254,
-        fixed_inhibition_current=-6.0241e-05,
+        v_th_min=1e-3,#10e-3
+        v_th_max=0.5,#0.029254,
+        fixed_inhibition_current=-6.0241e-04,
         dt=2e-4,
         output_dir="output",
     ):

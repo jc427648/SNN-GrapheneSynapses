@@ -5,7 +5,7 @@ import numpy as np
 
 class STDPSynapse:
     # Defines the STDP weight and the STDP weight change. Will be used in conjunction with another object called LIF neuron.
-    def __init__(self, n, wmin=-25e-3, wmax=25e-3):
+    def __init__(self, n, wmin=-10e-6, wmax=10e-6):
         # Initialise with random weights
         self.n = n  # Number of neurons
         # Initialise random weights, each row represents neuron, each column a different input.
@@ -35,7 +35,7 @@ class LIFNeuronGroup:
         self.v = self.Ve * torch.ones_like(torch.Tensor(n))
         # Randomise intial thresholds
         # self.Vth = (VthMax-VthMin)*torch.rand(n)+torch.ones_like(torch.Tensor(n))*VthMin#The thresholds for each neuron, initially Vthmin.
-        self.Vth = 5 * torch.ones_like(torch.Tensor(n))
+        self.Vth = VthMin * torch.ones_like(torch.Tensor(n))
         # Determine the occurrances of post-synaptic spikes.
         self.s = torch.zeros_like(torch.Tensor(n))
 

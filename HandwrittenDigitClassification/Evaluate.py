@@ -7,12 +7,12 @@ from set_all_seeds import set_all_seeds
 def evaluate(n_output_neurons, tau, gamma, n_epochs=1):
     #Following scaling of parameters from previous.
     dt = 2e-4
-    image_duration = 0.2
-    n_samples_test = 10000
-    R = 1000
-    v_th_min = 10e-3
-    v_th_max = 0.1
-    target_activity = 10
+    image_duration = 0.05
+    n_samples_test = 1000
+    R = 10000
+    v_th_min = 1e-3#See network for original values
+    v_th_max = 50
+    target_activity = 20
     fixed_inhibition_current = -6.0241e-05
     n_samples_train = 60000
     n_samples_test = 10000
@@ -49,4 +49,6 @@ def evaluate(n_output_neurons, tau, gamma, n_epochs=1):
         import_samples=True,
         log_interval=log_interval,
     )
-    return test_set_accuracy
+#Might need to add plotting capabilities here.
+
+    return test_set_accuracy, network

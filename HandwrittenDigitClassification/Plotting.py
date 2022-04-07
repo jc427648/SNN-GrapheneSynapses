@@ -13,7 +13,7 @@ def plotWeights(
     plt.imshow(weights, vmin=minW, vmax=maxW, cmap="hot_r")
     plt.colorbar()
     plt.tight_layout()
-    plt.savefig(os.path.join("output", "%s.svg" % title))
+    plt.savefig("%s.svg" % (title))
     if display_fig:
         plt.show()
 
@@ -33,6 +33,9 @@ def plot_confusion_matrix(
     plt.savefig(os.path.join("output", "%s.svg" % title))
     if display_fig:
         plt.show()
+
+
+# Have a function for re-arranging weights and for plotting other weights
 
 
 def ReshapeWeights(weights, n, assignments="none"):
