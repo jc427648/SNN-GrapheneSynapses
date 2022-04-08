@@ -4,6 +4,7 @@ import sys
 from struct import unpack
 import numpy as np
 import pickle
+import copy
 from STDPsynapses import STDPSynapse, LIFNeuronGroup
 
 
