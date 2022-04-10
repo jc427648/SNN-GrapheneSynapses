@@ -13,7 +13,7 @@ def plotWeights(
     plt.imshow(weights, vmin=minW, vmax=maxW, cmap="hot_r")
     plt.colorbar()
     plt.tight_layout()
-    plt.savefig(os.path.join("output", "%s.svg" % title))
+    plt.savefig("%s.svg" % title)
     if display_fig:
         plt.show()
 

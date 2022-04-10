@@ -13,7 +13,7 @@ class Network:
         n_output_neurons=30,
         n_samples_memory=30,
         Ve=0.0,
-        tau=0.1,
+        tau=0.05,
         R=1000,
         gamma=0.005,
         target_activity=10,
@@ -23,7 +23,7 @@ class Network:
         dt=0.2e-3,
         output_dir="output",
     ):
-        self.synapse = STDPSynapse(n_output_neurons, wmin=-45e-3, wmax=45e-3)
+        self.synapse = STDPSynapse(n_output_neurons, wmin=-20e-6, wmax=20e-6)
         self.group = LIFNeuronGroup(
             n_output_neurons,
             Ve=Ve,

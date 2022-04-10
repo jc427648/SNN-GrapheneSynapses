@@ -5,11 +5,11 @@ import numpy as np
 
 class STDPSynapse:
     # defines the STDP weight and the STDP weight change. Will be used in conjunction with another object called LIF neuron.
-    def __init__(self, n, wmin=-25e-3, wmax=25e-3):
+    def __init__(self, n, wmin=-10e-6, wmax=10e-6):
         # Initialise with random weights
         self.n = n  # Number of neurons
         # Initialise random weights, each row represents neuron, each column a different input.
-        self.w = 50e-3 * torch.rand(n, 784) - 25e-3
+        self.w = (wmax-wmin) * torch.rand(n, 784) + wmin
         self.wmin = wmin
         self.wmax = wmax
 
@@ -18,7 +18,7 @@ class STDPSynapse:
         # Need to apply the lookup of the STDP window, to produce corresponding current for potentiation.
         DeltaTP = torch.round(DeltaTP * 2) / 2
         # 160 is currently hardcoded- to modularize.
-        DelCurrent = STDPWindow[(DeltaTP[0 : len(DeltaTP)] * 2 + 160).long()]
+        DelCurrent = STDPWindow[(DeltaTP[0 : len(DeltaTP)] * 1 + 85).long()]#Refer to previous code for why this is.
         deltaW = torch.multiply(Neur, DelCurrent)
         self.w += deltaW
         # Bound the weights
@@ -29,21 +29,21 @@ class STDPSynapse:
         # This rounding allows simple implementation of this specific STDP window.
         DeltaTN = torch.round(DeltaTN * 2) / 2
         # 160 is currently hardcoded- to modularize.
-        DelCurrent = STDPWindow[(DeltaTN[0 : len(DeltaTN)] * 2 + 160).long()]
+        DelCurrent = STDPWindow[(DeltaTN[0 : len(DeltaTN)] * 1 + 85).long()]
         deltaW = torch.multiply(Neur, DelCurrent)
         self.w += deltaW
         # Bound the weights
         self.w = torch.clamp(self.w, self.wmin, self.wmax)
 
     def GetSTDP(self):
-        b = np.loadtxt("STDPWindow.txt", delimiter=",")
+        b = np.loadtxt("current.txt", delimiter=" ")
         return torch.tensor(b[1, :])
 
 
 class LIFNeuronGroup:
     # Defines the neuron parameters used to perform the STDP classification.
     def __init__(
-        self, n, Ve=0.2, tau=0.6, R=100, gamma=0.01, target=35, VthMin=0.02, VthMax=20
+        self, n, Ve=0.2, tau=0.6, R=100, gamma=0.01, target=35, VthMin=10e-3, VthMax=20
     ):
         # Is this init affecting my other inits? I don't think, so modification happens anyway.
         self.n = n
@@ -58,7 +58,7 @@ class LIFNeuronGroup:
         self.v = self.Ve * torch.ones_like(torch.Tensor(n))
         # Randomise intial thresholds
         # self.Vth = (VthMax-VthMin)*torch.rand(n)+torch.ones_like(torch.Tensor(n))*VthMin#The thresholds for each neuron, initially Vthmin.
-        self.Vth = 5 * torch.ones_like(torch.Tensor(n))
+        self.Vth = VthMin * torch.ones_like(torch.Tensor(n))
         # Determine the occurrances of post-synaptic spikes.
         self.s = torch.zeros_like(torch.Tensor(n))
 
