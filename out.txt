@@ -1,0 +1,26 @@
+
+To list all available conda3 environments, use
+	ls $CONDA_HOME/envs
+
+To enable use of a miniconda software environment, use:
+	module load conda3
+	source $CONDA_PROF/conda.sh
+	conda activate <environment name>
+
+For example, to enable the vsearch 2.17.0 environment use:
+	module load conda3
+	source $CONDA_PROF/conda.sh
+	conda activate vsearch-2.17.0
+
+/home/jc299170/grid_opt/SNN-GrapheneSynapses/Grid.py:66: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df = df.append(
+Loading MNIST training samples...
+Progress : 0 / 60000
+Progress : 20000 / 60000
+Progress : 40000 / 60000
+Progress : 60000 / 60000
+Training...
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...

@@ -106,6 +106,7 @@ if __name__ == "__main__":
     parser.add_argument("--n_samples_train", type=int, default=60000)
     parser.add_argument("--n_samples_test", type=int, default=10000)
     parser.add_argument("--n_epochs", type=int, default=1)
+    args = parser.parse_args()
     if os.path.exists(os.path.join(os.getcwd(), "grid_out.csv")):
         df = pd.read_csv(os.path.join(os.getcwd(), "grid_out.csv"))
     else:
@@ -129,3 +130,6 @@ if __name__ == "__main__":
                 "test_set_accuracy",
             ]
         )
+        df.to_csv(os.path.join(os.getcwd(), "grid_out.csv"), index=False)
+
+    run(**vars(args))

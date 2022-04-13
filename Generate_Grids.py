@@ -1,6 +1,8 @@
 import itertools
 import os
 import subprocess
+import uuid
+import time
 
 
 n_output_neurons = 10
@@ -23,26 +25,36 @@ for combination in combinations:
         "upper_freq": combination[3],
         "image_threshold": combination[4],
     }
-    args = "--n_samples_train 10, --n_samples-test 10"
+    args = ""
     for key in d:
         args = args + ' --' + key + ' ' + str(d[key])
 
     bash_script = """#!/bin/bash
-                    #PBS -j oe
-                    #PBS -m ae
-                    #PBS -N SNN-GrapheneSynapses-%d
-                    #PBS -o "%s"
-                    #PBS -e "%s"
-                    #PBS -M corey.lammie@jcu.edu.au
-                    #PBS -l walltime=24:00:00
-                    #PBS -l select=1:ncpus=1:mem=10gb
-                    shopt -s expand_aliases
-                    source /etc/profile.d/modules.sh
-                    cd "%s"
-                    . ~/.bash_profile
-                    module load conda3
-                    source $CONDA_PROF/conda.sh
-                    conda activate base
-                    python Optimization_10.py%s
-                    """ % (n_output_neurons, os.path.join(cwd, 'out.txt'), os.path.join(cwd, 'out.txt'), cwd, args)
-    output = subprocess.check_output(bash_script, shell=True, executable='/bin/bash')
+#PBS -j oe
+#PBS -m ae
+#PBS -N SNN-GrapheneSynapses-%d
+#PBS -o "%s"
+#PBS -e "%s"
+#PBS -M corey.lammie@jcu.edu.au
+#PBS -l walltime=24:00:00
+#PBS -l select=1:ncpus=1:mem=10gb
+shopt -s expand_aliases
+source /etc/profile.d/modules.sh
+cd "%s"
+. ~/.bash_profile
+module load conda3
+source $CONDA_PROF/conda.sh
+conda activate base
+python Grid.py%s
+""" % (n_output_neurons, os.path.join(cwd, 'out.txt'), os.path.join(cwd, 'out.txt'), cwd, args)
+    
+    myuuid = str(uuid.uuid4())
+    with open(os.path.join(os.getcwd(), "%s.sh" % myuuid), "w+") as f:
+        f.writelines(bash_script)
+
+    res = subprocess.run("qsub %s.sh" % myuuid, capture_output=True, shell=True)
+    print(res.stdout.decode())
+    os.remove(os.path.join(os.getcwd(), "%s.sh" % myuuid))
+    time.sleep(1)
+
+
