@@ -11,12 +11,13 @@ if __name__ == "__main__":
     n_samples_train = 60000
     n_samples_test = 10000
     log_interval = 1000
-    R = 1000
-    fixed_inhibition_current = -6.02e-5
-    gamma = 5e-4
-    tau = 0.1e-2
+    R = 500
+    fixed_inhibition_current = -6.02e-3
+    gamma = 1e-6
+    tau = 0.5e-2
+    n_epochs = 1
     v_th_max = 30
-    PlotTitle = 'GamOriginal'
+    PlotTitle = 'Frq20Hz'
     lower_freq = 5
     upper_freq = 200
     image_threshold = 200
@@ -27,8 +28,8 @@ if __name__ == "__main__":
         tau=tau,
         R=R,
         gamma=gamma,
-        target_activity=10,
-        v_th_min=10e-3,
+        target_activity=20,
+        v_th_min=1e-3,
         v_th_max=v_th_max,
         fixed_inhibition_current=fixed_inhibition_current,
         dt=dt,
@@ -37,6 +38,7 @@ if __name__ == "__main__":
         network,
         dt,
         image_duration,
+        n_epochs = n_epochs,
         lower_freq=lower_freq,
         upper_freq=upper_freq,
         image_threshold=image_threshold,

@@ -2,8 +2,8 @@
 ### qstat -f -Q
 #PBS -N SNN-GrapheneSynapses_evaluate
 #PBS -P JCU-SNN
-#PBS -o /scratch/user/benwalters/Tau0.5e-2R1000_OptEvalN10GamOriginal_out.txt
-#PBS -e /scratch/user/benwalters/Tau0.5e-2R1000_OptEvalN10GamOriginal_error.txt
+#PBS -o /scratch/user/benwalters/Frq20Hz_OptEvalN10_out.txt
+#PBS -e /scratch/user/benwalters/Frq20Hz_OptEvalN10_error.txt
 #PBS -q workq
 #PBS -l walltime=60:00:00
 #PBS -l select=1:mem=10gb:ncpus=4:mpiprocs=4
