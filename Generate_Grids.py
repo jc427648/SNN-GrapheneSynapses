@@ -53,8 +53,9 @@ python Grid.py%s
         f.writelines(bash_script)
 
     res = subprocess.run("qsub %s.sh" % myuuid, capture_output=True, shell=True)
+    print(args)
     print(res.stdout.decode())
     os.remove(os.path.join(os.getcwd(), "%s.sh" % myuuid))
-    time.sleep(1)
+    time.sleep(2)
 
 

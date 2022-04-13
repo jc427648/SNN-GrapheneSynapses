@@ -1,0 +1,1 @@
+n_output_neurons,Ve,tau,R,gamma,target_activity,v_th_min,v_th_max,fixed_inhibition_current,dt,image_duration,image_threshold,lower_freq,upper_freq,n_epochs,test_set_accuracy
