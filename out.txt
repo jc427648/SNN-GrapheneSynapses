@@ -12,3 +12,85 @@ For example, to enable the vsearch 2.17.0 environment use:
 	source $CONDA_PROF/conda.sh
 	conda activate vsearch-2.17.0
 
+/home/jc299170/grid_opt/SNN-GrapheneSynapses/Grid.py:66: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df = df.append(
+Loading MNIST training samples...
+Progress : 0 / 60000
+Progress : 20000 / 60000
+Progress : 40000 / 60000
+Progress : 60000 / 60000
+Training...
+Training progress: sample (1000 / 60000) of epoch (1 / 1) - Elapsed time: 1297.8279
+Training progress: sample (2000 / 60000) of epoch (1 / 1) - Elapsed time: 2205.3218
+Training progress: sample (3000 / 60000) of epoch (1 / 1) - Elapsed time: 2918.4486
+Training progress: sample (4000 / 60000) of epoch (1 / 1) - Elapsed time: 3524.4797
+Training progress: sample (5000 / 60000) of epoch (1 / 1) - Elapsed time: 4090.3867
+Training progress: sample (6000 / 60000) of epoch (1 / 1) - Elapsed time: 4605.7282
+Training progress: sample (7000 / 60000) of epoch (1 / 1) - Elapsed time: 5070.8282
+Training progress: sample (8000 / 60000) of epoch (1 / 1) - Elapsed time: 5463.9060
+Training progress: sample (9000 / 60000) of epoch (1 / 1) - Elapsed time: 5870.9883
+Training progress: sample (10000 / 60000) of epoch (1 / 1) - Elapsed time: 6231.6985
+Training progress: sample (11000 / 60000) of epoch (1 / 1) - Elapsed time: 6589.3840
+Training progress: sample (12000 / 60000) of epoch (1 / 1) - Elapsed time: 6918.4908
+Training progress: sample (13000 / 60000) of epoch (1 / 1) - Elapsed time: 7215.9070
+Training progress: sample (14000 / 60000) of epoch (1 / 1) - Elapsed time: 8536.9235
+Training progress: sample (15000 / 60000) of epoch (1 / 1) - Elapsed time: 9447.7663
+Training progress: sample (16000 / 60000) of epoch (1 / 1) - Elapsed time: 10094.3234
+Training progress: sample (17000 / 60000) of epoch (1 / 1) - Elapsed time: 10673.6344
+Training progress: sample (18000 / 60000) of epoch (1 / 1) - Elapsed time: 11171.6780
+Training progress: sample (19000 / 60000) of epoch (1 / 1) - Elapsed time: 11624.2937
+Training progress: sample (20000 / 60000) of epoch (1 / 1) - Elapsed time: 12080.6369
+Training progress: sample (21000 / 60000) of epoch (1 / 1) - Elapsed time: 12487.8193
+Training progress: sample (22000 / 60000) of epoch (1 / 1) - Elapsed time: 12866.3807
+Training progress: sample (23000 / 60000) of epoch (1 / 1) - Elapsed time: 13231.1529
+Training progress: sample (24000 / 60000) of epoch (1 / 1) - Elapsed time: 13565.4679
+Training progress: sample (25000 / 60000) of epoch (1 / 1) - Elapsed time: 13863.0335
+Training progress: sample (26000 / 60000) of epoch (1 / 1) - Elapsed time: 14897.8872
+Training progress: sample (27000 / 60000) of epoch (1 / 1) - Elapsed time: 15867.0715
+Training progress: sample (28000 / 60000) of epoch (1 / 1) - Elapsed time: 16596.2185
+Training progress: sample (29000 / 60000) of epoch (1 / 1) - Elapsed time: 17213.6016
+Training progress: sample (30000 / 60000) of epoch (1 / 1) - Elapsed time: 17719.2818
+Training progress: sample (31000 / 60000) of epoch (1 / 1) - Elapsed time: 18170.4724
+Training progress: sample (32000 / 60000) of epoch (1 / 1) - Elapsed time: 18573.5861
+Training progress: sample (33000 / 60000) of epoch (1 / 1) - Elapsed time: 18979.6434
+Training progress: sample (34000 / 60000) of epoch (1 / 1) - Elapsed time: 19347.8879
+Training progress: sample (35000 / 60000) of epoch (1 / 1) - Elapsed time: 19710.3214
+Training progress: sample (36000 / 60000) of epoch (1 / 1) - Elapsed time: 20051.6099
+Training progress: sample (37000 / 60000) of epoch (1 / 1) - Elapsed time: 20387.4798
+Training progress: sample (38000 / 60000) of epoch (1 / 1) - Elapsed time: 20739.1044
+Training progress: sample (39000 / 60000) of epoch (1 / 1) - Elapsed time: 22013.2012
+Training progress: sample (40000 / 60000) of epoch (1 / 1) - Elapsed time: 22876.2927
+Training progress: sample (41000 / 60000) of epoch (1 / 1) - Elapsed time: 23544.4298
+Training progress: sample (42000 / 60000) of epoch (1 / 1) - Elapsed time: 24087.1923
+Training progress: sample (43000 / 60000) of epoch (1 / 1) - Elapsed time: 24596.7091
+Training progress: sample (44000 / 60000) of epoch (1 / 1) - Elapsed time: 25047.0533
+Training progress: sample (45000 / 60000) of epoch (1 / 1) - Elapsed time: 25462.8777
+Training progress: sample (46000 / 60000) of epoch (1 / 1) - Elapsed time: 25846.9334
+Training progress: sample (47000 / 60000) of epoch (1 / 1) - Elapsed time: 26221.7171
+Training progress: sample (48000 / 60000) of epoch (1 / 1) - Elapsed time: 26577.9643
+Training progress: sample (49000 / 60000) of epoch (1 / 1) - Elapsed time: 26936.9680
+Training progress: sample (50000 / 60000) of epoch (1 / 1) - Elapsed time: 27238.0530
+Training progress: sample (51000 / 60000) of epoch (1 / 1) - Elapsed time: 28101.9734
+Training progress: sample (52000 / 60000) of epoch (1 / 1) - Elapsed time: 29138.1482
+Training progress: sample (53000 / 60000) of epoch (1 / 1) - Elapsed time: 29827.4790
+Training progress: sample (54000 / 60000) of epoch (1 / 1) - Elapsed time: 30414.8020
+Training progress: sample (55000 / 60000) of epoch (1 / 1) - Elapsed time: 30919.7174
+Training progress: sample (56000 / 60000) of epoch (1 / 1) - Elapsed time: 31396.5913
+Training progress: sample (57000 / 60000) of epoch (1 / 1) - Elapsed time: 31816.1091
+Training progress: sample (58000 / 60000) of epoch (1 / 1) - Elapsed time: 32193.5139
+Training progress: sample (59000 / 60000) of epoch (1 / 1) - Elapsed time: 32549.8386
+Training progress: sample (60000 / 60000) of epoch (1 / 1) - Elapsed time: 32926.8433
+Loading MNIST test samples...
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Testing...
+Validation/test progress: sample (1000 / 10000) - Elapsed time: 102.8473 - Running accuracy: 8.51% ( 85 / 1000 )
+Validation/test progress: sample (2000 / 10000) - Elapsed time: 206.6878 - Running accuracy: 8.75% ( 175 / 2000 )
+Validation/test progress: sample (3000 / 10000) - Elapsed time: 306.7470 - Running accuracy: 9.04% ( 271 / 3000 )
+Validation/test progress: sample (4000 / 10000) - Elapsed time: 408.4897 - Running accuracy: 9.25% ( 370 / 4000 )
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 510.6362 - Running accuracy: 9.20% ( 460 / 5000 )
+Validation/test progress: sample (6000 / 10000) - Elapsed time: 613.6831 - Running accuracy: 9.47% ( 568 / 6000 )
+Validation/test progress: sample (7000 / 10000) - Elapsed time: 720.2222 - Running accuracy: 9.60% ( 672 / 7000 )
+Validation/test progress: sample (8000 / 10000) - Elapsed time: 826.2044 - Running accuracy: 9.66% ( 773 / 8000 )
+Validation/test progress: sample (9000 / 10000) - Elapsed time: 930.4778 - Running accuracy: 9.76% ( 878 / 9000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 1039.1033 - Running accuracy: 9.80% ( 980 / 10000 )
