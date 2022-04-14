@@ -5,7 +5,7 @@
 #PBS -o "/home/jc299170/opt/full/SNN-GrapheneSynapses/10.log"
 #PBS -e "/home/jc299170/opt/full/SNN-GrapheneSynapses/10.log"
 #PBS -M corey.lammie@jcu.edu.au
-#PBS -l walltime=24:00:00
+#PBS -l walltime=72:00:00
 #PBS -l select=1:ncpus=1:mem=10gb
 
 shopt -s expand_aliases
