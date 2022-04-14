@@ -86,9 +86,9 @@ if __name__ == "__main__":
     neptune_callback = optuna_utils.NeptuneCallback(run)
     storage_name = "sqlite:///{}.db".format(n_output_neurons)
     study = optuna.create_study(study_name=str(n_output_neurons), direction="maximize", sampler=sampler, storage=storage_name, load_if_exists=True, pruner=optuna.pruners.MedianPruner())
-    study.enqueue_trial({'tau': 0.0592626094478231,
-                         'gamma': 5.72033207422828E-06,
-                        })
+    # study.enqueue_trial({'tau': 0.0592626094478231,
+    #                      'gamma': 5.72033207422828E-06,
+    #                     })
     study.optimize(lambda trial: objective(
         trial, n_output_neurons, n_epochs), n_trials=n_trials, callbacks=[neptune_callback])
     run.stop()
