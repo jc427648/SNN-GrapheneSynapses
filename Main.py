@@ -43,6 +43,7 @@ def train(
             load_train_samples=True,
             load_validation_samples=False,
             load_test_samples=False,
+            export_to_disk=False,
         )[0]
 
     print("Training...")
@@ -129,6 +130,7 @@ def test(
             load_validation_samples=use_validation_set,
             load_test_samples=not use_validation_set,
             validation_samples=n_samples,
+            export_to_disk=False,
         )
         if use_validation_set:
             test_data, test_labels = MNIST_samples[1]

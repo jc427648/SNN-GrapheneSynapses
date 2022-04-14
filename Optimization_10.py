@@ -9,70 +9,88 @@ import neptune.new as neptune
 import neptune.new.integrations.optuna as optuna_utils
 
 
-def objective(trial, n_output_neurons):
-    """ Function with unknown internals we wish to maximize.
-    """
-    tau = trial.suggest_float("tau", 1e-6, 1e-3, log=True)
-    R = trial.suggest_float("R", 1, 100)
-    gamma = trial.suggest_float("gamma", 1e-7, 1e-4, log=True)
-    target_activity = trial.suggest_float(
-        "target_activity", 0.5 * n_output_neurons, 1.5 * n_output_neurons)
-    v_th_max = trial.suggest_float("v_th_max", 0.1, 1.0)
-    fixed_inhibition_current = trial.suggest_float(
-        "fixed_inhibition_current", -1., -0.5)
 
+def objective(trial, n_output_neurons):
+    Ve = 0.0
+    tau = trial.suggest_float("tau", 1e-3, 1e-1)  
+    gamma = trial.suggest_float("gamma", 1e-7, 1e-5)
+    R = 500
+    v_th_min = 0.001
+    v_th_max = 30
+    fixed_inhibition_current = -0.00602
     dt = 0.2e-3
     image_duration = 0.05
-    n_samples_train = 50000
-    n_samples_validate = 10000
-    log_interval = 5000
+    image_threshold = 50
+    lower_freq = 20
+    upper_freq = 100
+    n_samples_train = 60000
+    n_samples_test = 10000
+    n_epochs = 1
+  
     network = Network(
         n_output_neurons=n_output_neurons,
         n_samples_memory=n_output_neurons,
-        Ve=0.0,
+        Ve=Ve,
         tau=tau,
         R=R,
         gamma=gamma,
-        target_activity=target_activity,
-        v_th_min=1e-2,
+        target_activity=n_output_neurons,
+        v_th_min=v_th_min,
         v_th_max=v_th_max,
         fixed_inhibition_current=fixed_inhibition_current,
         dt=dt,
     )
-    network, _, trial = train(
-        network,
-        dt,
-        image_duration,
-        n_samples=n_samples_train,
-        log_interval=log_interval,
-        import_samples=True,
-        trial=trial,
-    )
-    validation_accuracy = test(
-        network,
-        dt,
+    network, _ = train(
+        network=network,
+        dt=dt,
         image_duration=image_duration,
-        n_samples=n_samples_validate,
-        use_validation_set=True,
-        log_interval=log_interval,
-        import_samples=True,
+        n_epochs=n_epochs,
+        lower_freq=lower_freq,
+        upper_freq=upper_freq,
+        image_threshold=image_threshold,
+        n_samples=n_samples_train,
+        det_training_accuracy=False,
+        import_samples=False,
     )
-    return validation_accuracy
+    test_set_accuracy = test(
+        network=network,
+        dt=dt,
+        image_duration=image_duration,
+        lower_freq=lower_freq,
+        upper_freq=upper_freq,
+        image_threshold=image_threshold,
+        n_samples=n_samples_test,
+        use_validation_set=False,
+        import_samples=False,
+    )
+    return test_set_accuracy
 
+class RepeatPruner(optuna.pruners.BasePruner):
+    def prune(self, study, trial):
+        trials = study.get_trials(deepcopy=False)
+        completed_trials = [t.params for t in trials if t.state == TrialState.COMPLETE]
+        n_trials = len(completed_trials)
+        if n_trials == 0:
+            return False
+
+        if trial.params in completed_trials:
+            return True
+
+        return False
 
 if __name__ == "__main__":
     n_output_neurons = 10
-    sampler = optuna.samplers.TPESampler(seed=0)  # To ensure reproducibility
+    n_trials = 100
+    sampler = optuna.samplers.TPESampler()
     run = neptune.init(api_token=os.getenv("NEPTUNE_API_TOKEN"),
-                       project='JCU-NICE/SNN-Optimization')
+                       project='JCU-NICE/Updated-SNN-Optimization',
+                       mode="offline")
     neptune_callback = optuna_utils.NeptuneCallback(run)
-    study = optuna.create_study(direction="maximize", sampler=sampler)
-    study.enqueue_trial({'tau': 0.002, 'R': 20, 'gamma': 0.0005,
-                        'target_activity': 10, 'v_th_max': 1, 'fixed_inhibition_current': -0.85})
+    storage_name = "sqlite:///{}.db".format(n_output_neurons)
+    study = optuna.create_study(study_name=str(n_output_neurons), direction="maximize", sampler=sampler, storage=storage_name, load_if_exists=True, pruner=RepeatPruner())
+    # study.enqueue_trial({'tau': 0.01,
+    #                      'gamma': 0.000001,
+    #                     })
     study.optimize(lambda trial: objective(
-        trial, n_output_neurons), n_trials=100, callbacks=[neptune_callback])
-    pruned_trials = study.get_trials(
-        deepcopy=False, states=[TrialState.PRUNED])
-    complete_trials = study.get_trials(
-        deepcopy=False, states=[TrialState.COMPLETE])
+        trial, n_output_neurons), n_trials=n_trials, callbacks=[neptune_callback])
     run.stop()
