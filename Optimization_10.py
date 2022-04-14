@@ -23,8 +23,8 @@ def objective(trial, n_output_neurons, n_epochs):
     image_threshold = 50
     lower_freq = 20
     upper_freq = 100
-    n_samples_train = 50 #000
-    n_samples_validate = 10 #000
+    n_samples_train = 50000
+    n_samples_validate = 10000
   
     network = Network(
         n_output_neurons=n_output_neurons,
