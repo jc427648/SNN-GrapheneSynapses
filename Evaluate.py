@@ -5,22 +5,22 @@ from Plotting import plotWeights,ReshapeWeights
 
 
 if __name__ == "__main__":
-    n_output_neurons = 10
+    n_output_neurons = 100
     dt = 0.2e-3
     image_duration = 0.05
     n_samples_train = 60000
     n_samples_test = 10000
     log_interval = 1000
-    R = 500
+    R = 1000
     fixed_inhibition_current = -6.02e-3
-    gamma = 1e-6
-    tau = 0.5e-2
-    n_epochs = 1
+    gamma = 2.28e-6
+    tau = 3
+    n_epochs = 2
     v_th_max = 30
-    PlotTitle = 'Frq20Hz'
-    lower_freq = 5
-    upper_freq = 200
-    image_threshold = 200
+    PlotTitle = '2Epo'
+    lower_freq = 20
+    upper_freq = 100
+    image_threshold = 30
     network = Network(
         n_output_neurons=n_output_neurons,
         n_samples_memory=n_output_neurons,
@@ -29,7 +29,7 @@ if __name__ == "__main__":
         R=R,
         gamma=gamma,
         target_activity=20,
-        v_th_min=1e-3,
+        v_th_min=1e-4,
         v_th_max=v_th_max,
         fixed_inhibition_current=fixed_inhibition_current,
         dt=dt,
@@ -72,7 +72,7 @@ if __name__ == "__main__":
     plotStringWeights = string + 'Weights'
     plotStringConfusion = string + 'Confusion'
     #Plot, save and store weights.
-    RWeights,assignments = ReshapeWeights(network.synapse.w,network.n_output_neurons)
+    RWeights, assignments = ReshapeWeights(network.synapse.w,network.n_output_neurons)
     plotWeights(RWeights,network.synapse.wmax,network.synapse.wmin,title = PlotTitle)
 
     # torch.save(network.Assignment,'Assignments.pt')

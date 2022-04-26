@@ -2,10 +2,10 @@
 ### qstat -f -Q
 #PBS -N SNN-GrapheneSynapses_evaluate
 #PBS -P JCU-SNN
-#PBS -o /scratch/user/benwalters/Frq20Hz_OptEvalN10_out.txt
-#PBS -e /scratch/user/benwalters/Frq20Hz_OptEvalN10_error.txt
+#PBS -o /scratch/user/benwalters/2Epo_OptEvalN100_out.txt
+#PBS -e /scratch/user/benwalters/2Epo_OptEvalN100_error.txt
 #PBS -q workq
-#PBS -l walltime=60:00:00
+#PBS -l walltime=80:00:00
 #PBS -l select=1:mem=10gb:ncpus=4:mpiprocs=4
 #PBS -m abe -M ben.walters@my.jcu.edu.au
 
