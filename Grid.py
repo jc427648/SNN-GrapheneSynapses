@@ -100,7 +100,7 @@ def run(
 
     #plotStringWeights = string + 'Weights'
     #plotStringConfusion = string + 'Confusion'
-    PlotTitle = 'Target%fIT%eEpo%f' %(network.group.target,image_threshold,n_epochs)
+    PlotTitle = 'Tau%fEpo%f' %(tau,n_epochs)
     #Plot, save and store weights.
     RWeights, assignments = ReshapeWeights(network.synapse.w,network.n_output_neurons)
     plotWeights(RWeights,network.synapse.wmax,network.synapse.wmin,title = PlotTitle)
@@ -134,7 +134,7 @@ if __name__ == "__main__":
     parser.add_argument("--fixed_inhibition_current", type=float, default=-6.02e-3)
     parser.add_argument("--dt", type=float, default=0.2e-3)
     parser.add_argument("--image_duration", type=float, default=0.05)
-    parser.add_argument("--image_threshold", type=float, default=5)
+    parser.add_argument("--image_threshold", type=float, default=10)
     parser.add_argument("--lower_freq", type=float, default=20)
     parser.add_argument("--upper_freq", type=float, default=100)
     parser.add_argument("--n_samples_train", type=int, default=60000)
