@@ -5,16 +5,22 @@ import numpy as np
 
 class STDPSynapse:
     # Defines the STDP weight and the STDP weight change. Will be used in conjunction with another object called LIF neuron.
-    def __init__(self, n, wmin=-25e-3, wmax=25e-3):
+    def __init__(self, n, wmin=-25e-3, wmax=25e-3,stdp = 0.1):
         # Initialise with random weights
         self.n = n  # Number of neurons
         # Initialise random weights, each row represents neuron, each column a different input.
         self.w = torch.zeros((n, 784)).uniform_(wmin, wmax)
         self.wmin = wmin
         self.wmax = wmax
+        self.stdp = stdp
 
     def GetSTDP(self):
         return np.loadtxt("current.txt", delimiter=" ")
+    
+    def C2C_Variability(self,DelW,stdp):
+        std = DelW*stdp #Convert percentage of std to raw value.
+        alteredW = np.random.normal(DelW,std,1)
+        return alteredW
     
     def potentiate(self, DeltaTP, Neur, STDPWindow):
         # Potentiate the synaptic weight of neuron Neur, using the DeltaT values.
@@ -23,6 +29,7 @@ class STDPSynapse:
         # 160 is currently hardcoded- to modularize.
         DelCurrent = STDPWindow[(DeltaTP[0 : len(DeltaTP)] * 1 + 85).long()]#Refer to previous code for why this is.
         deltaW = torch.multiply(Neur, DelCurrent)
+        deltaW = self.C2C_Variability(deltaW,self.stdp) #10% stdp
         self.w += deltaW
         # Bound the weights
         self.w = torch.clamp(self.w, self.wmin, self.wmax)
@@ -34,9 +41,12 @@ class STDPSynapse:
         # 160 is currently hardcoded- to modularize.
         DelCurrent = STDPWindow[(DeltaTN[0 : len(DeltaTN)] * 1 + 85).long()]
         deltaW = torch.multiply(Neur, DelCurrent)
+        deltaW = self.C2C_Variability(deltaW,self.stdp) #10% stdp
         self.w += deltaW
         # Bound the weights
         self.w = torch.clamp(self.w, self.wmin, self.wmax)
+
+
 
 
 class LIFNeuronGroup:

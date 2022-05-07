@@ -16,8 +16,8 @@ controller = ThreadpoolController()
 
 n_output_neurons = 100
 n_epochs = 2
-tau = 2.84717552996455
-gamma = 5.95479914943581E-08
+tau = 2.5
+gamma = 1e-6
 
 @wrap_non_picklable_objects
 def f(i):
