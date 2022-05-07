@@ -15,6 +15,28 @@ class STDPSynapse:
 
     def GetSTDP(self):
         return np.loadtxt("current.txt", delimiter=" ")
+    
+    def potentiate(self, DeltaTP, Neur, STDPWindow):
+        # Potentiate the synaptic weight of neuron Neur, using the DeltaT values.
+        # Need to apply the lookup of the STDP window, to produce corresponding current for potentiation.
+        DeltaTP = torch.round(DeltaTP * 2) / 2
+        # 160 is currently hardcoded- to modularize.
+        DelCurrent = STDPWindow[(DeltaTP[0 : len(DeltaTP)] * 1 + 85).long()]#Refer to previous code for why this is.
+        deltaW = torch.multiply(Neur, DelCurrent)
+        self.w += deltaW
+        # Bound the weights
+        self.w = torch.clamp(self.w, self.wmin, self.wmax)
+
+    def depress(self, DeltaTN, Neur, STDPWindow):
+        # Depress the value synaptic weight of neuron Neur, using the values of DeltaT
+        # This rounding allows simple implementation of this specific STDP window.
+        DeltaTN = torch.round(DeltaTN * 2) / 2
+        # 160 is currently hardcoded- to modularize.
+        DelCurrent = STDPWindow[(DeltaTN[0 : len(DeltaTN)] * 1 + 85).long()]
+        deltaW = torch.multiply(Neur, DelCurrent)
+        self.w += deltaW
+        # Bound the weights
+        self.w = torch.clamp(self.w, self.wmin, self.wmax)
 
 
 class LIFNeuronGroup:
