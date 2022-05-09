@@ -1,6 +1,7 @@
 from Network import Network
 from MNISTDataLoader import getMNIST
 from Main import train, test
+from Plotting import plotWeights, ReshapeWeights
 import os
 from set_all_seeds import set_all_seeds
 
@@ -64,4 +65,35 @@ def evaluate(n_output_neurons, tau, gamma, n_epochs=1):
         data=test_data,
         labels=test_labels,
     )
+    string = 'Wmax = %f, Tau = %f, Gamma = %f, R = %f, Target Activity = %f' %(
+        network.synapse.wmax,
+        network.group.tau,
+        network.group.gamma,
+        network.group.R,
+        network.group.target
+    )
+
+    print(string)
+
+
+    #plotStringWeights = string + 'Weights'
+    #plotStringConfusion = string + 'Confusion'
+    PlotTitle = 'Trial10TAu%f' %(tau)
+    #Plot, save and store weights.
+    RWeights, assignments = ReshapeWeights(network.synapse.w,network.n_output_neurons)
+    plotWeights(RWeights,network.synapse.wmax,network.synapse.wmin,title = PlotTitle)
+
+    # torch.save(network.Assignment,'Assignments.pt')
+    # torch.save(network.Activity,'Activity.pt')
+    print('Assignment:')
+    print('\n')
+    print(network.Assignment)
+    print('\n')
+    print('Activity:')
+    print('\n')
+    print(network.Activity)
+    print('\n')
+    print('Vth:')
+    print('\n')
+    print(network.group.Vth)
     return test_set_accuracy

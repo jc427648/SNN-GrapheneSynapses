@@ -1,5 +1,6 @@
 from cgi import test
 from Evaluate import evaluate
+from Plotting import plotWeights, ReshapeWeights
 import pandas as pd
 import numpy as np
 import torch
@@ -30,9 +31,10 @@ def f(i):
 if __name__ == "__main__":
     set_all_seeds(0)
     test_set_accuraies = Parallel(n_jobs=10)(delayed(f)(i) for i in range(10))
-    test_set_accuraies = np.array(test_set_accuraies)
     print(test_set_accuraies)
-    mean = test_set_accuraies.mean()
-    std = test_set_accuraies.std()
+    test_set_accuraies2 = np.array(test_set_accuraies)
+    print(test_set_accuraies2)
+    mean = test_set_accuraies2.mean()
+    std = test_set_accuraies2.std()
     print(mean)
     print(std)
