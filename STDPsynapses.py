@@ -21,7 +21,7 @@ class STDPSynapse:
         # 160 is currently hardcoded- to modularize.
         DelCurrent = STDPWindow[(DeltaTP[0 : len(DeltaTP)] * 1 + 85).long()]#Refer to previous code for why this is.
         deltaW = torch.multiply(Neur, DelCurrent)
-        deltaW = self.C2C_Variability(deltaW) #10% stdp
+        deltaW = self.C2CVariability(deltaW) #10% stdp
         self.w += deltaW
         # Bound the weights
         self.w = torch.clamp(self.w, self.wmin, self.wmax)
@@ -33,14 +33,14 @@ class STDPSynapse:
         # 160 is currently hardcoded- to modularize.
         DelCurrent = STDPWindow[(DeltaTN[0 : len(DeltaTN)] * 1 + 85).long()]
         deltaW = torch.multiply(Neur, DelCurrent)
-        deltaW = self.C2C_Variability(deltaW) #10% stdp
+        deltaW = self.C2CVariability(deltaW) #10% stdp
         self.w += deltaW
         # Bound the weights
         self.w = torch.clamp(self.w, self.wmin, self.wmax)
 
     def C2CVariability(self, delW):
-        std = delW*self.stdp #Convert percentage of std to raw value.
-        alteredW = np.random.normal(delW,std,1)
+        std = torch.abs(delW*self.stdp) #Convert percentage of std to raw value.
+        alteredW = torch.normal(delW,std)
         return alteredW
 
     def GetSTDP(self):

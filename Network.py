@@ -22,8 +22,9 @@ class Network:
         fixed_inhibition_current=-1.0,
         dt=0.2e-3,
         output_dir="output",
+        stdp = 0.1,#C2C standard deviation percentage.
     ):
-        self.synapse = STDPSynapse(n_output_neurons, wmin=-20e-6, wmax=20e-6)
+        self.synapse = STDPSynapse(n_output_neurons, wmin=-20e-6, wmax=20e-6, stdp = stdp)
         self.group = LIFNeuronGroup(
             n_output_neurons,
             Ve=Ve,

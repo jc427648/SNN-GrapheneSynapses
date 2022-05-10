@@ -13,14 +13,15 @@ if __name__ == "__main__":
     log_interval = 1000
     R = 1000
     fixed_inhibition_current = -6.02e-3
-    gamma = 2.28e-6
-    tau = 3
+    gamma = 1e-6
+    tau = 2.5
     n_epochs = 2
     v_th_max = 30
     PlotTitle = '2Epo'
     lower_freq = 20
     upper_freq = 100
-    image_threshold = 30
+    image_threshold = 10
+    stdp = 0.1
     network = Network(
         n_output_neurons=n_output_neurons,
         n_samples_memory=n_output_neurons,
@@ -28,11 +29,12 @@ if __name__ == "__main__":
         tau=tau,
         R=R,
         gamma=gamma,
-        target_activity=20,
+        target_activity=1,
         v_th_min=1e-4,
         v_th_max=v_th_max,
         fixed_inhibition_current=fixed_inhibition_current,
         dt=dt,
+        stdp = stdp
     )
     network = train(
         network,
