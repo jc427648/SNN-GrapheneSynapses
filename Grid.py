@@ -26,6 +26,8 @@ def run(
     n_samples_train,
     n_samples_test,
     n_epochs,
+    stdpCC,
+    stdpDD,
 ):
     network = Network(
         n_output_neurons=n_output_neurons,
@@ -39,6 +41,9 @@ def run(
         v_th_max=v_th_max,
         fixed_inhibition_current=fixed_inhibition_current,
         dt=dt,
+        stdpCC = stdpCC,
+        stdpDD = stdpDD,
+
     )
     network, _ = train(
         network=network,
@@ -82,6 +87,8 @@ def run(
             "upper_freq": upper_freq,
             "n_epochs": n_epochs,
             "test_set_accuracy": test_set_accuracy,
+            "stdpCC": stdpCC,
+            "stdpDD": stdpDD,
         },
         ignore_index=True,
     )
@@ -100,7 +107,7 @@ def run(
 
     #plotStringWeights = string + 'Weights'
     #plotStringConfusion = string + 'Confusion'
-    PlotTitle = 'Tau%fEpo%f' %(tau,n_epochs)
+    PlotTitle = 'stdpCC%fstdpDD%f' %(stdpCC,stdpDD)
     #Plot, save and store weights.
     RWeights, assignments = ReshapeWeights(network.synapse.w,network.n_output_neurons)
     plotWeights(RWeights,network.synapse.wmax,network.synapse.wmin,title = PlotTitle)
@@ -140,6 +147,8 @@ if __name__ == "__main__":
     parser.add_argument("--n_samples_train", type=int, default=60000)
     parser.add_argument("--n_samples_test", type=int, default=10000)
     parser.add_argument("--n_epochs", type=int, default=1)
+    parser.add_argument("--stdpCC",type = float, default = 0)
+    parser.add_argument("--stdpDD",type = float, default = 0)
     args = parser.parse_args()
     if os.path.exists(os.path.join(os.getcwd(), "grid_out.csv")):
         df = pd.read_csv(os.path.join(os.getcwd(), "grid_out.csv"))
@@ -162,6 +171,8 @@ if __name__ == "__main__":
                 "upper_freq",
                 "n_epochs",
                 "test_set_accuracy",
+                "stdpCC",
+                "stdpDD",
             ]
         )
         df.to_csv(os.path.join(os.getcwd(), "grid_out.csv"), index=False)

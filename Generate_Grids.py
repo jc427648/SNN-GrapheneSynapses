@@ -8,31 +8,34 @@ import time
 
 n_output_neurons = 100
 # gamma = [0.8e-6, 1e-6, 1.2e-6]
-tau = [2.3,2.4,2.5,2.6,2.7,2.8]
+# tau = [2.3,2.4,2.5,2.6,2.7,2.8]
 # R = [900,1000,1100,800]
 # lower_freq = [10, 20, 30]
 # upper_freq = [75, 100,125]
 # image_threshold = [1,2,5]
 # target_activity = [1]
-n_epochs = [1,2,3]
+# n_epochs = [1,2,3]
+stdpCC = [0.0,0.5,1,2]
+stdpDD = [0.0,0.1,0.5,1]
 # image_duration = [0.03,0.04,0.045,0.055,0.06,0.07,0.08,0.09,0.1]
 
 combinations = list(
-    itertools.product(n_epochs,tau)
+    itertools.product(stdpDD,stdpCC)
 )
 
 cwd = os.getcwd()
 for combination in combinations:
     d = {
         # "gamma": combination[0],
-        "tau": combination[1],
+        # "tau": combination[1],
         # "image_duration": combination[0],
         # "target_activity": combination[1],
         # "n_epochs": combination[0],
         # "lower_freq": combination[1],
         # "upper_freq": combination[2],
         #"image_threshold": combination[4],
-        "n_epochs": combination[0],
+        "stdpDD": combination[0],
+        "stdpCC": combination[1],
     }
     args = ""
     for key in d:
