@@ -24,33 +24,21 @@ def train(
     upper_freq=5,
     image_threshold=200,
     n_samples=60000,
-    log_interval=1000,
+    log_interval=5000,
     det_training_accuracy=True,
-    import_samples=False,
+    data=None,
+    labels=None,
     trial=None,
 ):
     assert n_samples >= 0 and n_samples <= 60000, "Invalid n_samples value."
-    print("Loading MNIST training samples...")
-    if import_samples:
-        training_data = torch.load("train_images.pt")
-        training_labels = torch.load("train_labels.pt")
-    else:
-        training_data, training_labels = getMNIST(
-            lower_freq=lower_freq,
-            upper_freq=upper_freq,
-            threshold=image_threshold,
-            dt=dt,
-            load_train_samples=True,
-            load_validation_samples=False,
-            load_test_samples=False,
-        )[0]
-
+    assert data is not None
+    assert labels is not None
     print("Training...")
     correct = 0
     start_time = timeit.default_timer()
     for epoch in range(n_epochs):
         for idx in range(n_samples):
-            image, label = training_data[idx], training_labels[idx].item()
+            image, label = data[idx], labels[idx].item()
             network.OverwriteActivity()
             network.presentImage(
                 image, label, image_duration, update_parameters=True)
@@ -85,10 +73,7 @@ def train(
             if trial.should_prune():
                 raise optuna.exceptions.TrialPruned()
 
-    if trial is not None:
-        return network, (correct / idx) * 100, trial
-    else:
-        return network, (correct / idx) * 100
+    return network, (correct / idx) * 100
 
 
 def test(
@@ -99,49 +84,18 @@ def test(
     upper_freq=200,
     image_threshold=50,
     n_samples=10000,
-    use_validation_set=False,  # Whether or not to load.use the validation set
-    log_interval=1000,
-    import_samples=False,
-
-
+    log_interval=5000,
+    data=None,
+    labels=None
 ):
     assert n_samples >= 0 and n_samples <= 10000, "Invalid n_samples value."
-    if use_validation_set:
-        print("Loading MNIST validation samples...")
-    else:
-        print("Loading MNIST test samples...")
-    if import_samples:
-        if use_validation_set:
-            test_data = torch.load("validation_images.pt")
-            test_labels = torch.load("validation_labels.pt")
-            print("Validating...")
-        else:
-            test_data = torch.load("test_images.pt")
-            test_labels = torch.load("test_labels.pt")
-            print("Testing...")
-    else:
-        MNIST_samples = getMNIST(
-            lower_freq=lower_freq,
-            upper_freq=upper_freq,
-            threshold=image_threshold,
-            dt=dt,
-            load_train_samples=False,
-            load_validation_samples=use_validation_set,
-            load_test_samples=not use_validation_set,
-            validation_samples=n_samples,
-        )
-        if use_validation_set:
-            test_data, test_labels = MNIST_samples[1]
-            print("Validating...")
-        else:
-            test_data, test_labels = MNIST_samples[2]
-            print("Testing...")
-
+    assert data is not None
+    assert labels is not None
     correct = 0
     predicted_labels = []
     start_time = timeit.default_timer()
     for idx in range(n_samples):
-        image, label = test_data[idx], test_labels[idx].item()
+        image, label = data[idx], labels[idx].item()
         network.OverwriteActivity()
         network.presentImage(image, label, image_duration,
                              update_parameters=False)
@@ -162,6 +116,6 @@ def test(
                     idx + 1,
                 )
             )
-        network.UpdateCurrentSample() #Placed at end of testing set
+        network.UpdateCurrentSample()
 
     return (correct / idx) * 100

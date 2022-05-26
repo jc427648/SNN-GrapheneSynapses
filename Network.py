@@ -22,10 +22,9 @@ class Network:
         fixed_inhibition_current=-1.0,
         dt=0.2e-3,
         output_dir="output",
-        stdpCC = 0.1,#C2C standard deviation percentage.
-        stdpDD = 0.1,
+        C2CD2D=0.,
     ):
-        self.synapse = STDPSynapse(n_output_neurons, wmin=-20e-6, wmax=20e-6, stdpCC = stdpCC,stdpDD = stdpDD)
+        self.synapse = STDPSynapse(n_output_neurons, wmin=-10e-6, wmax=10e-6, C2CD2D=C2CD2D)
         self.group = LIFNeuronGroup(
             n_output_neurons,
             Ve=Ve,
@@ -44,7 +43,7 @@ class Network:
         self.current_sample = 0
         self.Activity = torch.zeros(n_output_neurons, n_samples_memory)
         self.sumAct = torch.zeros(n_output_neurons)
-        self.STDPWindow = self.synapse.GetSTDP(stdpDD = stdpDD,n_output_neurons = n_output_neurons)
+        self.STDPWindow = self.synapse.GetSTDP()
         self.Assignment = torch.zeros((n_output_neurons, 10))
         # Current Counter (not correct, should be a vector)
         self.CurrCtr = torch.zeros((784))

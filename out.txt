@@ -1,0 +1,14 @@
+
+To list all available conda3 environments, use
+	ls $CONDA_HOME/envs
+
+To enable use of a miniconda software environment, use:
+	module load conda3
+	source $CONDA_PROF/conda.sh
+	conda activate <environment name>
+
+For example, to enable the vsearch 2.17.0 environment use:
+	module load conda3
+	source $CONDA_PROF/conda.sh
+	conda activate vsearch-2.17.0
+
