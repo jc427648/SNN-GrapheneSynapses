@@ -119,7 +119,7 @@ if __name__ == "__main__":
     parser.add_argument("--n_samples_train", type=int, default=60000)
     parser.add_argument("--n_samples_test", type=int, default=10000)
     parser.add_argument("--n_epochs", type=int, default=1)
-    parser.add_argument("--C2CD2D",type = float, default=0.)
+    parser.add_argument("--C2CD2D", type = float, default=0.)
     parser.add_argument("--UUID", type=str, default=None)
     args = parser.parse_args()
     if os.path.exists(os.path.join(os.getcwd(), "grid_out.csv")):

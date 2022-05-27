@@ -11,7 +11,8 @@ n_output_neurons = 10
 iterations = 10
 tau = [4.8025530126437]
 gamma = [0.00002660854454112]
-C2CD2D = [0., 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5]
+# C2CD2D = [0., 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+C2CD2D = np.append(np.arange(0., 0.05 + 0.001, step=0.001), [0.1])
 
 combinations = list(
     itertools.product(tau, gamma, C2CD2D)
@@ -58,4 +59,4 @@ python Grid.py%s
         print(args)
         print(res.stdout.decode('utf-8'))
         os.remove(os.path.join(os.getcwd(), "%s.sh" % myuuid))
-        time.sleep(2)
+        time.sleep(1)

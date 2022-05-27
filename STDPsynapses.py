@@ -13,6 +13,7 @@ class STDPSynapse:
         self.wmin = wmin
         self.wmax = wmax
         self.C2CD2D = C2CD2D
+        print(self.C2CD2D)
 
     def potentiate(self, DeltaTP, Neur, STDPWindow):
         # Potentiate the synaptic weight of neuron Neur, using the DeltaT values.
@@ -21,7 +22,7 @@ class STDPSynapse:
         # 160 is currently hardcoded- to modularize.
         DelCurrent = STDPWindow[(DeltaTP[0 : len(DeltaTP)] * 1 + 85).long()]
         deltaW = torch.multiply(Neur, DelCurrent)
-        deltaW = torch.normal(mean=deltaW, std=torch.abs(deltaW * self.C2CD2D))
+        deltaW = torch.normal(mean=deltaW, std=torch.sqrt(torch.abs(deltaW * self.C2CD2D)))
         self.w += deltaW
         # Bound the weights
         self.w = torch.clamp(self.w, self.wmin, self.wmax)
@@ -33,7 +34,7 @@ class STDPSynapse:
         # 160 is currently hardcoded- to modularize.
         DelCurrent = STDPWindow[(DeltaTN[0 : len(DeltaTN)] * 1 + 85).long()]
         deltaW = torch.multiply(Neur, DelCurrent)
-        deltaW = torch.normal(mean=deltaW, std=torch.abs(deltaW * self.C2CD2D))
+        deltaW = torch.normal(mean=deltaW, std=torch.sqrt(torch.abs(deltaW * self.C2CD2D)))
         self.w += deltaW
         # Bound the weights
         self.w = torch.clamp(self.w, self.wmin, self.wmax)

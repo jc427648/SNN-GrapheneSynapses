@@ -12,3 +12,27 @@ For example, to enable the vsearch 2.17.0 environment use:
 	source $CONDA_PROF/conda.sh
 	conda activate vsearch-2.17.0
 
+/home/jc299170/Variability/SNN-GrapheneSynapses/Grid.py:78: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df = df.append(
+0.8
+Progress : 0 / 60000
+Progress : 20000 / 60000
+Progress : 40000 / 60000
+Progress : 60000 / 60000
+Progress : 0 / 10000
+Progress : 10000 / 10000
+Training...
+Training progress: sample (5000 / 60000) of epoch (1 / 1) - Elapsed time: 600.2481
+Training progress: sample (10000 / 60000) of epoch (1 / 1) - Elapsed time: 1199.7649
+Training progress: sample (15000 / 60000) of epoch (1 / 1) - Elapsed time: 1803.3442
+Training progress: sample (20000 / 60000) of epoch (1 / 1) - Elapsed time: 2400.5010
+Training progress: sample (25000 / 60000) of epoch (1 / 1) - Elapsed time: 2999.3400
+Training progress: sample (30000 / 60000) of epoch (1 / 1) - Elapsed time: 3606.0987
+Training progress: sample (35000 / 60000) of epoch (1 / 1) - Elapsed time: 4211.3855
+Training progress: sample (40000 / 60000) of epoch (1 / 1) - Elapsed time: 4811.6765
+Training progress: sample (45000 / 60000) of epoch (1 / 1) - Elapsed time: 5417.1050
+Training progress: sample (50000 / 60000) of epoch (1 / 1) - Elapsed time: 6017.5279
+Training progress: sample (55000 / 60000) of epoch (1 / 1) - Elapsed time: 6611.7498
+Training progress: sample (60000 / 60000) of epoch (1 / 1) - Elapsed time: 7210.3919
+Validation/test progress: sample (5000 / 10000) - Elapsed time: 530.4783 - Running accuracy: 10.28% ( 514 / 5000 )
+Validation/test progress: sample (10000 / 10000) - Elapsed time: 1055.4641 - Running accuracy: 10.13% ( 1013 / 10000 )
