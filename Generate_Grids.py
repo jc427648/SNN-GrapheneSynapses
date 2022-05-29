@@ -7,12 +7,16 @@ import time
 import numpy as np
 
 
-n_output_neurons = 10
 iterations = 10
-tau = [4.8025530126437]
-gamma = [0.00002660854454112]
-# C2CD2D = [0., 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
-C2CD2D = np.append(np.arange(0., 0.05 + 0.001, step=0.001), [0.1])
+n_output_neurons = 10
+n_epochs = 1 # 10 output neurons
+tau = [4.8025530126437] # 10 output neurons
+gamma = [0.00002660854454112] # 10 output neurons
+# n_output_neurons = 100
+n_epochs = 2 # 100 output neurons
+# tau = [2.84717552996455] # 100 output neurons
+# gamma = [5.95479914943581E-08] # 100 output neurons
+C2CD2D = [0., 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2.0, 2.5, 5.0, 10.0]
 
 combinations = list(
     itertools.product(tau, gamma, C2CD2D)
@@ -25,6 +29,7 @@ for combination in combinations:
         myuuid = str(uuid.uuid4())
         d = {
             "n_output_neurons": n_output_neurons,
+            "n_epochs": n_epochs,
             "tau": combination[0],
             "gamma": combination[1],
             "C2CD2D": combination[2],
