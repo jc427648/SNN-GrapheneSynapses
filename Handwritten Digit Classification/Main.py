@@ -12,6 +12,7 @@ import time
 import timeit
 import random
 import os
+import optuna
 
 
 def train(
@@ -20,12 +21,13 @@ def train(
     image_duration=0.05,
     n_epochs=1,
     lower_freq=20,
-    upper_freq=200,
-    image_threshold=50,
+    upper_freq=100,
+    image_threshold=200,
     n_samples=60000,
     log_interval=1000,
     det_training_accuracy=True,
     import_samples=False,
+    trial=None,
 ):
     assert n_samples >= 0 and n_samples <= 60000, "Invalid n_samples value."
     print("Loading MNIST training samples...")
@@ -44,9 +46,9 @@ def train(
         )[0]
 
     print("Training...")
+    correct = 0
     start_time = timeit.default_timer()
     for epoch in range(n_epochs):
-        correct = 0
         for idx in range(n_samples):
             image, label = training_data[idx], training_labels[idx].item()
             network.OverwriteActivity()
@@ -78,7 +80,15 @@ def train(
                 )
             network.UpdateCurrentSample()
 
-    return network, (correct / idx) * 100
+        if trial is not None:
+            trial.report((correct / idx) * 100, epoch)
+            if trial.should_prune():
+                raise optuna.exceptions.TrialPruned()
+
+    if trial is not None:
+        return network, (correct / idx) * 100, trial
+    else:
+        return network, (correct / idx) * 100
 
 
 def test(
@@ -89,9 +99,11 @@ def test(
     upper_freq=200,
     image_threshold=50,
     n_samples=10000,
-    use_validation_set=False, # Whether or not to load.use the validation set
+    use_validation_set=False,  # Whether or not to load.use the validation set
     log_interval=1000,
     import_samples=False,
+
+
 ):
     assert n_samples >= 0 and n_samples <= 10000, "Invalid n_samples value."
     if use_validation_set:
@@ -150,6 +162,6 @@ def test(
                     idx + 1,
                 )
             )
-        network.UpdateCurrentSample()
+        network.UpdateCurrentSample() #Placed at end of testing set
 
     return (correct / idx) * 100
