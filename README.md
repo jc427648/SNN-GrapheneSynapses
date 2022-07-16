@@ -1,5 +1,5 @@
 # Unsupervised Character Recognition with Graphene Memristive Synapses
-Supplimentary GitHub Repository containing source codes for the paper entitled *Unsupervised Character Recognition with Graphene Memristive Synapses*, which is currently under consideration for publication in Advanced Intelligent Systems (AISY), as an interactive paper.
+Supplimentary GitHub Repository containing source codes for the paper entitled *Unsupervised Character Recognition with Graphene Memristive Synapses*, which is currently under consideration for publication in Neural Computing and Architectures.
 
 ## Abstract
 Memristive devices being applied in neuromorphic computing are envisioned to significantly improve the power consumption and
