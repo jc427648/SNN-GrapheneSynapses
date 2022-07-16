@@ -13,7 +13,7 @@ class Network:
         n_output_neurons=30,
         n_samples_memory=30,
         Ve=0.0,
-        tau=0.1,
+        tau=0.05,
         R=1000,
         gamma=0.005,
         target_activity=10,
@@ -22,8 +22,10 @@ class Network:
         fixed_inhibition_current=-1.0,
         dt=0.2e-3,
         output_dir="output",
+        stdpCC = 0.1,#C2C standard deviation percentage.
+        stdpDD = 0.1,
     ):
-        self.synapse = STDPSynapse(n_output_neurons, wmin=-45e-3, wmax=45e-3)
+        self.synapse = STDPSynapse(n_output_neurons, wmin=-20e-6, wmax=20e-6, stdpCC = stdpCC,stdpDD = stdpDD)
         self.group = LIFNeuronGroup(
             n_output_neurons,
             Ve=Ve,
@@ -42,7 +44,7 @@ class Network:
         self.current_sample = 0
         self.Activity = torch.zeros(n_output_neurons, n_samples_memory)
         self.sumAct = torch.zeros(n_output_neurons)
-        self.STDPWindow = self.synapse.GetSTDP()
+        self.STDPWindow = self.synapse.GetSTDP(stdpDD = stdpDD,n_output_neurons = n_output_neurons)
         self.Assignment = torch.zeros((n_output_neurons, 10))
         # Current Counter (not correct, should be a vector)
         self.CurrCtr = torch.zeros((784))
@@ -53,6 +55,10 @@ class Network:
 
     def run(self, spikes, spike_times, time, update_parameters=True):
         # In this instance, mode is either train or test, and time is the time the image is presented.
+        # My thinking is this, have another method dedicated to getting the MNIST and generating the spike train.
+        # Then do the steps for all fo the time range, make sure to log the info to get idea of time.
+        # Current should be a nx1 vector of the sum of all currents (including inhibition.)
+        # Consider having creating one more file to run the entire MNIST simulation.
         c_p_w = 1e-3  # Current Pulse Width (s)
         i_p_w = 1e-3  # Inhibition Pulse Width (s)
         inhib = self.fixed_inhibition_current  # Fixed inhibition current (A)
@@ -141,6 +147,7 @@ class Network:
             self.setAssignment(
                 label
             )  # You only when update neuron when assignments when training, not testing.
+            #Removed update current sample as it happens at the end.
 
     def detPredictedLabel(self):
         return self.Assignment.max(dim=1)[1][

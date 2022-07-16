@@ -12,8 +12,8 @@ from threadpoolctl import threadpool_limits
 if __name__ == "__main__":
     n_output_neurons = 500
     n_epochs = 3
-    tau = 0.093324
-    gamma = 0.008426
+    tau = 3
+    gamma = 1e-6
     set_all_seeds(0)
     def f(i):
         with threadpool_limits(limits=1, user_api='blas'):
